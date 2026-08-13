@@ -1,0 +1,328 @@
+.page {
+    background: #f7faf9;
+
+    min-height: 100vh;
+
+    padding-bottom: 100px;
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.pageHeader {
+    background: #0b4c69;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 110px 20px 100px;
+}
+
+.label {
+    display: inline-block;
+
+    color: #e2a52c;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.pageHeader h1 {
+    margin: 0 0 20px;
+
+    font-size: clamp(42px, 6vw, 68px);
+
+    line-height: 1.05;
+}
+
+.pageHeader p {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    width: 90%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding-top: 60px;
+}
+
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 50px;
+}
+
+.filter,
+.activeFilter {
+    border: none;
+
+    padding: 11px 22px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.filter {
+    background: white;
+
+    color: #0b4c69;
+}
+
+.filter:hover {
+    transform: translateY(-2px);
+
+    background: #fff0ce;
+}
+
+.activeFilter {
+    background: #c88a00;
+
+    color: white;
+}
+
+
+/* =========================
+   EVENT GRID
+========================= */
+
+.eventGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 28px;
+}
+
+
+/* =========================
+   EVENT CARD
+========================= */
+
+.eventCard {
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.eventCard:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.eventImage {
+    position: relative;
+
+    height: 250px;
+
+    overflow: hidden;
+}
+
+.eventImage img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.6s ease;
+}
+
+.eventCard:hover .eventImage img {
+    transform: scale(1.06);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.icon {
+    position: absolute;
+
+    top: 18px;
+
+    right: 18px;
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    color: #0b4c69;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.eventContent {
+    padding: 25px 27px 28px;
+}
+
+.year {
+    color: #c88a00;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+}
+
+.eventContent h2 {
+    color: #0b4c69;
+
+    font-size: 22px;
+
+    margin: 9px 0 10px;
+}
+
+.eventContent p {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+.photos {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 20px;
+
+    color: #c88a00;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+    text-align: center;
+
+    padding: 80px 20px;
+
+    color: #666;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .eventGrid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .pageHeader {
+        padding: 80px 20px;
+    }
+
+    .content {
+        width: 88%;
+    }
+
+    .eventGrid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+}

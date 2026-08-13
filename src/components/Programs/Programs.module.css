@@ -1,0 +1,371 @@
+.programs {
+    position: relative;
+
+    background: #fff3d9;
+
+    padding: 105px 0 115px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.heading {
+    display: grid;
+
+    grid-template-columns:
+        1fr 0.7fr;
+
+    gap: 80px;
+
+    align-items: end;
+
+    margin-bottom: 55px;
+}
+
+.label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #c88a00;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.6px;
+
+    margin-bottom: 15px;
+}
+
+.label::before {
+    content: "";
+
+    width: 30px;
+
+    height: 3px;
+
+    background: #c88a00;
+
+    border-radius: 10px;
+}
+
+.heading h2 {
+    color: #0b4c69;
+
+    font-size: clamp(38px, 4vw, 52px);
+
+    line-height: 1.1;
+
+    letter-spacing: -1.2px;
+
+    margin: 0;
+}
+
+.heading > p {
+    color: #5d5d5d;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin: 0;
+
+    max-width: 450px;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 28px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(60, 50, 20, 0.07);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(60, 50, 20, 0.13);
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.imageWrapper {
+    position: relative;
+
+    width: 100%;
+
+    height: 245px;
+
+    overflow: hidden;
+}
+
+.imageWrapper img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.6s ease;
+}
+
+.card:hover .imageWrapper img {
+    transform: scale(1.05);
+}
+
+
+/* Number */
+
+.number {
+    position: absolute;
+
+    top: 18px;
+
+    left: 18px;
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #c88a00;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.cardContent {
+    padding: 27px 30px 30px;
+}
+
+.cardContent h3 {
+    color: #0b4c69;
+
+    font-size: 24px;
+
+    margin: 0 0 12px;
+}
+
+.cardContent p {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+
+    margin: 0;
+
+    max-width: 500px;
+}
+
+
+/* =========================
+   EXPLORE BUTTON
+========================= */
+
+.learnMore {
+    margin-top: 22px;
+
+    padding: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    background: none;
+
+    border: none;
+
+    color: #c88a00;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        gap 0.25s ease,
+        color 0.25s ease;
+}
+
+.learnMore:hover {
+    gap: 11px;
+
+    color: #0b4c69;
+}
+
+
+/* =========================
+   DECORATIVE SHAPES
+========================= */
+
+.programs::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    top: -120px;
+
+    right: -80px;
+}
+
+.programs::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    bottom: -80px;
+
+    left: -60px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .heading {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .heading > p {
+        max-width: 650px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .programs {
+        padding: 75px 0 80px;
+    }
+
+    .container {
+        width: 88%;
+    }
+
+    .heading h2 {
+        font-size: 37px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .imageWrapper {
+        height: 230px;
+    }
+
+    .cardContent {
+        padding: 24px;
+    }
+}

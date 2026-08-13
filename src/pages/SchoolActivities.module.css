@@ -1,0 +1,54 @@
+.page {
+    min-height: 100vh;
+
+    background: #f7faf9;
+}
+
+.header {
+    background: #0b4c69;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 120px 20px;
+}
+
+.header span {
+    color: #e2a52c;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+.header h1 {
+    font-size: 60px;
+
+    margin: 20px 0;
+}
+
+.header p {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,.8);
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 80px 20px;
+    }
+
+    .header h1 {
+        font-size: 40px;
+    }
+}
