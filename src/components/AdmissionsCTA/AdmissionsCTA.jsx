@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
-import admissionsImage from "../../assets/images/admissions/admissions.jpg";
+import admissionsImage from "../../assets/images/admissions/admissions.JPG";
 
 function AdmissionsCTA() {
   return (

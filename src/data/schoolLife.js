@@ -1,6 +1,6 @@
-import graduation from "../assets/images/school-life/graduation.jpg";
-import sportsDay from "../assets/images/school-life/sports-day.jpg";
-import ptc from "../assets/images/school-life/ptc.jpg";
+import graduation from "../assets/images/school-life/graduation.JPG";
+import sportsDay from "../assets/images/school-life/sports-day.JPG";
+import ptc from "../assets/images/school-life/ptc.JPG";
 
 export const schoolLifeEvents = [
   {

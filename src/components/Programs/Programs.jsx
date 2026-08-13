@@ -1,9 +1,9 @@
 import styles from "./Programs.module.css";
 
-import crecheImage from "../../assets/images/programs/creche.jpg";
-import preschoolImage from "../../assets/images/programs/preschool.jpg";
-import primaryImage from "../../assets/images/programs/primary.jpg";
-import secondaryImage from "../../assets/images/programs/secondary.jpg";
+import crecheImage from "../../assets/images/programs/creche.JPG";
+import preschoolImage from "../../assets/images/programs/preschool.JPG";
+import primaryImage from "../../assets/images/programs/primary.JPG";
+import secondaryImage from "../../assets/images/programs/secondary.JPG";
 
 import { ArrowUpRight } from "lucide-react";
 

@@ -1,9 +1,9 @@
 import styles from "./About.module.css";
 
-import aboutMain from "../../assets/images/about/about-main.jpg";
-import aboutSmall1 from "../../assets/images/about/about-small-1.jpg";
-import aboutSmall2 from "../../assets/images/about/about-small-2.jpg";
-import aboutSmall3 from "../../assets/images/about/about-small-3.jpg";
+import aboutMain from "../../assets/images/about/about-main.JPG";
+import aboutSmall1 from "../../assets/images/about/about-small-1.JPG";
+import aboutSmall2 from "../../assets/images/about/about-small-2.JPG";
+import aboutSmall3 from "../../assets/images/about/about-small-3.JPG";
 
 function About() {
   return (
