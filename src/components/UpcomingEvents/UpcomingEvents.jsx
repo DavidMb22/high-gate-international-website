@@ -1,4 +1,6 @@
 import styles from "./UpcomingEvents.module.css";
+import { useState } from "react";
+import Skeleton from "../Skeleton/Skeleton";
 
 import {
   Clock,
@@ -17,6 +19,28 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { upcomingEvents } from "../../data/upcomingEvents";
+
+function EventImage({ src, alt, className }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className={className}>
+
+      {!loaded && (
+        <Skeleton className={styles.imageSkeleton} />
+      )}
+
+      <img
+        src={src}
+        alt={alt}
+        className={`${styles.eventImage} ${loaded ? styles.imageLoaded : ""
+          }`}
+        onLoad={() => setLoaded(true)}
+      />
+
+    </div>
+  );
+}
 
 function UpcomingEvents() {
   return (
@@ -77,14 +101,11 @@ function UpcomingEvents() {
                       FLYER — LEFT
                   ========================= */}
 
-                  <div className={styles.imageWrapper}>
-
-                    <img
-                      src={event.image}
-                      alt={event.title}
-                    />
-
-                  </div>
+                  <EventImage
+                    src={event.image}
+                    alt={event.title}
+                    className={styles.imageWrapper}
+                  />
 
 
                   {/* =========================
