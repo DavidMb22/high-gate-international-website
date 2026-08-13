@@ -232,6 +232,29 @@
     margin-top: 3px;
 }
 
+.imageSkeleton {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  border-radius: 0;
+
+  z-index: 1;
+}
+
+.imageWrapper img {
+  opacity: 0;
+
+  transition: opacity 0.5s ease;
+}
+
+.imageWrapper img.imageLoaded {
+  opacity: 1;
+}
 
 /* =========================
    TABLET

@@ -1,9 +1,42 @@
 import styles from "./About.module.css";
 
+import { useState } from "react";
+import Skeleton from "../Skeleton/Skeleton";
+import useImageLoader from "../../hooks/useImageLoader";
 import aboutMain from "../../assets/images/about/about-main.JPG";
 import aboutSmall1 from "../../assets/images/about/about-small-1.JPG";
 import aboutSmall2 from "../../assets/images/about/about-small-2.JPG";
 import aboutSmall3 from "../../assets/images/about/about-small-3.JPG";
+
+function AboutImage({
+  src,
+  alt,
+  className,
+}) {
+
+  const loaded = useImageLoader(src);
+
+  return (
+    <div className={styles.imageContainer}>
+
+      {!loaded && (
+        <Skeleton
+          className={styles.imageSkeleton}
+        />
+      )}
+
+      <img
+        src={src}
+        alt={alt}
+        className={`${className} ${
+          loaded ? styles.imageLoaded : ""
+        }`}
+        onLoad={() => setLoaded(true)}
+      />
+
+    </div>
+  );
+}
 
 function About() {
   return (
@@ -93,6 +126,7 @@ function About() {
             <img
               src={aboutMain}
               alt="High Gate students learning"
+              className={styles.mainImage}
             />
           </div>
 
@@ -100,6 +134,7 @@ function About() {
             <img
               src={aboutSmall1}
               alt="Students at High Gate"
+              className={styles.mainImage}
             />
           </div>
 
@@ -114,6 +149,7 @@ function About() {
             <img
               src={aboutSmall3}
               alt="High Gate students"
+              className={styles.mainImage}
             />
           </div>
 

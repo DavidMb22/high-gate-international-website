@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import styles from "./Hero.module.css";
 
 import { heroSlides } from "../../data/heroSlides";
@@ -9,8 +11,94 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-function Hero() {
+import Skeleton from "../Skeleton/Skeleton";
+import useImageLoader from "../../hooks/useImageLoader";
+
+
+function HeroSlide({ slide }) {
+
+  const loaded = useImageLoader(slide.image);
+
+
+  const handleImageLoad = () => {
+    setLoaded(true);
+  };
+
+
   return (
+    <div className={styles.slideWrapper}>
+
+      {/* Skeleton while image loads */}
+
+      {!loaded && (
+        <Skeleton className={styles.heroSkeleton} />
+      )}
+
+
+      {/* Preload image */}
+
+      <img
+        src={slide.image}
+        alt=""
+        className={styles.preloadImage}
+        onLoad={handleImageLoad}
+      />
+
+
+      {/* Actual Hero */}
+
+      <div
+        className={`${styles.slide} ${
+          loaded ? styles.slideLoaded : ""
+        }`}
+        style={{
+          backgroundImage: `url(${slide.image})`,
+        }}
+      >
+
+        <div className={styles.overlay}>
+
+          <p>
+            {slide.subtitle}
+          </p>
+
+
+          <h1>
+
+            {slide.title
+              .split("\n")
+              .map((line, index) => (
+
+                <span key={index}>
+
+                  {line}
+
+                  <br />
+
+                </span>
+
+              ))}
+
+          </h1>
+
+
+          <button>
+            {slide.button}
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
+
+function Hero() {
+
+  return (
+
     <Swiper
       modules={[Navigation, Autoplay]}
       navigation
@@ -20,33 +108,21 @@ function Hero() {
       loop={true}
       className={styles.hero}
     >
+
       {heroSlides.map((slide) => (
+
         <SwiperSlide key={slide.title}>
-          <div
-            className={styles.slide}
-            style={{
-              backgroundImage: `url(${slide.image})`,
-            }}
-          >
-            <div className={styles.overlay}>
-              <p>{slide.subtitle}</p>
 
-              <h1>
-                {slide.title.split("\n").map((line, index) => (
-                  <span key={index}>
-                    {line}
-                    <br />
-                  </span>
-                ))}
-              </h1>
+          <HeroSlide slide={slide} />
 
-              <button>{slide.button}</button>
-            </div>
-          </div>
         </SwiperSlide>
+
       ))}
+
     </Swiper>
+
   );
 }
+
 
 export default Hero;

@@ -1,5 +1,9 @@
 import styles from "./Programs.module.css";
 
+import { useState } from "react";
+import Skeleton from "../Skeleton/Skeleton";
+import useImageLoader from "../../hooks/useImageLoader";
+
 import crecheImage from "../../assets/images/programs/creche.JPG";
 import preschoolImage from "../../assets/images/programs/preschool.JPG";
 import primaryImage from "../../assets/images/programs/primary.JPG";
@@ -40,6 +44,62 @@ const programs = [
     number: "04",
   },
 ];
+
+function ProgramImage({
+  src,
+  alt,
+}) {
+
+  const loaded = useImageLoader(src);
+
+  return (
+    <div className={styles.imageContainer}>
+
+      {!loaded && (
+        <Skeleton
+          className={styles.imageSkeleton}
+        />
+      )}
+
+      <img
+        src={crecheImage}
+        alt={Creche}
+        className={`${styles.programImage} ${
+          loaded ? styles.imageLoaded : ""
+        }`}
+        onLoad={() => setLoaded(true)}
+      />
+
+      <img
+        src={preschoolImage}
+        alt={Preschool}
+        className={`${styles.programImage} ${
+          loaded ? styles.imageLoaded : ""
+        }`}
+        onLoad={() => setLoaded(true)}
+      />
+
+      <img
+        src={primaryImage}
+        alt={Primary}
+        className={`${styles.programImage} ${
+          loaded ? styles.imageLoaded : ""
+        }`}
+        onLoad={() => setLoaded(true)}
+      />
+
+      <img
+        src={secondaryImage}
+        alt={Secondary}
+        className={`${styles.programImage} ${
+          loaded ? styles.imageLoaded : ""
+        }`}
+        onLoad={() => setLoaded(true)}
+      />
+
+    </div>
+  );
+}
 
 function Programs() {
   return (

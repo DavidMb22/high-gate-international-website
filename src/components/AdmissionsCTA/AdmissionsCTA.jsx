@@ -4,7 +4,45 @@ import { ArrowRight } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
+import useImageLoader from "../../hooks/useImageLoader";
+
 import admissionsImage from "../../assets/images/admissions/admissions.JPG";
+
+function AdmissionsImage() {
+
+  const loaded = useImageLoader(src);
+
+  return (
+    <div className={styles.imageWrapper}>
+
+      {!loaded && (
+        <Skeleton
+          className={styles.imageSkeleton}
+        />
+      )}
+
+      <img
+        src={admissionsImage}
+        alt="High Gate students"
+        className={loaded ? styles.imageLoaded : ""}
+        onLoad={() => setLoaded(true)}
+      />
+
+      <div className={styles.imageBadge}>
+
+        <strong>
+          2026–2027
+        </strong>
+
+        <span>
+          Admissions Open
+        </span>
+
+      </div>
+
+    </div>
+  );
+}
 
 function AdmissionsCTA() {
   return (

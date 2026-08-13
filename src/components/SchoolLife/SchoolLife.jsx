@@ -4,6 +4,37 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 import { schoolLifeEvents } from "../../data/schoolLife";
 
+import useImageLoader from "../../hooks/useImageLoader";
+
+function EventImage({
+  src,
+  alt,
+}) {
+
+  const loaded = useImageLoader(src);
+
+  return (
+    <div className={styles.imageContainer}>
+
+      {!loaded && (
+        <Skeleton
+          className={styles.imageSkeleton}
+        />
+      )}
+
+      <img
+        src={event.image}
+        alt={event.title}
+        className={`${styles.eventImage} ${
+          loaded ? styles.imageLoaded : ""
+        }`}
+        onLoad={() => setLoaded(true)}
+      />
+
+    </div>
+  );
+}
+
 function SchoolLife() {
   // Show only the first 3 events on the homepage
   const featuredEvents = schoolLifeEvents.slice(0, 3);

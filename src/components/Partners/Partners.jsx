@@ -1,5 +1,10 @@
 import styles from "./Partners.module.css";
 
+import { useState } from "react";
+
+import Skeleton from "../Skeleton/Skeleton";
+import useImageLoader from "../../hooks/useImageLoader";
+
 import cambridge from "../../assets/images/partners/cambridge.png";
 import canada from "../../assets/images/partners/canada.png";
 import delf from "../../assets/images/partners/delf.png";
@@ -33,6 +38,35 @@ const partners = [
     image: institutFrancais,
   },
 ];
+
+function PartnerLogo({
+  src,
+  alt,
+}) {
+
+  const loaded = useImageLoader(src);
+
+  return (
+    <div className={styles.logoContainer}>
+
+      {!loaded && (
+        <Skeleton
+          className={styles.logoSkeleton}
+        />
+      )}
+
+      <img
+        src={src}
+        alt={alt}
+        className={`${styles.partnerLogo} ${
+          loaded ? styles.imageLoaded : ""
+        }`}
+        onLoad={() => setLoaded(true)}
+      />
+
+    </div>
+  );
+}
 
 function Partners() {
   return (
