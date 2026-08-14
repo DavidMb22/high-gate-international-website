@@ -5,6 +5,8 @@ import styles from "./Navbar.module.css";
 import { topBarItems } from "../../data/topbar";
 import { navigation } from "../../data/navigation";
 
+import { useTranslation } from "react-i18next";
+
 import {
   ChevronDown,
   Menu,
@@ -23,6 +25,7 @@ function Navbar() {
   const [openMobileMenu, setOpenMobileMenu] = useState(null);
 
   const [openMobileSubmenu, setOpenMobileSubmenu] = useState(null);
+
 
 
   /* ==================================================
@@ -56,6 +59,19 @@ function Navbar() {
     setOpenMobileMenu(null);
 
     setOpenMobileSubmenu(null);
+  };
+
+  const { t, i18n } = useTranslation();
+
+  const currentLanguage = i18n.language;
+
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+
+    localStorage.setItem(
+      "highgate-language",
+      language
+    );
   };
 
 
@@ -98,6 +114,7 @@ function Navbar() {
       </div>
 
 
+
       {/* ==================================================
           MAIN NAVBAR
       ================================================== */}
@@ -133,7 +150,7 @@ function Navbar() {
             {navigation.map((item) => (
 
               <li
-                key={item.title}
+                key={item.key}
                 className={styles.menuItem}
               >
 
@@ -149,7 +166,7 @@ function Navbar() {
                   >
 
                     <span>
-                      {item.title}
+                      {t(`nav.${item.key}`)}
                     </span>
 
                   </Link>
@@ -159,7 +176,7 @@ function Navbar() {
                   <div className={styles.menuLink}>
 
                     <span>
-                      {item.title}
+                      {t(`nav.${item.key}`)}
                     </span>
 
                     {item.submenu && (
@@ -187,7 +204,7 @@ function Navbar() {
                     {item.submenu.map((subItem) => (
 
                       <li
-                        key={subItem.title}
+                        key={subItem.key}
                         className={
                           subItem.submenu
                             ? styles.hasSubmenu
@@ -210,7 +227,7 @@ function Navbar() {
                             >
 
                               <span>
-                                {subItem.title}
+                                {t(`nav.${subItem.key}`)}
                               </span>
 
                               <span>
@@ -265,13 +282,9 @@ function Navbar() {
 
                           <Link
                             to={subItem.path}
-                            className={
-                              styles.dropdownLink
-                            }
+                            className={styles.dropdownLink}
                           >
-
-                            {subItem.title}
-
+                            {t(`nav.${subItem.key}`)}
                           </Link>
 
                         )}
@@ -297,17 +310,46 @@ function Navbar() {
             DESKTOP ACTIONS
         ================================================== */}
 
+        <div className={styles.languageSwitcher}>
+
+          <button
+            className={
+              currentLanguage === "en"
+                ? styles.activeLanguage
+                : ""
+            }
+            onClick={() => changeLanguage("en")}
+          >
+            EN
+          </button>
+
+          <span>|</span>
+
+          <button
+            className={
+              currentLanguage === "fr"
+                ? styles.activeLanguage
+                : ""
+            }
+            onClick={() => changeLanguage("fr")}
+          >
+            FR
+          </button>
+
+        </div>
+
         <div className={styles.actions}>
 
-          <Link to="/contact">
-            Contact Us
+          <Link to="/contact"
+            onClick={closeMobileMenu}>
+            {t("nav.contact")}
           </Link>
 
           <Link
             to="/admissions"
             className={styles.applyButton}
           >
-            Apply Now
+            {t("nav.applyNow")}
           </Link>
 
         </div>
@@ -343,11 +385,10 @@ function Navbar() {
         ================================================== */}
 
         <div
-          className={`${styles.mobileMenu} ${
-            mobileMenuOpen
-              ? styles.mobileMenuOpen
-              : ""
-          }`}
+          className={`${styles.mobileMenu} ${mobileMenuOpen
+            ? styles.mobileMenuOpen
+            : ""
+            }`}
         >
 
           <ul className={styles.mobileMenuList}>
@@ -355,8 +396,8 @@ function Navbar() {
             {navigation.map((item) => (
 
               <li
-                key={item.title}
-                className={styles.mobileMenuItem}
+                key={item.key}
+                className={styles.menuItem}
               >
 
                 {/* =========================
@@ -371,7 +412,7 @@ function Navbar() {
                     onClick={closeMobileMenu}
                   >
 
-                    {item.title}
+                    {t(`nav.${item.key}`)}
 
                   </Link>
 
@@ -389,20 +430,20 @@ function Navbar() {
                       }
                       onClick={() =>
                         toggleMobileMenu(
-                          item.title
+                          item.key
                         )
                       }
                     >
 
                       <span>
-                        {item.title}
+                        {t(`nav.${item.key}`)}
                       </span>
 
                       <ChevronDown
                         size={18}
                         className={
                           openMobileMenu ===
-                          item.title
+                            item.key
                             ? styles.rotate
                             : ""
                         }
@@ -412,19 +453,18 @@ function Navbar() {
 
 
                     <ul
-                      className={`${styles.mobileDropdown} ${
-                        openMobileMenu ===
-                        item.title
-                          ? styles.mobileDropdownOpen
-                          : ""
-                      }`}
+                      className={`${styles.mobileDropdown} ${openMobileMenu ===
+                        item.key
+                        ? styles.mobileDropdownOpen
+                        : ""
+                        }`}
                     >
 
                       {item.submenu.map(
                         (subItem) => (
 
                           <li
-                            key={subItem.title}
+                            key={subItem.key}
                             className={
                               styles.mobileNestedItem
                             }
@@ -444,20 +484,20 @@ function Navbar() {
                                   }
                                   onClick={() =>
                                     toggleMobileSubmenu(
-                                      subItem.title
+                                      subItem.key
                                     )
                                   }
                                 >
 
                                   <span>
-                                    {subItem.title}
+                                    {t(`nav.${subItem.key}`)}
                                   </span>
 
                                   <ChevronDown
                                     size={16}
                                     className={
                                       openMobileSubmenu ===
-                                      subItem.title
+                                        subItem.key
                                         ? styles.rotate
                                         : ""
                                     }
@@ -467,12 +507,11 @@ function Navbar() {
 
 
                                 <ul
-                                  className={`${styles.mobileNestedDropdown} ${
-                                    openMobileSubmenu ===
-                                    subItem.title
-                                      ? styles.mobileNestedDropdownOpen
-                                      : ""
-                                  }`}
+                                  className={`${styles.mobileNestedDropdown} ${openMobileSubmenu ===
+                                    subItem.key
+                                    ? styles.mobileNestedDropdownOpen
+                                    : ""
+                                    }`}
                                 >
 
                                   {subItem.submenu.map(
@@ -529,7 +568,7 @@ function Navbar() {
                                 }
                               >
 
-                                {subItem.title}
+                                {t(`nav.${item.key}`)}
 
                               </Link>
 
@@ -563,14 +602,14 @@ function Navbar() {
               to="/contact"
               onClick={closeMobileMenu}
             >
-              Contact Us
+              {t("nav.contact")}
             </Link>
 
             <Link
               to="/admissions"
-              onClick={closeMobileMenu}
+              className={styles.applyButton}
             >
-              Apply Now
+              {t("nav.applyNow")}
             </Link>
 
           </div>
@@ -582,6 +621,5 @@ function Navbar() {
     </>
   );
 }
-
 
 export default Navbar;

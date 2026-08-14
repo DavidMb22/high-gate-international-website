@@ -1,0 +1,699 @@
+.page {
+  width: 100%;
+  background: #ffffff;
+  color: #183f52;
+}
+
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  width: 100%;
+}
+
+.heroImage {
+  min-height: 620px;
+
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+}
+
+.heroOverlay {
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(
+    90deg,
+    rgba(7, 44, 62, 0.78),
+    rgba(7, 44, 62, 0.35),
+    rgba(7, 44, 62, 0.08)
+  );
+}
+
+.heroContent {
+  width: 90%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  color: white;
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #c88a00;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.heroContent h1 {
+  margin: 0 0 20px;
+
+  font-size: clamp(52px, 7vw, 92px);
+
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+.heroText {
+  max-width: 650px;
+
+  margin: 0;
+
+  font-size: 20px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   INTRODUCTION
+========================= */
+
+.introduction {
+  padding: 110px 0;
+}
+
+.introContent {
+  max-width: 650px;
+}
+
+.introContent p {
+  margin-bottom: 20px;
+
+  color: #5c6e77;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+}
+
+.sectionHeading {
+  display: flex;
+
+  gap: 20px;
+
+  align-items: flex-start;
+
+  margin-bottom: 30px;
+}
+
+.sectionHeading span {
+  color: #c88a00;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+
+  color: #0b4c69;
+
+  font-size: 44px;
+
+  line-height: 1.15;
+}
+
+.introduction .container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+
+  align-items: center;
+}
+
+.introImage img {
+  width: 100%;
+
+  height: 500px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+
+/* =========================
+   AGE
+========================= */
+
+.ageSection {
+  padding: 90px 0;
+
+  background: #f5f8f9;
+}
+
+.ageSection .container {
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 90px;
+
+  align-items: center;
+}
+
+.ageCard {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  padding: 45px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  box-shadow: 0 15px 40px rgba(11, 76, 105, 0.08);
+}
+
+.ageNumber {
+  color: #c88a00;
+
+  font-size: 72px;
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.ageLabel {
+  color: #7b8a91;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.ageCard h2 {
+  margin: 6px 0 8px;
+
+  color: #0b4c69;
+
+  font-size: 28px;
+}
+
+.ageCard p,
+.ageText p {
+  color: #63737b;
+
+  line-height: 1.7;
+}
+
+.ageText h2 {
+  max-width: 600px;
+
+  margin: 0 0 20px;
+
+  color: #0b4c69;
+
+  font-size: 42px;
+
+  line-height: 1.2;
+}
+
+
+/* =========================
+   APPROACH
+========================= */
+
+.approach {
+  padding: 110px 0;
+}
+
+.sectionIntro {
+  max-width: 760px;
+
+  margin-bottom: 60px;
+}
+
+.sectionIntro h2 {
+  margin: 0 0 20px;
+
+  color: #0b4c69;
+
+  font-size: 46px;
+
+  line-height: 1.15;
+}
+
+.sectionIntro p {
+  color: #65757d;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.approachGrid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.approachCard {
+  padding: 35px 28px;
+
+  border: 1px solid #e5eaed;
+
+  border-radius: 12px;
+
+  transition: 0.3s ease;
+}
+
+.approachCard:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 15px 35px rgba(11, 76, 105, 0.08);
+}
+
+.approachCard > span {
+  color: #c88a00;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.approachCard h3 {
+  margin: 25px 0 12px;
+
+  color: #0b4c69;
+
+  font-size: 21px;
+}
+
+.approachCard p {
+  margin: 0;
+
+  color: #697980;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   ACTIVITIES
+========================= */
+
+.activities {
+  padding: 110px 0;
+
+  background: #0b4c69;
+
+  color: white;
+}
+
+.activitiesHeader {
+  display: grid;
+
+  grid-template-columns: 1fr 0.65fr;
+
+  gap: 80px;
+
+  align-items: end;
+
+  margin-bottom: 60px;
+}
+
+.activitiesHeader h2 {
+  margin: 0;
+
+  font-size: 46px;
+
+  line-height: 1.15;
+}
+
+.activitiesHeader p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.activitiesGrid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.activityCard {
+  padding: 35px 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 12px;
+}
+
+.activityCard h3 {
+  margin: 0 0 15px;
+
+  color: white;
+
+  font-size: 21px;
+}
+
+.activityCard p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   DEVELOPMENT
+========================= */
+
+.development {
+  padding: 110px 0;
+}
+
+.development .container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+
+  align-items: center;
+}
+
+.developmentImage img {
+  width: 100%;
+
+  height: 560px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+.developmentContent h2 {
+  margin: 0 0 20px;
+
+  color: #0b4c69;
+
+  font-size: 46px;
+
+  line-height: 1.15;
+}
+
+.developmentContent > p {
+  color: #63737b;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.developmentList {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+
+  margin-top: 35px;
+}
+
+.developmentList div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #e5eaed;
+}
+
+.developmentList strong {
+  color: #c88a00;
+
+  font-size: 13px;
+}
+
+.developmentList span {
+  color: #315568;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   FACILITIES
+========================= */
+
+.facilities {
+  padding: 110px 0;
+
+  background: #f5f8f9;
+}
+
+.facilitiesGrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.facilityCard {
+  padding: 40px;
+
+  background: white;
+
+  border-radius: 12px;
+}
+
+.facilityCard h3 {
+  margin: 0 0 15px;
+
+  color: #0b4c69;
+
+  font-size: 22px;
+}
+
+.facilityCard p {
+  margin: 0;
+
+  color: #697980;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+  min-height: 480px;
+
+  background:
+    linear-gradient(
+      rgba(7, 44, 62, 0.78),
+      rgba(7, 44, 62, 0.78)
+    ),
+    url("../../../assets/images/programs/creche.JPG");
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+.ctaOverlay {
+  max-width: 700px;
+
+  padding: 60px 25px;
+
+  color: white;
+}
+
+.ctaOverlay h2 {
+  margin: 0 0 20px;
+
+  font-size: 54px;
+
+  line-height: 1.1;
+}
+
+.ctaOverlay p {
+  margin: 0 auto 30px;
+
+  max-width: 560px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.ctaButton {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 15px 35px;
+
+  background: #c88a00;
+
+  color: white;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: #b77d00;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .introduction .container,
+  .development .container,
+  .ageSection .container {
+    grid-template-columns: 1fr;
+
+  }
+
+  .approachGrid,
+  .activitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .facilitiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .activitiesHeader {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .heroImage,
+  .heroOverlay {
+    min-height: 520px;
+  }
+
+  .heroText {
+    font-size: 16px;
+  }
+
+  .sectionHeading h2,
+  .sectionIntro h2,
+  .ageText h2,
+  .developmentContent h2 {
+    font-size: 34px;
+  }
+
+  .introduction,
+  .approach,
+  .activities,
+  .development,
+  .facilities {
+    padding: 75px 0;
+  }
+
+  .introImage img,
+  .developmentImage img {
+    height: 380px;
+  }
+
+  .approachGrid,
+  .activitiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .developmentList {
+    grid-template-columns: 1fr;
+  }
+
+  .ageCard {
+    padding: 30px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .ageNumber {
+    font-size: 58px;
+  }
+
+  .ctaOverlay h2 {
+    font-size: 40px;
+  }
+
+}

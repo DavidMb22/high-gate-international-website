@@ -1,0 +1,848 @@
+.page {
+  width: 100%;
+  background: #fff;
+  color: #183f52;
+}
+
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  color: #c88a00;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.heroImage {
+  min-height: 620px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.heroOverlay {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(
+    90deg,
+    rgba(7, 44, 62, 0.82),
+    rgba(7, 44, 62, 0.42),
+    rgba(7, 44, 62, 0.08)
+  );
+}
+
+.heroContent {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.heroContent h1 {
+  max-width: 850px;
+  margin: 0 0 20px;
+
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 1;
+}
+
+.heroContent p {
+  max-width: 700px;
+  margin: 0;
+
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   INTRODUCTION
+========================= */
+
+.introduction {
+  padding: 110px 0;
+}
+
+.introduction .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+  align-items: center;
+}
+
+.introContent h2,
+.cambridgeContent h2,
+.assessmentContent h2,
+.technologyContent h2,
+.languagesContent h2 {
+  margin: 0 0 25px;
+
+  color: #0b4c69;
+
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.introContent p,
+.cambridgeContent p,
+.assessmentContent > p,
+.technologyContent p,
+.languagesContent p {
+  color: #63737b;
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.introImage img,
+.cambridgeImage img,
+.assessmentImage img,
+.languagesImage img {
+  width: 100%;
+  height: 520px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+
+/* =========================
+   GRADES
+========================= */
+
+.grades {
+  padding: 110px 0;
+
+  background: #f5f8f9;
+}
+
+.sectionIntro {
+  max-width: 780px;
+  margin-bottom: 60px;
+}
+
+.sectionIntro h2 {
+  margin: 0 0 20px;
+
+  color: #0b4c69;
+
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.sectionIntro p {
+  color: #65757d;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.gradeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+.gradeCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  gap: 30px;
+
+  padding: 40px;
+
+  background: #fff;
+
+  border: 1px solid #e5eaed;
+  border-radius: 14px;
+}
+
+.gradeEight {
+  border: 2px solid #c88a00;
+}
+
+.gradeNumber {
+  color: #c88a00;
+
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cardLabel {
+  color: #7b8a91;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.gradeCard h3 {
+  margin: 10px 0 12px;
+
+  color: #0b4c69;
+
+  font-size: 28px;
+}
+
+.gradeCard p {
+  margin: 0;
+
+  color: #697980;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   CAMBRIDGE
+========================= */
+
+.cambridge {
+  padding: 110px 0;
+}
+
+.cambridge .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+  align-items: center;
+}
+
+.cambridgeBadge {
+  display: inline-flex;
+  flex-direction: column;
+
+  margin-top: 25px;
+  padding: 18px 25px;
+
+  border-left: 4px solid #c88a00;
+
+  background: #f5f8f9;
+}
+
+.cambridgeBadge span {
+  color: #0b4c69;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.cambridgeBadge strong {
+  margin-top: 4px;
+
+  color: #697980;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   SUBJECTS
+========================= */
+
+.subjects {
+  padding: 110px 0;
+
+  background: #f5f8f9;
+}
+
+.subjectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.subjectCard {
+  padding: 35px 28px;
+
+  background: #fff;
+
+  border: 1px solid #e5eaed;
+  border-radius: 12px;
+}
+
+.subjectCard > span,
+.activityCard > span {
+  color: #c88a00;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.subjectCard h3 {
+  margin: 20px 0 12px;
+
+  color: #0b4c69;
+
+  font-size: 21px;
+}
+
+.subjectCard p {
+  margin: 0;
+
+  color: #697980;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   ASSESSMENT
+========================= */
+
+.assessment {
+  padding: 110px 0;
+}
+
+.assessment .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+  align-items: center;
+}
+
+.checkpointBox {
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+
+  margin-top: 30px;
+  padding: 25px;
+
+  background: #f5f8f9;
+
+  border-left: 4px solid #c88a00;
+}
+
+.checkpointNumber {
+  color: #c88a00;
+
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.checkpointBox strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #0b4c69;
+
+  font-size: 18px;
+}
+
+.checkpointBox p {
+  margin: 0;
+
+  color: #697980;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   TECHNOLOGY
+========================= */
+
+.technology {
+  padding: 110px 0;
+
+  background: #0b4c69;
+}
+
+.technology .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+  align-items: center;
+}
+
+.technologyContent h2 {
+  color: #fff;
+}
+
+.technologyContent p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.technologyFeatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+
+  margin-top: 35px;
+}
+
+.technologyFeatures div {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.technologyFeatures strong {
+  color: #c88a00;
+
+  font-size: 13px;
+}
+
+.technologyFeatures span {
+  color: #fff;
+
+  font-weight: 600;
+}
+
+.technologyVisual {
+  min-height: 440px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 55px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
+    );
+}
+
+.visualNumber {
+  color: #c88a00;
+
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.technologyVisual > span {
+  margin-top: 20px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.technologyVisual h3 {
+  margin: 15px 0;
+
+  color: #fff;
+
+  font-size: 46px;
+  line-height: 1.05;
+}
+
+.technologyVisual p {
+  max-width: 450px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   LANGUAGES
+========================= */
+
+.languages {
+  padding: 110px 0;
+}
+
+.languages .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+  align-items: center;
+}
+
+.languageList {
+  margin-top: 30px;
+}
+
+.languageList div {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #e5eaed;
+}
+
+.languageList span {
+  color: #c88a00;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.languageList strong {
+  color: #0b4c69;
+
+  font-size: 18px;
+}
+
+
+/* =========================
+   ACTIVITIES
+========================= */
+
+.activities {
+  padding: 110px 0;
+
+  background: #f5f8f9;
+}
+
+.activitiesHeader {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+
+  gap: 80px;
+
+  align-items: end;
+
+  margin-bottom: 60px;
+}
+
+.activitiesHeader h2 {
+  margin: 0;
+
+  color: #0b4c69;
+
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.activitiesHeader p {
+  margin: 0;
+
+  color: #65757d;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.activitiesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 60px;
+}
+
+.activitiesImage img {
+  width: 100%;
+  height: 520px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+.activityCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+.activityCard {
+  padding: 30px 25px;
+
+  background: #fff;
+
+  border: 1px solid #e5eaed;
+  border-radius: 12px;
+}
+
+.activityCard h3 {
+  margin: 20px 0 12px;
+
+  color: #0b4c69;
+
+  font-size: 21px;
+}
+
+.activityCard p {
+  margin: 0;
+
+  color: #697980;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+  padding: 110px 0;
+}
+
+.galleryGrid {
+  display: grid;
+
+  grid-template-columns: 1.4fr 1fr 1fr;
+
+  grid-template-rows: 250px 250px;
+
+  gap: 15px;
+}
+
+.galleryGrid > div {
+  overflow: hidden;
+
+  border-radius: 10px;
+}
+
+.galleryGrid img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.galleryGrid img:hover {
+  transform: scale(1.04);
+}
+
+.galleryLarge {
+  grid-row: span 2;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+  min-height: 480px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(7, 44, 62, 0.82),
+      rgba(7, 44, 62, 0.82)
+    ),
+    url("../../../assets/images/programs/lower-secondary/lower-secondary-hero.JPG");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.ctaOverlay {
+  max-width: 720px;
+
+  padding: 60px 25px;
+
+  color: #fff;
+}
+
+.ctaOverlay h2 {
+  margin: 0 0 20px;
+
+  font-size: 54px;
+  line-height: 1.1;
+}
+
+.ctaOverlay p {
+  max-width: 580px;
+
+  margin: 0 auto 30px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 35px;
+
+  background: #c88a00;
+  color: #fff;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: #b77d00;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .subjectGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gradeGrid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .introduction .container,
+  .cambridge .container,
+  .assessment .container,
+  .technology .container,
+  .languages .container,
+  .activitiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .activitiesHeader {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .introImage img,
+  .cambridgeImage img,
+  .assessmentImage img,
+  .languagesImage img,
+  .activitiesImage img {
+    height: 420px;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .heroImage,
+  .heroOverlay {
+    min-height: 520px;
+  }
+
+  .heroContent p {
+    font-size: 16px;
+  }
+
+  .introduction,
+  .grades,
+  .cambridge,
+  .subjects,
+  .assessment,
+  .technology,
+  .languages,
+  .activities,
+  .gallery {
+    padding: 75px 0;
+  }
+
+  .introContent h2,
+  .cambridgeContent h2,
+  .assessmentContent h2,
+  .technologyContent h2,
+  .languagesContent h2,
+  .sectionIntro h2,
+  .activitiesHeader h2 {
+    font-size: 34px;
+  }
+
+  .gradeCard {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .subjectGrid,
+  .technologyFeatures,
+  .activityCards {
+    grid-template-columns: 1fr;
+  }
+
+  .technologyVisual {
+    min-height: 350px;
+    padding: 35px;
+  }
+
+  .technologyVisual h3 {
+    font-size: 38px;
+  }
+
+  .introImage img,
+  .cambridgeImage img,
+  .assessmentImage img,
+  .languagesImage img,
+  .activitiesImage img {
+    height: 360px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 180px 180px;
+  }
+
+  .galleryLarge {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .ctaOverlay h2 {
+    font-size: 40px;
+  }
+
+}

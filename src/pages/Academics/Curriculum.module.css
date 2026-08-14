@@ -1,0 +1,774 @@
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.pageHero {
+    min-height: 390px;
+
+    background:
+        linear-gradient(rgba(11, 76, 105, 0.78),
+            rgba(11, 76, 105, 0.78)),
+        url("../../assets/images/about/about-main.JPG");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+}
+
+.heroContent {
+    padding: 60px 20px;
+}
+
+.heroContent>span {
+    color: #E2A52C;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.heroContent h1 {
+    font-size: 58px;
+    line-height: 1.1;
+
+    margin: 15px 0 20px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 13px;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+.imageWrapper {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.imageSkeleton {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 0;
+
+    z-index: 1;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    opacity: 0;
+
+    transition: opacity 0.6s ease;
+}
+
+.imageLoaded {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.introduction {
+    padding: 110px 0;
+    background: white;
+}
+
+.introduction .container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.introImage {
+    height: 560px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.introContent {
+    max-width: 560px;
+}
+
+.sectionLabel {
+    display: inline-block;
+
+    color: #CC7F00;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.introContent h2,
+.internationalContent h2 {
+    color: #0B4C69;
+
+    font-size: 45px;
+
+    line-height: 1.15;
+
+    margin: 0 0 25px;
+}
+
+.introContent h2 span,
+.internationalContent h2 span {
+    color: #CC7F00;
+}
+
+.introContent p,
+.internationalContent>p {
+    color: #64757e;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.button,
+.ctaButton {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 26px;
+
+    background: #CC7F00;
+
+    color: white;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.button {
+    margin-top: 10px;
+}
+
+.button:hover,
+.ctaButton:hover {
+    background: #E2A52C;
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   EDUCATIONAL SYSTEMS
+========================================================= */
+
+.educationalSystems {
+    padding: 110px 0;
+
+    background: white;
+}
+
+.systemGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 28px;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+.systemCard {
+    position: relative;
+
+    padding: 42px;
+
+    background: #f6f9fa;
+
+    border-radius: 20px;
+
+    border: 1px solid #e7ecee;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.systemCard:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 40px rgba(11, 76, 105, 0.1);
+}
+
+.systemIcon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(204, 127, 0, 0.12);
+
+    color: #CC7F00;
+
+    border-radius: 15px;
+
+    margin-bottom: 25px;
+}
+
+.systemLabel {
+    display: block;
+
+    color: #CC7F00;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+    margin-bottom: 8px;
+}
+
+.systemCard h3 {
+    color: #0B4C69;
+
+    font-size: 25px;
+
+    line-height: 1.25;
+
+    margin: 0 0 16px;
+}
+
+.systemCard p {
+    color: #687880;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin: 0 0 22px;
+}
+
+.systemFeatures {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #dfe6e9;
+}
+
+.systemFeatures span {
+    color: #0B4C69;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PROGRAMMES
+========================================================= */
+
+.programmes {
+    padding: 110px 0;
+
+    background: #f6f9fa;
+}
+
+.heading {
+    max-width: 720px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.heading h2 {
+    color: #0B4C69;
+
+    font-size: 45px;
+
+    line-height: 1.15;
+
+    margin: 0 0 18px;
+}
+
+.heading p {
+    color: #687880;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   PROGRAMME CARDS
+========================================================= */
+
+.programmeGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.programmeCard {
+    display: block;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 25px rgba(11, 76, 105, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.programmeCard:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 40px rgba(11, 76, 105, 0.12);
+}
+
+.cardImage {
+    height: 260px;
+}
+
+.cardContent {
+    padding: 28px;
+}
+
+.cardContent>span {
+    color: #CC7F00;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.cardContent h3 {
+    color: #0B4C69;
+
+    font-size: 24px;
+
+    margin: 8px 0 12px;
+}
+
+.cardContent p {
+    color: #687880;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin: 0 0 20px;
+}
+
+.cardContent strong {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #CC7F00;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   LEARNING PRINCIPLES
+========================================================= */
+
+.principles {
+    padding: 110px 0;
+
+    background: white;
+}
+
+.principleGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.principleCard {
+    padding: 32px 28px;
+
+    border: 1px solid #e7ecee;
+
+    border-radius: 15px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.principleCard:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 30px rgba(11, 76, 105, 0.08);
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(204, 127, 0, 0.12);
+
+    color: #CC7F00;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+}
+
+.principleCard h3 {
+    color: #0B4C69;
+
+    font-size: 18px;
+
+    margin: 0 0 10px;
+}
+
+.principleCard p {
+    color: #687880;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   INTERNATIONAL
+========================================================= */
+
+.international {
+    padding: 110px 0;
+
+    background: #f6f9fa;
+}
+
+.international .container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.internationalContent {
+    max-width: 560px;
+}
+
+.internationalImage {
+    height: 520px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   INTERNATIONAL POINTS
+========================================================= */
+
+.internationalPoints {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.internationalPoints div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #dfe6e9;
+}
+
+.internationalPoints strong {
+    color: #CC7F00;
+
+    font-size: 12px;
+}
+
+.internationalPoints span {
+    color: #0B4C69;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+    min-height: 430px;
+
+    background:
+        linear-gradient(rgba(11, 76, 105, 0.9),
+            rgba(11, 76, 105, 0.9)),
+        url("../../assets/images/about/about-main.JPG");
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+}
+
+.ctaContent {
+    padding: 70px 20px;
+}
+
+.ctaContent>span {
+    color: #E2A52C;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.cta h2 {
+    font-size: 44px;
+
+    line-height: 1.2;
+
+    margin: 18px 0 30px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .introduction .container,
+    .international .container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .introContent,
+    .internationalContent {
+        max-width: 100%;
+    }
+
+    .programmeGrid,
+    .principleGrid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 88%;
+    }
+
+    .pageHero {
+        min-height: 300px;
+    }
+
+    .heroContent h1 {
+        font-size: 38px;
+    }
+
+    .introduction,
+    .programmes,
+    .principles,
+    .international {
+        padding: 70px 0;
+    }
+
+    .introImage,
+    .internationalImage {
+        height: 380px;
+    }
+
+    .introContent h2,
+    .internationalContent h2,
+    .heading h2 {
+        font-size: 32px;
+    }
+
+    .introContent p,
+    .internationalContent>p,
+    .heading p {
+        font-size: 14px;
+    }
+
+    .programmeGrid,
+    .principleGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .cardImage {
+        height: 240px;
+    }
+
+    .cta {
+        min-height: 380px;
+    }
+
+    .cta h2 {
+        font-size: 30px;
+    }
+
+    @media (max-width: 650px) {
+
+  .systemGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .systemCard {
+    padding: 30px 24px;
+  }
+
+  .systemCard h3 {
+    font-size: 22px;
+  }
+
+}
+
+}

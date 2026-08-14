@@ -5,20 +5,25 @@ import slide3 from "../assets/images/hero/slide3.JPG";
 export const heroSlides = [
   {
     image: slide1,
-    subtitle: "Welcome to High Gate",
-    title: "Learning Today,\nLeading Tomorrow",
-    button: "Apply Now",
+    subtitleKey: "hero.slide1Subtitle",
+    titleKey: "hero.slide1Title",
+    buttonKey: "hero.slide1Button",
+    path: "/admissions",
   },
+
   {
     image: slide2,
-    subtitle: "Cambridge Curriculum",
-    title: "Preparing Global Citizens",
-    button: "Learn More",
+    subtitleKey: "hero.slide2Subtitle",
+    titleKey: "hero.slide2Title",
+    buttonKey: "hero.slide2Button",
+    path: "/curriculum",
   },
+
   {
     image: slide3,
-    subtitle: "A Caring Community",
-    title: "Where Every Child Thrives",
-    button: "Explore",
+    subtitleKey: "hero.slide3Subtitle",
+    titleKey: "hero.slide3Title",
+    buttonKey: "hero.slide3Button",
+    path: "/school-life",
   },
 ];

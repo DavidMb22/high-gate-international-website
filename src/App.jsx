@@ -10,9 +10,21 @@ import Partners from "./components/Partners/Partners";
 import SchoolLife from "./components/SchoolLife/SchoolLife";
 import UpcomingEvents from "./components/UpcomingEvents/UpcomingEvents";
 import AdmissionsCTA from "./components/AdmissionsCTA/AdmissionsCTA";
+
+import Creche from "./pages/Academics/Creche/Creche";
+
 import WhoWeAre from "./pages/About/WhoWeAre";
 import VisionMission from "./pages/About/VisionMission";
+import Leadership from "./pages/About/Leadership";
+import WhyHighGate from "./pages/About/WhyHighGate";
 
+import Curriculum from "./pages/Academics/Curriculum";
+
+import Nursery from "./pages/Academics/Nursery/Nursery";
+
+import Primary from "./pages/Academics/Primary/Primary";
+
+import LowerSecondary from "./pages/Academics/LowerSecondary/LowerSecondary";
 
 import SchoolEvents from "./pages/SchoolEvents";
 import SchoolActivities from "./pages/SchoolActivities";
@@ -20,42 +32,45 @@ import SchoolActivities from "./pages/SchoolActivities";
 
 function HomePage() {
   return (
-    <>
-      <Navbar />
+    <main>
+      <Hero />
 
-      <main>
-        <Hero />
+      <About />
 
-        <About />
+      <Programs />
 
-        <Programs />
+      <Partners />
 
-        <Partners />
+      <SchoolLife />
 
-        <SchoolLife />
+      <UpcomingEvents />
 
-        <UpcomingEvents />
-
-        <AdmissionsCTA />
-      </main>
-
-      <Footer />
-
-    </>
+      <AdmissionsCTA />
+    </main>
   );
 }
 
 
-function App() {
+function AppLayout() {
   return (
-    <BrowserRouter>
+    <>
+      <Navbar />
 
       <Routes>
+
+        {/* =========================
+            HOME
+        ========================= */}
 
         <Route
           path="/"
           element={<HomePage />}
         />
+
+
+        {/* =========================
+            ABOUT
+        ========================= */}
 
         <Route
           path="/who-we-are"
@@ -68,27 +83,71 @@ function App() {
         />
 
         <Route
+          path="/leadership"
+          element={<Leadership />}
+        />
+
+        <Route
+          path="/why-high-gate"
+          element={<WhyHighGate />}
+        />
+
+
+        {/* =========================
+            ACADEMICS
+        ========================= */}
+
+        <Route
+          path="/curriculum"
+          element={<Curriculum />}
+        />
+
+        <Route
+          path="/academics/creche"
+          element={<Creche />}
+        />
+
+        <Route
+          path="/academics/nursery"
+          element={<Nursery />}
+        />
+
+        <Route
+          path="/academics/primary"
+          element={<Primary />}
+        />
+
+        <Route
+          path="/academics/lower-secondary"
+          element={<LowerSecondary />}
+        />
+
+        {/* =========================
+            SCHOOL LIFE
+        ========================= */}
+
+        <Route
           path="/school-events"
-          element={
-            <>
-              <Navbar />
-              <SchoolEvents />
-            </>
-          }
+          element={<SchoolEvents />}
         />
 
         <Route
           path="/school-activities"
-          element={
-            <>
-              <Navbar />
-              <SchoolActivities />
-            </>
-          }
+          element={<SchoolActivities />}
         />
 
       </Routes>
 
+      <Footer />
+    </>
+  );
+}
+
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppLayout />
     </BrowserRouter>
   );
 }

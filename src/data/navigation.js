@@ -1,191 +1,125 @@
 export const navigation = [
   {
-    title: "Home",
+    key: "home",
     path: "/",
   },
-
-  // ==================================================
-  // ABOUT US
-  // ==================================================
-
   {
-    title: "About Us",
+    key: "about",
     submenu: [
       {
-        title: "Who We Are",
+        key: "whoWeAre",
         path: "/who-we-are",
       },
-
       {
-        title: "Vision & Mission",
+        key: "visionMission",
         path: "/vision-mission",
       },
-
       {
-        title: "Our Leadership",
+        key: "leadership",
         path: "/leadership",
       },
-
       {
-        title: "Why High Gate",
+        key: "whyHighGate",
         path: "/why-high-gate",
       },
     ],
   },
-
-
-  // ==================================================
-  // ACADEMICS
-  // ==================================================
-
+ {
+  key: "academics",
+  submenu: [
+    {
+      key: "curriculum",
+      path: "/curriculum",
+    },
+    {
+      key: "creche",
+      path: "/academics/creche",
+    },
+    {
+      key: "nursery",
+      path: "/academics/nursery",
+    },
+    {
+      key: "primary",
+      path: "/academics/primary",
+    },
+    {
+      key: "lowerSecondary",
+      path: "/academics/lower-secondary",
+    },
+  ],
+},
   {
-    title: "Academics",
+    key: "admission",
     submenu: [
       {
-        title: "Our Curriculum",
-        path: "/curriculum",
-      },
-
-      {
-        title: "Early Years",
-        path: "/academics/early-years",
-      },
-
-      {
-        title: "Primary School",
-        path: "/academics/primary",
-      },
-
-      {
-        title: "Secondary School",
-        path: "/academics/secondary",
-      },
-    ],
-  },
-
-
-  // ==================================================
-  // ADMISSION
-  // ==================================================
-
-  {
-    title: "Admission",
-    submenu: [
-      {
-        title: "Admission Process",
+        key: "admissionProcess",
         path: "/admission-process",
       },
-
       {
-        title: "Requirements",
+        key: "requirements",
         path: "/admission-requirements",
       },
-
       {
-        title: "Fees",
+        key: "fees",
         path: "/school-fees",
       },
-
       {
-        title: "Apply Now",
+        key: "applyNow",
         path: "/admissions",
       },
     ],
   },
-
-
-  // ==================================================
-  // NEWSLETTER
-  // ==================================================
-
   {
-    title: "Newsletter",
+    key: "newsletter",
     submenu: [
-
       {
-        title: "Year 2025 - 2026",
+        key: "year2025",
         submenu: [
           {
             title: "Term 1",
             path: "/newsletter/2025-2026/term-1",
           },
-
           {
             title: "Term 2",
             path: "/newsletter/2025-2026/term-2",
           },
-
           {
             title: "Term 3",
             path: "/newsletter/2025-2026/term-3",
           },
         ],
       },
-
-
       {
-        title: "Year 2024 - 2025",
+        key: "year2024",
         submenu: [
           {
             title: "Term 1",
             path: "/newsletter/2024-2025/term-1",
           },
-
           {
             title: "Term 2",
             path: "/newsletter/2024-2025/term-2",
           },
-
           {
             title: "Term 3",
             path: "/newsletter/2024-2025/term-3",
           },
         ],
       },
-
-
-      {
-        title: "Year 2023 - 2024",
-        submenu: [
-          {
-            title: "Term 1",
-            path: "/newsletter/2023-2024/term-1",
-          },
-
-          {
-            title: "Term 2",
-            path: "/newsletter/2023-2024/term-2",
-          },
-
-          {
-            title: "Term 3",
-            path: "/newsletter/2023-2024/term-3",
-          },
-        ],
-      },
-
     ],
   },
-
-
-  // ==================================================
-  // SCHOOL LIFE
-  // ==================================================
-
   {
-    title: "School Life",
+    key: "schoolLife",
     submenu: [
-
       {
-        title: "School Events",
+        key: "schoolEvents",
         path: "/school-events",
       },
-
       {
-        title: "School Activities",
+        key: "schoolActivities",
         path: "/school-activities",
       },
-
     ],
   },
 ];

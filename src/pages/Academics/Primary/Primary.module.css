@@ -1,0 +1,530 @@
+.page {
+  width: 100%;
+  background: #fff;
+  color: #183f52;
+}
+
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  color: #c88a00;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* HERO */
+
+.heroImage {
+  min-height: 620px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.heroOverlay {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 44, 62, 0.8),
+    rgba(7, 44, 62, 0.4),
+    rgba(7, 44, 62, 0.08)
+  );
+}
+
+.heroContent {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.heroContent h1 {
+  margin: 0 0 20px;
+  font-size: clamp(52px, 7vw, 92px);
+  line-height: 1;
+}
+
+.heroContent p {
+  max-width: 680px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+/* INTRODUCTION */
+
+.introduction {
+  padding: 110px 0;
+}
+
+.introduction .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.introContent h2,
+.curriculumContent h2,
+.codingContent h2,
+.assessmentContent h2 {
+  margin: 0 0 25px;
+  color: #0b4c69;
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.introContent p,
+.curriculumContent p,
+.codingContent p,
+.assessmentContent p {
+  color: #63737b;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.introImage img,
+.curriculumImage img,
+.codingImage img,
+.assessmentImage img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* GRADES */
+
+.grades {
+  padding: 110px 0;
+  background: #f5f8f9;
+}
+
+.sectionIntro {
+  max-width: 760px;
+  margin-bottom: 60px;
+}
+
+.sectionIntro h2 {
+  margin: 0 0 20px;
+  color: #0b4c69;
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.sectionIntro p {
+  color: #65757d;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.gradeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gradeCard {
+  padding: 35px 28px;
+  background: #fff;
+  border: 1px solid #e5eaed;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.gradeCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(11, 76, 105, 0.08);
+}
+
+.gradeCard > span,
+.subjectCard > span,
+.sportsCard > span {
+  color: #c88a00;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gradeCard h3 {
+  margin: 22px 0 12px;
+  color: #0b4c69;
+  font-size: 22px;
+}
+
+.gradeCard p {
+  margin: 0;
+  color: #697980;
+  line-height: 1.7;
+}
+
+/* CURRICULUM */
+
+.curriculum {
+  padding: 110px 0;
+}
+
+.curriculumGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.textLink {
+  display: inline-block;
+  margin-top: 15px;
+  color: #c88a00;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.textLink:hover {
+  text-decoration: underline;
+}
+
+/* SUBJECTS */
+
+.subjects {
+  padding: 110px 0;
+  background: #f5f8f9;
+}
+
+.subjectGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.subjectCard {
+  padding: 35px 28px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5eaed;
+}
+
+.subjectCard h3 {
+  margin: 22px 0 12px;
+  color: #0b4c69;
+  font-size: 21px;
+}
+
+.subjectCard p {
+  margin: 0;
+  color: #697980;
+  line-height: 1.7;
+}
+
+/* CODING */
+
+.coding {
+  padding: 110px 0;
+}
+
+.coding .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.codingFeatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.codingFeatures div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e5eaed;
+}
+
+.codingFeatures strong {
+  color: #c88a00;
+  font-size: 13px;
+}
+
+.codingFeatures span {
+  color: #315568;
+  font-weight: 600;
+}
+
+/* SPORTS */
+
+.sports {
+  padding: 110px 0;
+  background: #0b4c69;
+  color: #fff;
+}
+
+.sportsHeader {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 60px;
+}
+
+.sportsHeader h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.sportsHeader p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.sportsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.sportsImage img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.sportsCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.sportsCard {
+  padding: 30px 25px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+}
+
+.sportsCard h3 {
+  margin: 20px 0 12px;
+  color: #fff;
+  font-size: 21px;
+}
+
+.sportsCard p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+/* ASSESSMENT */
+
+.assessment {
+  padding: 110px 0;
+}
+
+.assessment .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* GALLERY */
+
+.gallery {
+  padding: 110px 0;
+  background: #f5f8f9;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: 250px 250px;
+  gap: 15px;
+}
+
+.galleryGrid > div {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.galleryGrid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galleryGrid img:hover {
+  transform: scale(1.04);
+}
+
+.galleryLarge {
+  grid-row: span 2;
+}
+
+/* CTA */
+
+.cta {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(7, 44, 62, 0.8),
+      rgba(7, 44, 62, 0.8)
+    ),
+    url("../../../assets/images/programs/primary/primary-hero.JPG");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.ctaOverlay {
+  max-width: 720px;
+  padding: 60px 25px;
+  color: #fff;
+}
+
+.ctaOverlay h2 {
+  margin: 0 0 20px;
+  font-size: 54px;
+  line-height: 1.1;
+}
+
+.ctaOverlay p {
+  max-width: 580px;
+  margin: 0 auto 30px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 35px;
+  background: #c88a00;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: #b77d00;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .subjectGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gradeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .introduction .container,
+  .curriculumGrid,
+  .coding .container,
+  .sportsGrid,
+  .assessment .container {
+    grid-template-columns: 1fr;
+  }
+
+  .sportsHeader {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .introImage img,
+  .curriculumImage img,
+  .codingImage img,
+  .assessmentImage img,
+  .sportsImage img {
+    height: 420px;
+  }
+}
+
+@media (max-width: 650px) {
+  .heroImage,
+  .heroOverlay {
+    min-height: 520px;
+  }
+
+  .heroContent p {
+    font-size: 16px;
+  }
+
+  .introduction,
+  .grades,
+  .curriculum,
+  .subjects,
+  .coding,
+  .sports,
+  .assessment,
+  .gallery {
+    padding: 75px 0;
+  }
+
+  .introContent h2,
+  .curriculumContent h2,
+  .codingContent h2,
+  .assessmentContent h2,
+  .sectionIntro h2,
+  .sportsHeader h2 {
+    font-size: 34px;
+  }
+
+  .gradeGrid,
+  .subjectGrid,
+  .codingFeatures,
+  .sportsCards {
+    grid-template-columns: 1fr;
+  }
+
+  .introImage img,
+  .curriculumImage img,
+  .codingImage img,
+  .assessmentImage img,
+  .sportsImage img {
+    height: 360px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 180px 180px;
+  }
+
+  .galleryLarge {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .ctaOverlay h2 {
+    font-size: 40px;
+  }
+}
