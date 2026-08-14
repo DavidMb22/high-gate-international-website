@@ -1,0 +1,698 @@
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.container {
+  width: 90%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.pageHero {
+  min-height: 390px;
+
+  background:
+    linear-gradient(
+      rgba(11, 76, 105, 0.78),
+      rgba(11, 76, 105, 0.78)
+    ),
+    url("../../assets/images/about/about-main.JPG");
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: white;
+}
+
+.heroContent {
+  padding: 60px 20px;
+}
+
+.heroContent > span {
+  color: #E2A52C;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.heroContent h1 {
+  font-size: 58px;
+
+  line-height: 1.1;
+
+  margin: 15px 0 20px;
+}
+
+.breadcrumb {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 13px;
+}
+
+.breadcrumb a {
+  color: white;
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   IMAGE LOADING
+========================================================= */
+
+.imageWrapper {
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.imageSkeleton {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  border-radius: 0;
+
+  z-index: 1;
+}
+
+.image {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transition: opacity 0.6s ease;
+}
+
+.imageLoaded {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MISSION
+========================================================= */
+
+.mission {
+  padding: 110px 0;
+
+  background: white;
+}
+
+.mission .container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 85px;
+
+  align-items: center;
+}
+
+.missionImage {
+  height: 560px;
+
+  position: relative;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+}
+
+.content {
+  max-width: 550px;
+}
+
+.sectionLabel {
+  display: inline-block;
+
+  color: #CC7F00;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 15px;
+}
+
+.content h2 {
+  color: #0B4C69;
+
+  font-size: 45px;
+
+  line-height: 1.15;
+
+  margin: 0 0 25px;
+}
+
+.content h2 span {
+  color: #CC7F00;
+}
+
+.content > p {
+  color: #62737c;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   IMAGE BADGE
+========================================================= */
+
+.imageBadge {
+  position: absolute;
+
+  left: 25px;
+
+  bottom: 25px;
+
+  padding: 18px 22px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.imageBadge span {
+  color: #CC7F00;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.imageBadge strong {
+  color: #0B4C69;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote {
+  margin-top: 28px;
+
+  padding: 20px 25px;
+
+  border-left: 4px solid #CC7F00;
+
+  background: #f6f9fa;
+
+  border-radius: 0 10px 10px 0;
+}
+
+.quote > span {
+  color: #CC7F00;
+
+  font-size: 35px;
+
+  line-height: 0;
+}
+
+.quote p {
+  color: #0B4C69;
+
+  font-size: 15px;
+
+  font-style: italic;
+
+  line-height: 1.7;
+
+  margin: 8px 0 0;
+}
+
+
+/* =========================================================
+   VISION
+========================================================= */
+
+.vision {
+  padding: 110px 0;
+
+  background: #f6f9fa;
+}
+
+.vision .container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 85px;
+
+  align-items: center;
+}
+
+.visionImage {
+  height: 560px;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  order: 2;
+}
+
+.vision .content {
+  order: 1;
+}
+
+
+/* =========================================================
+   VISION POINTS
+========================================================= */
+
+.visionPoints {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  margin-top: 28px;
+}
+
+.visionPoints div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding-left: 18px;
+
+  border-left: 3px solid #CC7F00;
+}
+
+.visionPoints strong {
+  color: #0B4C69;
+
+  font-size: 16px;
+}
+
+.visionPoints span {
+  color: #6c7b83;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.values {
+  padding: 110px 0;
+
+  background: white;
+}
+
+.heading {
+  max-width: 680px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.heading h2 {
+  color: #0B4C69;
+
+  font-size: 45px;
+
+  margin: 0 0 18px;
+}
+
+.heading p {
+  color: #687881;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   VALUE CARDS
+========================================================= */
+
+.valueGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.valueCard {
+  padding: 35px 25px;
+
+  background: #f6f9fa;
+
+  border-radius: 15px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.valueCard:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 15px 35px rgba(11, 76, 105, 0.1);
+}
+
+.icon {
+  width: 52px;
+
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(204, 127, 0, 0.12);
+
+  color: #CC7F00;
+
+  margin-bottom: 22px;
+}
+
+.valueCard h3 {
+  color: #0B4C69;
+
+  font-size: 18px;
+
+  margin: 0 0 10px;
+}
+
+.valueCard p {
+  color: #6b7a82;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   BELIEF
+========================================================= */
+
+.belief {
+  min-height: 450px;
+
+  background:
+    linear-gradient(
+      rgba(11, 76, 105, 0.88),
+      rgba(11, 76, 105, 0.88)
+    ),
+    url("../../assets/images/about/about-small-3.JPG");
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: white;
+}
+
+.beliefContent {
+  max-width: 700px;
+
+  padding: 70px 20px;
+}
+
+.beliefContent > span {
+  color: #E2A52C;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.belief h2 {
+  font-size: 44px;
+
+  line-height: 1.2;
+
+  margin: 18px 0;
+}
+
+.belief p {
+  max-width: 600px;
+
+  margin: 0 auto 30px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+.button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 14px 25px;
+
+  background: #CC7F00;
+
+  color: white;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.button:hover {
+  background: #E2A52C;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .valueGrid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .mission .container,
+  .vision .container {
+    gap: 50px;
+  }
+
+  .content h2 {
+    font-size: 38px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .container {
+    width: 88%;
+  }
+
+  .pageHero {
+    min-height: 300px;
+  }
+
+  .heroContent h1 {
+    font-size: 38px;
+  }
+
+  .mission,
+  .vision,
+  .values {
+    padding: 70px 0;
+  }
+
+  .mission .container,
+  .vision .container {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .missionImage,
+  .visionImage {
+    height: 390px;
+  }
+
+  .visionImage {
+    order: 1;
+  }
+
+  .vision .content {
+    order: 2;
+  }
+
+  .content h2 {
+    font-size: 32px;
+  }
+
+  .content > p {
+    font-size: 14px;
+  }
+
+  .valueGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heading h2 {
+    font-size: 32px;
+  }
+
+  .heading p {
+    font-size: 14px;
+  }
+
+  .belief {
+    min-height: 400px;
+  }
+
+  .belief h2 {
+    font-size: 30px;
+  }
+
+  .belief p {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .missionImage,
+  .visionImage {
+    height: 330px;
+  }
+
+  .imageBadge {
+    left: 15px;
+
+    bottom: 15px;
+
+    padding: 14px 16px;
+  }
+
+  .imageBadge strong {
+    font-size: 13px;
+  }
+
+  .quote {
+    padding: 16px 18px;
+  }
+
+}

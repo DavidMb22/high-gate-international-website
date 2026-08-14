@@ -1,0 +1,712 @@
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   PAGE HERO
+========================================================= */
+
+.pageHero {
+  min-height: 390px;
+
+  background:
+    linear-gradient(
+      rgba(11, 76, 105, 0.72),
+      rgba(11, 76, 105, 0.72)
+    ),
+    url("../../assets/images/about/about-main.JPG");
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+.pageHeroOverlay {
+  color: white;
+
+  padding: 60px 20px;
+}
+
+.pageHeroOverlay p {
+  font-size: 14px;
+
+  letter-spacing: 3px;
+
+  font-weight: 600;
+
+  margin-bottom: 14px;
+
+  color: #E2A52C;
+}
+
+.pageHeroOverlay h1 {
+  font-size: 60px;
+
+  line-height: 1.1;
+
+  margin: 0 0 20px;
+}
+
+.breadcrumb {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  font-size: 14px;
+
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.breadcrumb a {
+  color: white;
+
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #E2A52C;
+}
+
+
+/* =========================================================
+   IMAGE LOADING
+========================================================= */
+
+.imageWrapper {
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.imageSkeleton {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  border-radius: 0;
+
+  z-index: 1;
+}
+
+.image {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transition: opacity 0.6s ease;
+}
+
+.imageLoaded {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.introduction {
+  padding: 110px 0;
+}
+
+.introduction .container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+
+  align-items: center;
+}
+
+.introImage {
+  height: 570px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.introContent {
+  max-width: 560px;
+}
+
+.sectionLabel {
+  display: inline-block;
+
+  color: #CC7F00;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 15px;
+}
+
+.introContent h2,
+.approachContent h2 {
+  color: #0B4C69;
+
+  font-size: 45px;
+
+  line-height: 1.15;
+
+  margin: 0 0 25px;
+}
+
+.introContent h2 span,
+.approachContent h2 span {
+  color: #CC7F00;
+}
+
+.introContent > p,
+.approachContent > p {
+  color: #5f6f78;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.primaryButton {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 15px;
+
+  padding: 14px 25px;
+
+  background: #CC7F00;
+
+  color: white;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.primaryButton:hover {
+  background: #0B4C69;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   APPROACH
+========================================================= */
+
+.approach {
+  padding: 110px 0;
+
+  background: #f6f9fa;
+}
+
+.approach .container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+
+  align-items: center;
+}
+
+.approachContent {
+  max-width: 560px;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 23px;
+
+  margin-top: 30px;
+}
+
+.feature {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+}
+
+.feature > svg {
+  color: #CC7F00;
+
+  flex-shrink: 0;
+
+  margin-top: 4px;
+}
+
+.feature h3 {
+  color: #0B4C69;
+
+  font-size: 17px;
+
+  margin: 0 0 6px;
+}
+
+.feature p {
+  color: #697780;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   APPROACH IMAGES
+========================================================= */
+
+.approachImages {
+  height: 570px;
+
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 18px;
+
+  align-items: center;
+}
+
+.smallImage {
+  height: 360px;
+
+  border-radius: 18px;
+}
+
+.largeImage {
+  height: 500px;
+
+  border-radius: 18px;
+}
+
+
+/* =========================================================
+   MISSION & VISION
+========================================================= */
+
+.missionVision {
+  padding: 110px 0;
+
+  background: white;
+}
+
+.sectionHeading {
+  max-width: 680px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.sectionHeading h2 {
+  color: #0B4C69;
+
+  font-size: 45px;
+
+  margin: 0 0 18px;
+}
+
+.sectionHeading p {
+  color: #697780;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 30px;
+}
+
+.infoCard {
+  position: relative;
+
+  padding: 45px;
+
+  background: #f6f9fa;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+}
+
+.infoCard::after {
+  content: "";
+
+  position: absolute;
+
+  right: -40px;
+
+  bottom: -50px;
+
+  width: 150px;
+
+  height: 150px;
+
+  border-radius: 50%;
+
+  background: rgba(204, 127, 0, 0.08);
+}
+
+.cardNumber {
+  color: #CC7F00;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 20px;
+}
+
+.infoCard h3 {
+  color: #0B4C69;
+
+  font-size: 25px;
+
+  margin: 0 0 15px;
+}
+
+.infoCard p {
+  color: #697780;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+  min-height: 430px;
+
+  background:
+    linear-gradient(
+      rgba(11, 76, 105, 0.84),
+      rgba(11, 76, 105, 0.84)
+    ),
+    url("../../assets/images/about/about-small-3.JPG");
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: white;
+}
+
+.ctaContent {
+  padding: 60px 20px;
+}
+
+.ctaContent > span {
+  color: #E2A52C;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.cta h2 {
+  font-size: 45px;
+
+  line-height: 1.2;
+
+  margin: 15px 0 30px;
+}
+
+.ctaButton {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px 28px;
+
+  background: #CC7F00;
+
+  color: white;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ctaButton:hover {
+  background: #E2A52C;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .pageHero {
+    min-height: 320px;
+  }
+
+  .pageHeroOverlay h1 {
+    font-size: 48px;
+  }
+
+  .introduction,
+  .approach,
+  .missionVision {
+    padding: 80px 0;
+  }
+
+  .introduction .container,
+  .approach .container {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .introContent,
+  .approachContent {
+    max-width: 100%;
+  }
+
+  .introImage {
+    height: 500px;
+  }
+
+  .approachImages {
+    height: 500px;
+  }
+
+  .smallImage {
+    height: 330px;
+  }
+
+  .largeImage {
+    height: 450px;
+  }
+
+  .sectionHeading h2,
+  .introContent h2,
+  .approachContent h2 {
+    font-size: 38px;
+  }
+
+  .cta h2 {
+    font-size: 38px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: 88%;
+  }
+
+  .pageHero {
+    min-height: 280px;
+  }
+
+  .pageHeroOverlay {
+    padding: 50px 15px;
+  }
+
+  .pageHeroOverlay h1 {
+    font-size: 38px;
+  }
+
+  .pageHeroOverlay p {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+  }
+
+  .breadcrumb {
+    font-size: 12px;
+  }
+
+  .introduction,
+  .approach,
+  .missionVision {
+    padding: 65px 0;
+  }
+
+  .introImage {
+    height: 390px;
+
+    border-radius: 14px;
+  }
+
+  .introContent h2,
+  .approachContent h2 {
+    font-size: 32px;
+  }
+
+  .introContent > p,
+  .approachContent > p {
+    font-size: 14px;
+  }
+
+  .approachImages {
+    height: 390px;
+
+    gap: 10px;
+  }
+
+  .smallImage {
+    height: 260px;
+
+    border-radius: 12px;
+  }
+
+  .largeImage {
+    height: 350px;
+
+    border-radius: 12px;
+  }
+
+  .sectionHeading h2 {
+    font-size: 32px;
+  }
+
+  .sectionHeading p {
+    font-size: 14px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .infoCard {
+    padding: 30px;
+  }
+
+  .infoCard h3 {
+    font-size: 22px;
+  }
+
+  .cta {
+    min-height: 380px;
+  }
+
+  .cta h2 {
+    font-size: 30px;
+  }
+
+  .ctaContent > span {
+    font-size: 10px;
+  }
+}

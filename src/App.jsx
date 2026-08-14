@@ -10,6 +10,8 @@ import Partners from "./components/Partners/Partners";
 import SchoolLife from "./components/SchoolLife/SchoolLife";
 import UpcomingEvents from "./components/UpcomingEvents/UpcomingEvents";
 import AdmissionsCTA from "./components/AdmissionsCTA/AdmissionsCTA";
+import WhoWeAre from "./pages/About/WhoWeAre";
+import VisionMission from "./pages/About/VisionMission";
 
 
 import SchoolEvents from "./pages/SchoolEvents";
@@ -53,6 +55,16 @@ function App() {
         <Route
           path="/"
           element={<HomePage />}
+        />
+
+        <Route
+          path="/who-we-are"
+          element={<WhoWeAre />}
+        />
+
+        <Route
+          path="/vision-mission"
+          element={<VisionMission />}
         />
 
         <Route

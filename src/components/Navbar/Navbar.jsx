@@ -9,7 +9,6 @@ import {
   ChevronDown,
   Menu,
   X,
-  ChevronRight,
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
@@ -23,9 +22,12 @@ function Navbar() {
 
   const [openMobileMenu, setOpenMobileMenu] = useState(null);
 
-  const [openMobileSubmenu, setOpenMobileSubmenu] =
-    useState(null);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState(null);
 
+
+  /* ==================================================
+     MOBILE MENU
+  ================================================== */
 
   const toggleMobileMenu = (title) => {
 
@@ -33,15 +35,17 @@ function Navbar() {
       openMobileMenu === title ? null : title
     );
 
+    setOpenMobileSubmenu(null);
   };
 
 
   const toggleMobileSubmenu = (title) => {
 
     setOpenMobileSubmenu(
-      openMobileSubmenu === title ? null : title
+      openMobileSubmenu === title
+        ? null
+        : title
     );
-
   };
 
 
@@ -52,7 +56,6 @@ function Navbar() {
     setOpenMobileMenu(null);
 
     setOpenMobileSubmenu(null);
-
   };
 
 
@@ -72,6 +75,7 @@ function Navbar() {
             const Icon = item.icon;
 
             return (
+
               <div
                 key={index}
                 className={styles.topItem}
@@ -84,6 +88,7 @@ function Navbar() {
                 </span>
 
               </div>
+
             );
 
           })}
@@ -99,13 +104,13 @@ function Navbar() {
 
       <header className={styles.navbar}>
 
-
-        {/* LOGO */}
+        {/* =========================
+            LOGO
+        ========================= */}
 
         <Link
           to="/"
           className={styles.logoSection}
-          onClick={closeMobileMenu}
         >
 
           <img
@@ -132,8 +137,9 @@ function Navbar() {
                 className={styles.menuItem}
               >
 
-
-                {/* Main navigation item */}
+                {/* =========================
+                    TOP LEVEL LINK
+                ========================= */}
 
                 {item.path ? (
 
@@ -157,10 +163,12 @@ function Navbar() {
                     </span>
 
                     {item.submenu && (
+
                       <ChevronDown
                         size={15}
                         className={styles.arrow}
                       />
+
                     )}
 
                   </div>
@@ -176,101 +184,101 @@ function Navbar() {
 
                   <ul className={styles.dropdown}>
 
-                    {item.submenu.map(
-                      (subItem, index) => {
+                    {item.submenu.map((subItem) => (
 
-
-                        {/* SIMPLE TEXT ITEM */}
-
-                        if (
-                          typeof subItem === "string"
-                        ) {
-
-                          return (
-                            <li key={index}>
-                              {subItem}
-                            </li>
-                          );
-
+                      <li
+                        key={subItem.title}
+                        className={
+                          subItem.submenu
+                            ? styles.hasSubmenu
+                            : ""
                         }
+                      >
 
+                        {/* =========================
+                            NESTED SUBMENU
+                        ========================= */}
 
-                        {/* ITEM WITH SUBMENU */}
+                        {subItem.submenu ? (
 
-                        if (subItem.submenu) {
+                          <>
 
-                          return (
-                            <li
-                              key={subItem.title}
-                              className={styles.hasSubmenu}
-                            >
-
-                              <div
-                                className={
-                                  styles.submenuTitle
-                                }
-                              >
-
-                                <span>
-                                  {subItem.title}
-                                </span>
-
-                                <ChevronRight
-                                  size={14}
-                                />
-
-                              </div>
-
-
-                              {/* Nested dropdown */}
-
-                              <ul
-                                className={
-                                  styles.subDropdown
-                                }
-                              >
-
-                                {subItem.submenu.map(
-                                  (childItem) => (
-
-                                    <li
-                                      key={childItem}
-                                    >
-                                      {childItem}
-                                    </li>
-
-                                  )
-                                )}
-
-                              </ul>
-
-                            </li>
-                          );
-
-                        }
-
-
-                        {/* NORMAL LINK */}
-
-                        return (
-                          <li
-                            key={subItem.title}
-                          >
-
-                            <Link
-                              to={subItem.path}
+                            <div
                               className={
-                                styles.dropdownLink
+                                styles.submenuTitle
                               }
                             >
-                              {subItem.title}
-                            </Link>
 
-                          </li>
-                        );
+                              <span>
+                                {subItem.title}
+                              </span>
 
-                      }
-                    )}
+                              <span>
+                                ▶
+                              </span>
+
+                            </div>
+
+
+                            <ul
+                              className={
+                                styles.subDropdown
+                              }
+                            >
+
+                              {subItem.submenu.map(
+                                (childItem) => (
+
+                                  <li
+                                    key={
+                                      childItem.title
+                                    }
+                                  >
+
+                                    <Link
+                                      to={
+                                        childItem.path
+                                      }
+                                      className={
+                                        styles.dropdownLink
+                                      }
+                                    >
+
+                                      {childItem.title}
+
+                                    </Link>
+
+                                  </li>
+
+                                )
+                              )}
+
+                            </ul>
+
+                          </>
+
+                        ) : (
+
+                          /* =========================
+                             NORMAL DROPDOWN LINK
+                          ========================= */
+
+                          <Link
+                            to={subItem.path}
+                            className={
+                              styles.dropdownLink
+                            }
+                          >
+
+                            {subItem.title}
+
+                          </Link>
+
+                        )}
+
+                      </li>
+
+                    ))}
 
                   </ul>
 
@@ -329,22 +337,18 @@ function Navbar() {
 
         </button>
 
-      </header>
 
+        {/* ==================================================
+            MOBILE MENU
+        ================================================== */}
 
-      {/* ==================================================
-          MOBILE NAVIGATION
-      ================================================== */}
-
-      <div
-        className={`${styles.mobileMenu} ${
-          mobileMenuOpen
-            ? styles.mobileMenuOpen
-            : ""
-        }`}
-      >
-
-        <nav>
+        <div
+          className={`${styles.mobileMenu} ${
+            mobileMenuOpen
+              ? styles.mobileMenuOpen
+              : ""
+          }`}
+        >
 
           <ul className={styles.mobileMenuList}>
 
@@ -352,23 +356,18 @@ function Navbar() {
 
               <li
                 key={item.title}
-                className={
-                  styles.mobileMenuItem
-                }
+                className={styles.mobileMenuItem}
               >
 
-
                 {/* =========================
-                    SIMPLE LINK
+                    TOP LEVEL WITHOUT SUBMENU
                 ========================= */}
 
-                {item.path ? (
+                {!item.submenu ? (
 
                   <Link
                     to={item.path}
-                    className={
-                      styles.mobileMenuLink
-                    }
+                    className={styles.mobileMenuLink}
                     onClick={closeMobileMenu}
                   >
 
@@ -378,12 +377,11 @@ function Navbar() {
 
                 ) : (
 
+                  /* =========================
+                     TOP LEVEL WITH SUBMENU
+                  ========================= */
+
                   <>
-
-
-                    {/* =========================
-                        MENU WITH DROPDOWN
-                    ========================= */}
 
                     <button
                       className={
@@ -413,170 +411,136 @@ function Navbar() {
                     </button>
 
 
-                    {/* =========================
-                        FIRST LEVEL
-                    ========================= */}
+                    <ul
+                      className={`${styles.mobileDropdown} ${
+                        openMobileMenu ===
+                        item.title
+                          ? styles.mobileDropdownOpen
+                          : ""
+                      }`}
+                    >
 
-                    {item.submenu && (
+                      {item.submenu.map(
+                        (subItem) => (
 
-                      <ul
-                        className={`${styles.mobileDropdown} ${
-                          openMobileMenu ===
-                          item.title
-                            ? styles.mobileDropdownOpen
-                            : ""
-                        }`}
-                      >
-
-                        {item.submenu.map(
-                          (subItem, index) => {
-
-
-                            {/* SIMPLE ITEM */}
-
-                            if (
-                              typeof subItem ===
-                              "string"
-                            ) {
-
-                              return (
-                                <li key={index}>
-
-                                  <span
-                                    className={
-                                      styles.mobileDropdownItem
-                                    }
-                                  >
-                                    {subItem}
-                                  </span>
-
-                                </li>
-                              );
-
+                          <li
+                            key={subItem.title}
+                            className={
+                              styles.mobileNestedItem
                             }
+                          >
 
+                            {/* =========================
+                                SECOND LEVEL WITH SUBMENU
+                            ========================= */}
 
-                            {/* NESTED SUBMENU */}
+                            {subItem.submenu ? (
 
-                            if (
-                              subItem.submenu
-                            ) {
+                              <>
 
-                              return (
-                                <li
-                                  key={
-                                    subItem.title
-                                  }
+                                <button
                                   className={
-                                    styles.mobileNestedItem
+                                    styles.mobileNestedButton
+                                  }
+                                  onClick={() =>
+                                    toggleMobileSubmenu(
+                                      subItem.title
+                                    )
                                   }
                                 >
 
-                                  <button
+                                  <span>
+                                    {subItem.title}
+                                  </span>
+
+                                  <ChevronDown
+                                    size={16}
                                     className={
-                                      styles.mobileNestedButton
-                                    }
-                                    onClick={() =>
-                                      toggleMobileSubmenu(
-                                        subItem.title
-                                      )
-                                    }
-                                  >
-
-                                    <span>
-                                      {
-                                        subItem.title
-                                      }
-                                    </span>
-
-                                    <ChevronRight
-                                      size={16}
-                                      className={
-                                        openMobileSubmenu ===
-                                        subItem.title
-                                          ? styles.rotate
-                                          : ""
-                                      }
-                                    />
-
-                                  </button>
-
-
-                                  <ul
-                                    className={`${styles.mobileNestedDropdown} ${
                                       openMobileSubmenu ===
                                       subItem.title
-                                        ? styles.mobileNestedDropdownOpen
+                                        ? styles.rotate
                                         : ""
-                                    }`}
-                                  >
+                                    }
+                                  />
 
-                                    {subItem.submenu.map(
-                                      (
-                                        childItem
-                                      ) => (
+                                </button>
 
-                                        <li
-                                          key={
-                                            childItem
+
+                                <ul
+                                  className={`${styles.mobileNestedDropdown} ${
+                                    openMobileSubmenu ===
+                                    subItem.title
+                                      ? styles.mobileNestedDropdownOpen
+                                      : ""
+                                  }`}
+                                >
+
+                                  {subItem.submenu.map(
+                                    (childItem) => (
+
+                                      <li
+                                        key={
+                                          childItem.title
+                                        }
+                                      >
+
+                                        <Link
+                                          to={
+                                            childItem.path
+                                          }
+                                          className={
+                                            styles.mobileDropdownLink
+                                          }
+                                          onClick={
+                                            closeMobileMenu
                                           }
                                         >
 
-                                          <span>
-                                            {
-                                              childItem
-                                            }
-                                          </span>
+                                          {
+                                            childItem.title
+                                          }
 
-                                        </li>
+                                        </Link>
 
-                                      )
-                                    )}
+                                      </li>
 
-                                  </ul>
+                                    )
+                                  )}
 
-                                </li>
-                              );
+                                </ul>
 
-                            }
+                              </>
 
+                            ) : (
 
-                            {/* NORMAL LINK */}
+                              /* =========================
+                                 NORMAL MOBILE LINK
+                              ========================= */
 
-                            return (
-                              <li
-                                key={
-                                  subItem.title
+                              <Link
+                                to={
+                                  subItem.path
+                                }
+                                className={
+                                  styles.mobileDropdownLink
+                                }
+                                onClick={
+                                  closeMobileMenu
                                 }
                               >
 
-                                <Link
-                                  to={
-                                    subItem.path
-                                  }
-                                  className={
-                                    styles.mobileDropdownLink
-                                  }
-                                  onClick={
-                                    closeMobileMenu
-                                  }
-                                >
+                                {subItem.title}
 
-                                  {
-                                    subItem.title
-                                  }
+                              </Link>
 
-                                </Link>
+                            )}
 
-                              </li>
-                            );
+                          </li>
 
-                          }
-                        )}
+                        )
+                      )}
 
-                      </ul>
-
-                    )}
+                    </ul>
 
                   </>
 
@@ -589,13 +553,11 @@ function Navbar() {
           </ul>
 
 
-          {/* MOBILE ACTIONS */}
+          {/* =========================
+              MOBILE ACTIONS
+          ========================= */}
 
-          <div
-            className={
-              styles.mobileActions
-            }
-          >
+          <div className={styles.mobileActions}>
 
             <Link
               to="/contact"
@@ -606,9 +568,6 @@ function Navbar() {
 
             <Link
               to="/admissions"
-              className={
-                styles.mobileApplyButton
-              }
               onClick={closeMobileMenu}
             >
               Apply Now
@@ -616,9 +575,9 @@ function Navbar() {
 
           </div>
 
-        </nav>
+        </div>
 
-      </div>
+      </header>
 
     </>
   );
