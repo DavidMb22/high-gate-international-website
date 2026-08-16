@@ -26,42 +26,52 @@ export const navigation = [
   },
   {
     key: "academics",
+    label: "Academics",
     submenu: [
       {
         key: "curriculum",
+        label: "Our Curriculum",
         path: "/curriculum",
       },
       {
         key: "creche",
+        label: "Creche",
         path: "/academics/creche",
       },
       {
         key: "nursery",
+        label: "Nursery",
         path: "/academics/nursery",
       },
       {
         key: "primary",
+        label: "Primary",
         path: "/academics/primary",
       },
       {
         key: "lowerSecondary",
+        label: "Lower Secondary",
         path: "/academics/lower-secondary",
       },
     ],
   },
   {
     key: "admission",
+    label: "Admission",
     submenu: [
       {
         key: "applyNow",
+        label: "Apply Now",
         path: "/admissions/apply",
       },
       {
         key: "tuitionFees",
+        label: "Tuition Fees",
         path: "/admissions/fees",
       },
       {
         key: "schoolCalendar",
+        label: "School Calendar",
         path: "/admissions/calendar",
       },
     ],

@@ -65,6 +65,49 @@ function Navbar() {
 
   const currentLanguage = i18n.language;
 
+  const getNavLabel = (key) => {
+  const translated = t(`nav.${key}`);
+
+  // If the translation doesn't exist,
+  // use a readable English label instead.
+  if (translated === `nav.${key}`) {
+    const labels = {
+      home: "Home",
+      about: "About",
+      whoWeAre: "Who We Are",
+      visionMission: "Vision & Mission",
+      leadership: "Leadership",
+      whyHighGate: "Why High Gate",
+
+      academics: "Academics",
+      curriculum: "Our Curriculum",
+      creche: "Creche",
+      nursery: "Nursery",
+      primary: "Primary",
+      lowerSecondary: "Lower Secondary",
+
+      admission: "Admission",
+      applyNow: "Apply Now",
+      tuitionFees: "Tuition Fees",
+      schoolCalendar: "School Calendar",
+
+      newsletter: "Newsletter",
+      year2025: "2025–2026",
+      year2024: "2024–2025",
+
+      schoolLife: "School Life",
+      schoolEvents: "School Events",
+      schoolActivities: "School Activities",
+
+      contact: "Contact",
+    };
+
+    return labels[key] || key;
+  }
+
+  return translated;
+};
+
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
 
@@ -166,7 +209,7 @@ function Navbar() {
                   >
 
                     <span>
-                      {t(`nav.${item.key}`)}
+                      {getNavLabel(item.key)}
                     </span>
 
                   </Link>
@@ -176,7 +219,7 @@ function Navbar() {
                   <div className={styles.menuLink}>
 
                     <span>
-                      {t(`nav.${item.key}`)}
+                      {getNavLabel(item.key)}
                     </span>
 
                     {item.submenu && (
@@ -227,7 +270,7 @@ function Navbar() {
                             >
 
                               <span>
-                                {t(`nav.${subItem.key}`)}
+                                {getNavLabel(subItem.key)}
                               </span>
 
                               <span>
@@ -284,7 +327,7 @@ function Navbar() {
                             to={subItem.path}
                             className={styles.dropdownLink}
                           >
-                            {t(`nav.${subItem.key}`)}
+                            {getNavLabel(subItem.key)}
                           </Link>
 
                         )}
@@ -412,7 +455,7 @@ function Navbar() {
                     onClick={closeMobileMenu}
                   >
 
-                    {t(`nav.${item.key}`)}
+                    {getNavLabel(item.key)}
 
                   </Link>
 
@@ -436,7 +479,7 @@ function Navbar() {
                     >
 
                       <span>
-                        {t(`nav.${item.key}`)}
+                        {getNavLabel(item.key)}
                       </span>
 
                       <ChevronDown
@@ -490,7 +533,7 @@ function Navbar() {
                                 >
 
                                   <span>
-                                    {t(`nav.${subItem.key}`)}
+                                   {getNavLabel(subItem.key)}
                                   </span>
 
                                   <ChevronDown
@@ -568,7 +611,7 @@ function Navbar() {
                                 }
                               >
 
-                                {t(`nav.${item.key}`)}
+                                {getNavLabel(item.key)}
 
                               </Link>
 
