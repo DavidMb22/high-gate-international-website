@@ -1,0 +1,167 @@
+.page {
+  min-height: 100vh;
+  background: #f5f2ec;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding: 50px 7%;
+
+  background: #0b4c69;
+  color: #ffffff;
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #c88a00;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.header h1 {
+  margin: 0 0 12px;
+
+  font-size: 42px;
+}
+
+.header p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.logoutButton {
+  padding: 12px 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+
+  background: transparent;
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+.logoutButton:hover {
+  background: #ffffff;
+  color: #0b4c69;
+}
+
+.content {
+  width: min(90%, 1150px);
+  margin: 0 auto;
+
+  padding: 70px 0;
+}
+
+.sectionHeader {
+  margin-bottom: 35px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+
+  color: #183f52;
+
+  font-size: 32px;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
+}
+
+.card {
+  position: relative;
+
+  padding: 35px;
+
+  text-align: left;
+
+  border: 1px solid #e0e3e3;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+
+  border-color: #c88a00;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+.number {
+  display: block;
+
+  margin-bottom: 30px;
+
+  color: #c88a00;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+
+  color: #183f52;
+
+  font-size: 25px;
+}
+
+.card p {
+  margin: 0 0 25px;
+
+  color: #718087;
+
+  line-height: 1.7;
+}
+
+.cardLink {
+  color: #0b4c69;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 40px 25px;
+  }
+
+  .header h1 {
+    font-size: 34px;
+  }
+
+  .content {
+    width: calc(100% - 40px);
+
+    padding: 50px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

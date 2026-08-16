@@ -32,6 +32,10 @@ import SchoolCalendar from "./pages/Admissions/SchoolCalendar/SchoolCalendar";
 
 import LowerSecondary from "./pages/Academics/LowerSecondary/LowerSecondary";
 
+import AdminLogin from "./pages/Admin/Login/AdminLogin";
+import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+
 import SchoolEvents from "./pages/SchoolEvents";
 import SchoolActivities from "./pages/SchoolActivities";
 
@@ -154,6 +158,20 @@ function AppLayout() {
         <Route
           path="/school-activities"
           element={<SchoolActivities />}
+        />
+
+        <Route
+          path="/admin/login"
+          element={<AdminLogin />}
+        />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
         />
 
       </Routes>
