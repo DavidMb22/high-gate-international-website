@@ -195,6 +195,43 @@ function SchoolCalendar() {
         </div>
       </section>
 
+            {/* DOWNLOAD CALENDAR */}
+
+      <section className={styles.downloadSection}>
+        <div className={styles.container}>
+
+          <div className={styles.downloadContent}>
+
+            <div>
+              <span className={styles.eyebrow}>
+                OFFICIAL DOCUMENT
+              </span>
+
+              <h2>
+                Download the Academic Calendar
+              </h2>
+
+              <p>
+                Download the official High Gate International
+                Academy Academic Calendar for the 2026–2027
+                school year and keep all important dates with you.
+              </p>
+            </div>
+
+            <a
+              href="/documents/HGIA-Academic-Calendar-2026-2027.pdf"
+              download="HGIA-Academic-Calendar-2026-2027.pdf"
+              className={styles.downloadButton}
+            >
+              <span>↓</span>
+              Download Calendar
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
 
       {/* TERMS */}
 
