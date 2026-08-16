@@ -1,0 +1,514 @@
+.page {
+  width: 100%;
+  background: #fff;
+  color: #183f52;
+}
+
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  color: #c88a00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      rgba(7, 44, 62, 0.82),
+      rgba(7, 44, 62, 0.82)
+    ),
+    linear-gradient(
+      135deg,
+      #0b4c69,
+      #183f52
+    );
+}
+
+.heroOverlay {
+  width: 100%;
+}
+
+.heroContent {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.heroContent h1 {
+  margin: 0 0 20px;
+  font-size: clamp(52px, 7vw, 86px);
+  line-height: 1;
+}
+
+.heroContent p {
+  max-width: 650px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* INTRO */
+
+.introduction {
+  padding: 90px 0 70px;
+  text-align: center;
+}
+
+.introduction .container {
+  max-width: 850px;
+}
+
+.introduction h2,
+.sectionHeader h2 {
+  margin: 0 0 20px;
+  color: #0b4c69;
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.introduction p,
+.sectionHeader p {
+  margin: 0;
+  color: #65757d;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* SECTIONS */
+
+.newStudents,
+.fees,
+.startingCosts,
+.deadlines,
+.payment,
+.important {
+  padding: 100px 0;
+}
+
+.newStudents,
+.startingCosts,
+.important {
+  background: #f5f8f9;
+}
+
+.sectionHeader {
+  margin-bottom: 50px;
+}
+
+.newStudentGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.newStudentCard {
+  padding: 35px;
+  background: #fff;
+  border: 1px solid #e4eaed;
+  border-radius: 12px;
+}
+
+.newStudentCard span {
+  color: #c88a00;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.newStudentCard h3 {
+  margin: 18px 0 12px;
+  color: #0b4c69;
+  font-size: 24px;
+}
+
+.newStudentCard strong {
+  color: #c88a00;
+  font-size: 25px;
+}
+
+/* DISCOUNT */
+
+.discountBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+
+  padding: 30px 35px;
+
+  background: #0b4c69;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.boxLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: #c88a00;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.discountBox h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.discountList {
+  display: flex;
+  gap: 30px;
+}
+
+.discountList span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.discountList strong {
+  color: #fff;
+}
+
+/* TABLES */
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e3e8ea;
+  border-radius: 12px;
+}
+
+.feesTable,
+.costTable {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.feesTable th,
+.costTable th {
+  padding: 20px 18px;
+  background: #0b4c69;
+  color: #fff;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.feesTable td,
+.costTable td {
+  padding: 20px 18px;
+  border-bottom: 1px solid #e7ecee;
+  color: #536870;
+  line-height: 1.5;
+}
+
+.feesTable tbody tr:last-child td,
+.costTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.feesTable tbody tr:hover,
+.costTable tbody tr:hover {
+  background: #f8fafb;
+}
+
+.feesTable td strong,
+.costTable td strong {
+  color: #0b4c69;
+}
+
+.totalCell {
+  color: #c88a00 !important;
+  font-weight: 700;
+}
+
+.tableNote {
+  margin-top: 15px;
+  color: #7a888e;
+  font-size: 13px;
+}
+
+/* OPTIONAL */
+
+.optional {
+  padding: 100px 0;
+  background: #0b4c69;
+}
+
+.optional .eyebrow {
+  color: #c88a00;
+}
+
+.optionalContent h2 {
+  margin: 0 0 15px;
+  color: #fff;
+  font-size: 46px;
+}
+
+.optionalContent p {
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+.optionalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 45px;
+}
+
+.optionalCard {
+  padding: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+}
+
+.optionalCard > span {
+  color: #c88a00;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.optionalCard h3 {
+  margin: 20px 0 12px;
+  color: #fff;
+  font-size: 22px;
+}
+
+.optionalCard strong {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* DEADLINES */
+
+.deadlineGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.deadlineGrid div {
+  padding: 35px;
+  border: 1px solid #e3e8ea;
+  border-radius: 12px;
+}
+
+.deadlineGrid span {
+  display: block;
+  margin-bottom: 12px;
+  color: #c88a00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.deadlineGrid strong {
+  color: #0b4c69;
+  font-size: 21px;
+}
+
+/* PAYMENT */
+
+.paymentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.paymentCard {
+  padding: 30px;
+  border: 1px solid #e3e8ea;
+  border-radius: 12px;
+}
+
+.paymentCard > span {
+  display: block;
+  margin-bottom: 18px;
+  color: #c88a00;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.paymentCard strong {
+  display: block;
+  color: #0b4c69;
+  font-size: 23px;
+}
+
+.paymentCard p {
+  margin: 8px 0 15px;
+  color: #65757d;
+}
+
+.paymentCard small {
+  color: #7a888e;
+  line-height: 1.6;
+}
+
+/* IMPORTANT */
+
+.importantContent {
+  max-width: 1000px;
+}
+
+.terms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 50px;
+}
+
+.terms div {
+  padding: 25px 0;
+  border-bottom: 1px solid #dce4e7;
+}
+
+.terms strong {
+  color: #0b4c69;
+  font-size: 18px;
+}
+
+.terms p {
+  margin: 10px 0 0;
+  color: #65757d;
+  line-height: 1.7;
+}
+
+/* CTA */
+
+.cta {
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(7, 44, 62, 0.88),
+      rgba(7, 44, 62, 0.88)
+    ),
+    linear-gradient(
+      135deg,
+      #0b4c69,
+      #183f52
+    );
+}
+
+.ctaContent {
+  max-width: 700px;
+  padding: 60px 25px;
+  color: #fff;
+}
+
+.ctaContent h2 {
+  margin: 0 0 20px;
+  font-size: 54px;
+  line-height: 1.1;
+}
+
+.ctaContent p {
+  margin: 0 auto 30px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 35px;
+  background: #c88a00;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  background: #b77d00;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .discountBox {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .deadlineGrid,
+  .paymentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .terms {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero {
+    min-height: 440px;
+  }
+
+  .newStudents,
+  .fees,
+  .startingCosts,
+  .optional,
+  .deadlines,
+  .payment,
+  .important {
+    padding: 75px 0;
+  }
+
+  .introduction {
+    padding: 70px 0 55px;
+  }
+
+  .introduction h2,
+  .sectionHeader h2,
+  .optionalContent h2 {
+    font-size: 34px;
+  }
+
+  .newStudentGrid,
+  .optionalGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .discountList {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .ctaContent h2 {
+    font-size: 40px;
+  }
+}

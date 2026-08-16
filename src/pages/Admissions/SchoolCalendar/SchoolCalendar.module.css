@@ -1,0 +1,478 @@
+.page {
+  width: 100%;
+  background: #fff;
+  color: #183f52;
+}
+
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  color: #c88a00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+
+/* HERO */
+
+.hero {
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      rgba(7, 44, 62, 0.84),
+      rgba(7, 44, 62, 0.84)
+    ),
+    linear-gradient(
+      135deg,
+      #0b4c69,
+      #183f52
+    );
+}
+
+.heroContent {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.heroContent h1 {
+  margin: 0 0 20px;
+
+  font-size: clamp(50px, 7vw, 84px);
+  line-height: 1;
+}
+
+.heroContent p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 20px;
+}
+
+
+/* INTRO */
+
+.introduction {
+  padding: 90px 0 70px;
+  text-align: center;
+}
+
+.introduction .container {
+  max-width: 850px;
+}
+
+.introduction h2,
+.sectionHeader h2,
+.rhythmContent h2 {
+  margin: 0 0 20px;
+
+  color: #0b4c69;
+
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.introduction p,
+.sectionHeader p,
+.rhythmContent p {
+  margin: 0;
+
+  color: #65757d;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+/* TERMS */
+
+.terms {
+  padding: 100px 0;
+
+  background: #f5f8f9;
+}
+
+.sectionHeader {
+  max-width: 800px;
+  margin-bottom: 50px;
+}
+
+.termGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.termCard {
+  position: relative;
+
+  padding: 40px 32px;
+
+  background: #fff;
+
+  border: 1px solid #e3e8ea;
+  border-radius: 12px;
+}
+
+.termNumber {
+  display: block;
+
+  margin-bottom: 35px;
+
+  color: #c88a00;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.termLabel {
+  color: #7b898f;
+
+  font-size: 13px;
+}
+
+.termCard h3 {
+  margin: 10px 0 30px;
+
+  color: #0b4c69;
+
+  font-size: 30px;
+}
+
+.termDates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #e5eaed;
+}
+
+.termDates span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #c88a00;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.termDates strong {
+  color: #536870;
+
+  font-size: 14px;
+}
+
+
+/* EVENTS */
+
+.events {
+  padding: 110px 0;
+}
+
+.filterList {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 35px;
+}
+
+.filterList span {
+  padding: 9px 15px;
+
+  color: #536870;
+
+  background: #f5f8f9;
+
+  border-radius: 30px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.eventList {
+  border-top: 1px solid #dfe6e8;
+}
+
+.eventRow {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+
+  align-items: center;
+
+  gap: 30px;
+
+  padding: 28px 10px;
+
+  border-bottom: 1px solid #dfe6e8;
+
+  transition: 0.25s ease;
+}
+
+.eventRow:hover {
+  padding-left: 18px;
+  padding-right: 18px;
+
+  background: #f8fafb;
+}
+
+.eventDate {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventDate strong {
+  color: #0b4c69;
+
+  font-size: 22px;
+}
+
+.eventDate span {
+  margin-top: 4px;
+
+  color: #7b898f;
+
+  font-size: 13px;
+}
+
+.eventCategory {
+  color: #c88a00;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.eventInfo h3 {
+  margin: 6px 0 0;
+
+  color: #183f52;
+
+  font-size: 20px;
+}
+
+.eventNumber {
+  color: #b9c4c8;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* RHYTHM */
+
+.rhythm {
+  padding: 110px 0;
+
+  background: #0b4c69;
+}
+
+.rhythm .container {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 80px;
+
+  align-items: center;
+}
+
+.rhythmContent h2 {
+  color: #fff;
+}
+
+.rhythmContent p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.rhythmGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+.rhythmGrid div {
+  padding: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 12px;
+}
+
+.rhythmGrid strong {
+  color: #c88a00;
+
+  font-size: 13px;
+}
+
+.rhythmGrid h3 {
+  margin: 18px 0 10px;
+
+  color: #fff;
+
+  font-size: 21px;
+}
+
+.rhythmGrid p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  line-height: 1.6;
+}
+
+
+/* CTA */
+
+.cta {
+  min-height: 460px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(7, 44, 62, 0.88),
+      rgba(7, 44, 62, 0.88)
+    ),
+    linear-gradient(
+      135deg,
+      #0b4c69,
+      #183f52
+    );
+}
+
+.ctaContent {
+  max-width: 700px;
+
+  padding: 60px 25px;
+
+  color: #fff;
+}
+
+.ctaContent h2 {
+  margin: 0 0 20px;
+
+  font-size: 54px;
+  line-height: 1.1;
+}
+
+.ctaContent p {
+  margin: 0 auto 30px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 35px;
+
+  background: #c88a00;
+  color: #fff;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+
+  background: #b77d00;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .termGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .rhythm .container {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .hero {
+    min-height: 440px;
+  }
+
+  .introduction,
+  .terms,
+  .events,
+  .rhythm {
+    padding: 75px 0;
+  }
+
+  .introduction h2,
+  .sectionHeader h2,
+  .rhythmContent h2 {
+    font-size: 34px;
+  }
+
+  .eventRow {
+    grid-template-columns: 90px 1fr;
+
+    gap: 15px;
+  }
+
+  .eventNumber {
+    display: none;
+  }
+
+  .eventInfo h3 {
+    font-size: 17px;
+  }
+
+  .rhythmGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaContent h2 {
+    font-size: 40px;
+  }
+
+}

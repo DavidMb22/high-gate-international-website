@@ -24,49 +24,45 @@ export const navigation = [
       },
     ],
   },
- {
-  key: "academics",
-  submenu: [
-    {
-      key: "curriculum",
-      path: "/curriculum",
-    },
-    {
-      key: "creche",
-      path: "/academics/creche",
-    },
-    {
-      key: "nursery",
-      path: "/academics/nursery",
-    },
-    {
-      key: "primary",
-      path: "/academics/primary",
-    },
-    {
-      key: "lowerSecondary",
-      path: "/academics/lower-secondary",
-    },
-  ],
-},
+  {
+    key: "academics",
+    submenu: [
+      {
+        key: "curriculum",
+        path: "/curriculum",
+      },
+      {
+        key: "creche",
+        path: "/academics/creche",
+      },
+      {
+        key: "nursery",
+        path: "/academics/nursery",
+      },
+      {
+        key: "primary",
+        path: "/academics/primary",
+      },
+      {
+        key: "lowerSecondary",
+        path: "/academics/lower-secondary",
+      },
+    ],
+  },
   {
     key: "admission",
     submenu: [
       {
-        key: "admissionProcess",
-        path: "/admission-process",
-      },
-      {
-        key: "requirements",
-        path: "/admission-requirements",
-      },
-      {
-        key: "fees",
-        path: "/school-fees",
-      },
-      {
         key: "applyNow",
-        path: "/admissions",
+        path: "/admissions/apply",
+      },
+      {
+        key: "tuitionFees",
+        path: "/admissions/fees",
+      },
+      {
+        key: "schoolCalendar",
+        path: "/admissions/calendar",
       },
     ],
   },

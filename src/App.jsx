@@ -24,6 +24,12 @@ import Nursery from "./pages/Academics/Nursery/Nursery";
 
 import Primary from "./pages/Academics/Primary/Primary";
 
+import TuitionFees from "./pages/Admissions/TuitionFees/TuitionFees";
+
+import ApplyNow from "./pages/Admissions/ApplyNow/ApplyNow";
+
+import SchoolCalendar from "./pages/Admissions/SchoolCalendar/SchoolCalendar";
+
 import LowerSecondary from "./pages/Academics/LowerSecondary/LowerSecondary";
 
 import SchoolEvents from "./pages/SchoolEvents";
@@ -92,6 +98,20 @@ function AppLayout() {
           element={<WhyHighGate />}
         />
 
+        <Route
+          path="/admissions/apply"
+          element={<ApplyNow />}
+        />
+
+        <Route
+          path="/admissions/fees"
+          element={<TuitionFees />}
+        />
+
+        <Route
+          path="/admissions/calendar"
+          element={<SchoolCalendar />}
+        />
 
         {/* =========================
             ACADEMICS
