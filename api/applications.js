@@ -238,7 +238,7 @@ export default async function handler(req, res) {
     `;
 
     const emailData = {
-      from: "High Gate Admissions <onboarding@resend.dev>",
+      from: "High Gate Admissions <admissions@highgateinternationalacademy.com>",
       to: ["highgateacadem@gmail.com"],
       subject: `New Enrollment Application — ${firstName} ${lastName}`,
       html: emailHtml,
