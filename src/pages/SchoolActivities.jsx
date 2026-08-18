@@ -1,7 +1,44 @@
+import { useEffect, useState } from "react";
+
 import styles from "./SchoolActivities.module.css";
-import { schoolActivities } from "../data/schoolActivities";
+
+import { supabase } from "../lib/supabase";
 
 function SchoolActivities() {
+  const [activities, setActivities] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const loadActivities = async () => {
+      const { data, error } = await supabase
+        .from("activities")
+        .select("*")
+        .order("activity_date", {
+          ascending: false,
+        });
+
+      if (error) {
+        console.error(
+          "Error loading activities:",
+          error
+        );
+
+        setError(
+          "Unable to load school activities."
+        );
+
+        setLoading(false);
+        return;
+      }
+
+      setActivities(data || []);
+      setLoading(false);
+    };
+
+    loadActivities();
+  }, []);
+
   return (
     <main className={styles.page}>
 
@@ -26,31 +63,73 @@ function SchoolActivities() {
       <section className={styles.activities}>
         <div className={styles.container}>
 
-          {schoolActivities.length > 0 ? (
+          {loading ? (
+
+            <div className={styles.emptyState}>
+              <span>
+                SCHOOL ACTIVITIES
+              </span>
+
+              <h2>
+                Loading Activities...
+              </h2>
+
+              <p>
+                Please wait while we load the latest
+                activities from High Gate.
+              </p>
+            </div>
+
+          ) : error ? (
+
+            <div className={styles.emptyState}>
+              <span>
+                SCHOOL ACTIVITIES
+              </span>
+
+              <h2>
+                Unable to Load Activities
+              </h2>
+
+              <p>
+                {error}
+              </p>
+            </div>
+
+          ) : activities.length > 0 ? (
 
             <div className={styles.activityGrid}>
 
-              {schoolActivities.map((activity) => (
+              {activities.map((activity) => (
 
                 <article
                   key={activity.id}
                   className={styles.activityCard}
                 >
 
-                  {activity.image && (
+                  {activity.thumbnail ? (
                     <div className={styles.imageWrapper}>
+
                       <img
-                        src={activity.image}
+                        src={activity.thumbnail}
                         alt={activity.title}
                       />
+
+                    </div>
+                  ) : (
+                    <div className={styles.imagePlaceholder}>
+                      {activity.title}
                     </div>
                   )}
 
+
                   <div className={styles.activityContent}>
 
-                    <span className={styles.year}>
-                      {activity.year}
-                    </span>
+                    {activity.year && (
+                      <span className={styles.year}>
+                        {activity.year}
+                      </span>
+                    )}
 
                     <h2>
                       {activity.title}
@@ -60,9 +139,9 @@ function SchoolActivities() {
                       {activity.description}
                     </p>
 
-                    {activity.link && (
+                    {activity.video_url && (
                       <a
-                        href={activity.link}
+                        href={activity.video_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.activityLink}

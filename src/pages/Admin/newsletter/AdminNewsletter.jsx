@@ -3,24 +3,27 @@ import { Link } from "react-router-dom";
 
 import { supabase } from "../../../lib/supabase";
 
-import styles from "./AdminActivities.module.css";
+import styles from "./AdminNewsletter.module.css";
 
-function AdminActivities() {
-  const [activities, setActivities] = useState([]);
+function AdminNewsletter() {
+  const [newsletters, setNewsletters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deletingId, setDeletingId] = useState(null);
 
-  const loadActivities = async () => {
+  const loadNewsletters = async () => {
     const { data, error } = await supabase
-      .from("activities")
+      .from("newsletters")
       .select("*")
-      .order("activity_date", {
+      .order("academic_year", {
         ascending: false,
+      })
+      .order("term", {
+        ascending: true,
       });
 
     if (error) {
       console.error(
-        "Error loading activities:",
+        "Error loading newsletters:",
         error
       );
 
@@ -28,46 +31,46 @@ function AdminActivities() {
       return;
     }
 
-    setActivities(data || []);
+    setNewsletters(data || []);
     setLoading(false);
   };
 
   useEffect(() => {
-    loadActivities();
+    loadNewsletters();
   }, []);
 
-  const handleDelete = async (activity) => {
+  const handleDelete = async (newsletter) => {
     const confirmed = window.confirm(
-      `Are you sure you want to delete "${activity.title}"?`
+      `Are you sure you want to delete "${newsletter.title}"?`
     );
 
     if (!confirmed) return;
 
-    setDeletingId(activity.id);
+    setDeletingId(newsletter.id);
 
     try {
-      // Delete thumbnail from Storage if one exists
-      if (activity.thumbnail) {
-        const marker = "/activity-images/";
+      // Delete cover image if one exists
+      if (newsletter.cover_image) {
+        const marker = "/newsletter-images/";
 
         const markerIndex =
-          activity.thumbnail.indexOf(marker);
+          newsletter.cover_image.indexOf(marker);
 
         if (markerIndex !== -1) {
           const filePath = decodeURIComponent(
-            activity.thumbnail.substring(
+            newsletter.cover_image.substring(
               markerIndex + marker.length
             )
           );
 
           const { error: storageError } =
             await supabase.storage
-              .from("activity-images")
+              .from("newsletter-images")
               .remove([filePath]);
 
           if (storageError) {
             console.error(
-              "Error deleting thumbnail:",
+              "Error deleting cover image:",
               storageError
             );
           }
@@ -75,27 +78,27 @@ function AdminActivities() {
       }
 
       const { error } = await supabase
-        .from("activities")
+        .from("newsletters")
         .delete()
-        .eq("id", activity.id);
+        .eq("id", newsletter.id);
 
       if (error) {
         throw error;
       }
 
-      setActivities((current) =>
+      setNewsletters((current) =>
         current.filter(
-          (item) => item.id !== activity.id
+          (item) => item.id !== newsletter.id
         )
       );
     } catch (error) {
       console.error(
-        "Error deleting activity:",
+        "Error deleting newsletter:",
         error
       );
 
       alert(
-        "Unable to delete the activity. Please try again."
+        "Unable to delete the newsletter. Please try again."
       );
     } finally {
       setDeletingId(null);
@@ -113,20 +116,20 @@ function AdminActivities() {
           </span>
 
           <h1>
-            School Activities
+            Newsletter
           </h1>
 
           <p>
-            Manage activities and videos displayed
-            on the High Gate website.
+            Manage school newsletters published on
+            the High Gate website.
           </p>
         </div>
 
         <Link
-          to="/admin/activities/new"
+          to="/admin/newsletter/new"
           className={styles.addButton}
         >
-          + Add Activity
+          + Add Newsletter
         </Link>
 
       </header>
@@ -137,87 +140,102 @@ function AdminActivities() {
         {loading ? (
 
           <div className={styles.message}>
-            Loading activities...
+            Loading newsletters...
           </div>
 
-        ) : activities.length === 0 ? (
+        ) : newsletters.length === 0 ? (
 
           <div className={styles.emptyState}>
 
             <span>
-              NO ACTIVITIES YET
+              NEWSLETTER
             </span>
 
             <h2>
-              Add your first school activity
+              No newsletters yet
             </h2>
 
             <p>
-              Activities you create here will appear
-              on the public School Activities page.
+              Add your first school newsletter to
+              begin building the archive.
             </p>
 
             <Link
-              to="/admin/activities/new"
+              to="/admin/newsletter/new"
               className={styles.primaryButton}
             >
-              Add Activity
+              Add Newsletter
             </Link>
 
           </div>
 
         ) : (
 
-          <div className={styles.activityList}>
+          <div className={styles.newsletterList}>
 
-            {activities.map((activity) => (
+            {newsletters.map((newsletter) => (
 
               <article
-                key={activity.id}
-                className={styles.activityCard}
+                key={newsletter.id}
+                className={styles.newsletterCard}
               >
 
-                <div className={styles.activityInfo}>
+                <div className={styles.newsletterInfo}>
 
-                  {activity.thumbnail && (
+                  {newsletter.cover_image && (
                     <img
-                      src={activity.thumbnail}
+                      src={newsletter.cover_image}
                       alt=""
                       className={styles.thumbnail}
                     />
                   )}
 
                   <div>
-                    <span className={styles.year}>
-                      {activity.year || "—"}
+
+                    <span className={styles.term}>
+                      {newsletter.academic_year}
+                      {" · "}
+                      {newsletter.term}
                     </span>
 
                     <h2>
-                      {activity.title}
+                      {newsletter.title}
                     </h2>
 
-                    <p>
-                      {activity.description}
-                    </p>
-
-                    {activity.video_url && (
-                      <a
-                        href={activity.video_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.videoLink}
-                      >
-                        View Video →
-                      </a>
+                    {newsletter.excerpt && (
+                      <p>
+                        {newsletter.excerpt}
+                      </p>
                     )}
+
+                    <span
+                      className={
+                        newsletter.status ===
+                        "published"
+                          ? styles.published
+                          : styles.draft
+                      }
+                    >
+                      {newsletter.status}
+                    </span>
+
                   </div>
 
                 </div>
 
+
                 <div className={styles.actions}>
 
                   <Link
-                    to={`/admin/activities/${activity.id}/edit`}
+                    to={`/newsletter/${newsletter.slug}`}
+                    target="_blank"
+                    className={styles.viewButton}
+                  >
+                    View
+                  </Link>
+
+                  <Link
+                    to={`/admin/newsletter/${newsletter.id}/edit`}
                     className={styles.editButton}
                   >
                     Edit
@@ -226,13 +244,13 @@ function AdminActivities() {
                   <button
                     className={styles.deleteButton}
                     onClick={() =>
-                      handleDelete(activity)
+                      handleDelete(newsletter)
                     }
                     disabled={
-                      deletingId === activity.id
+                      deletingId === newsletter.id
                     }
                   >
-                    {deletingId === activity.id
+                    {deletingId === newsletter.id
                       ? "Deleting..."
                       : "Delete"}
                   </button>
@@ -253,4 +271,4 @@ function AdminActivities() {
   );
 }
 
-export default AdminActivities;
+export default AdminNewsletter;

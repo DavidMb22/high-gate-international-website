@@ -1,30 +1,59 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ArrowUpRight } from "lucide-react";
 
 import styles from "./SchoolEvents.module.css";
 
-import { schoolLifeEvents } from "../data/schoolLife";
+import { supabase } from "../lib/supabase";
 
 function SchoolEvents() {
+  const [events, setEvents] = useState([]);
+  const [selectedYear, setSelectedYear] = useState("All");
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const loadEvents = async () => {
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .order("event_date", {
+          ascending: false,
+        });
+
+      if (error) {
+        console.error("Error loading events:", error);
+
+        setError(
+          "Unable to load school events."
+        );
+
+        setLoading(false);
+
+        return;
+      }
+
+      setEvents(data || []);
+      setLoading(false);
+    };
+
+    loadEvents();
+  }, []);
+
   const academicYears = [
     "All",
     ...new Set(
-      schoolLifeEvents.map(
-        (event) => event.academicYear
-      )
+      events.map((event) => String(event.year))
     ),
   ];
 
-  const [selectedYear, setSelectedYear] =
-    useState("All");
-
   const filteredEvents =
     selectedYear === "All"
-      ? schoolLifeEvents
-      : schoolLifeEvents.filter(
+      ? events
+      : events.filter(
           (event) =>
-            event.academicYear === selectedYear
+            String(event.year) === selectedYear
         );
 
   return (
@@ -59,93 +88,136 @@ function SchoolEvents() {
 
       <section className={styles.content}>
 
-        <div className={styles.filters}>
+        {!loading && events.length > 0 && (
+          <div className={styles.filters}>
 
-          {academicYears.map((year) => (
+            {academicYears.map((year) => (
 
-            <button
-              key={year}
-              className={
-                selectedYear === year
-                  ? styles.activeFilter
-                  : styles.filter
-              }
-              onClick={() =>
-                setSelectedYear(year)
-              }
-            >
-              {year}
-            </button>
+              <button
+                key={year}
+                className={
+                  selectedYear === year
+                    ? styles.activeFilter
+                    : styles.filter
+                }
+                onClick={() =>
+                  setSelectedYear(year)
+                }
+              >
+                {year}
+              </button>
 
-          ))}
+            ))}
 
-        </div>
+          </div>
+        )}
+
+
+        {/* =========================
+            LOADING
+        ========================= */}
+
+        {loading && (
+          <div className={styles.empty}>
+            <p>
+              Loading school events...
+            </p>
+          </div>
+        )}
+
+
+        {/* =========================
+            ERROR
+        ========================= */}
+
+        {!loading && error && (
+          <div className={styles.empty}>
+            <p>
+              {error}
+            </p>
+          </div>
+        )}
 
 
         {/* =========================
             EVENTS
         ========================= */}
 
-        <div className={styles.eventGrid}>
+        {!loading && !error && (
+          <div className={styles.eventGrid}>
 
-          {filteredEvents.map((event) => (
+            {filteredEvents.map((event) => (
 
-            <a
-              key={event.id}
-              href={event.photosUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.eventCard}
-            >
+              <a
+                key={event.id}
+                href={event.link || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.eventCard}
+              >
 
-              <div className={styles.eventImage}>
+                <div className={styles.eventImage}>
 
-                <img
-                  src={event.image}
-                  alt={event.title}
-                />
+                  {event.cover_image ? (
+                    <img
+                      src={event.cover_image}
+                      alt={event.title}
+                    />
+                  ) : (
+                    <div className={styles.imagePlaceholder}>
+                      <span>
+                        {event.title}
+                      </span>
+                    </div>
+                  )}
 
-                <span className={styles.icon}>
-                  <ArrowUpRight size={19} />
-                </span>
+                  <span className={styles.icon}>
+                    <ArrowUpRight size={19} />
+                  </span>
 
-              </div>
-
-              <div className={styles.eventContent}>
-
-                <span className={styles.year}>
-                  {event.academicYear}
-                </span>
-
-                <h2>
-                  {event.title}
-                </h2>
-
-                <p>
-                  {event.description}
-                </p>
-
-                <span className={styles.photos}>
-                  View Photos
-                  <ArrowUpRight size={16} />
-                </span>
-
-              </div>
-
-            </a>
-
-          ))}
-
-        </div>
+                </div>
 
 
-        {filteredEvents.length === 0 && (
-          <div className={styles.empty}>
-            <p>
-              No events available for this academic year.
-            </p>
+                <div className={styles.eventContent}>
+
+                  <span className={styles.year}>
+                    {event.year}
+                  </span>
+
+                  <h2>
+                    {event.title}
+                  </h2>
+
+                  <p>
+                    {event.description}
+                  </p>
+
+                  {event.link && (
+                    <span className={styles.photos}>
+                      View Event
+                      <ArrowUpRight size={16} />
+                    </span>
+                  )}
+
+                </div>
+
+              </a>
+
+            ))}
+
           </div>
         )}
+
+
+        {!loading &&
+          !error &&
+          filteredEvents.length === 0 && (
+            <div className={styles.empty}>
+              <p>
+                No events available for this academic year.
+              </p>
+            </div>
+          )}
 
       </section>
 

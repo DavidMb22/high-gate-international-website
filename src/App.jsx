@@ -35,6 +35,18 @@ import LowerSecondary from "./pages/Academics/LowerSecondary/LowerSecondary";
 import AdminLogin from "./pages/Admin/Login/AdminLogin";
 import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import AdminEvents from "./pages/Admin/Events/AdminEvents";
+import AdminEventForm from "./pages/Admin/Events/AdminEventForm";
+import AdminEventEdit from "./pages/Admin/Events/AdminEventEdit";
+import AdminActivities from "./pages/Admin/Activities/AdminActivities";
+import AdminActivityForm from "./pages/Admin/Activities/AdminActivityForm";
+import AdminActivityEdit from "./pages/Admin/Activities/AdminActivityEdit";
+import AdminLayout from "./components/AdminLayout/AdminLayout";
+import AdminNewsletter from "./pages/Admin/Newsletter/AdminNewsletter";
+import AdminNewsletterForm from "./pages/Admin/Newsletter/AdminNewsletterForm";
+import AdminNewsletterEdit from "./pages/Admin/Newsletter/AdminNewsletterEdit";
+
+import Newsletter from "./pages/Newsletter/Newsletter";
 
 import SchoolEvents from "./pages/SchoolEvents";
 import SchoolActivities from "./pages/SchoolActivities";
@@ -60,27 +72,16 @@ function HomePage() {
   );
 }
 
-
-function AppLayout() {
+function PublicLayout() {
   return (
     <>
       <Navbar />
 
       <Routes>
-
-        {/* =========================
-            HOME
-        ========================= */}
-
         <Route
           path="/"
           element={<HomePage />}
         />
-
-
-        {/* =========================
-            ABOUT
-        ========================= */}
 
         <Route
           path="/who-we-are"
@@ -117,10 +118,6 @@ function AppLayout() {
           element={<SchoolCalendar />}
         />
 
-        {/* =========================
-            ACADEMICS
-        ========================= */}
-
         <Route
           path="/curriculum"
           element={<Curriculum />}
@@ -146,38 +143,120 @@ function AppLayout() {
           element={<LowerSecondary />}
         />
 
-        {/* =========================
-            SCHOOL LIFE
-        ========================= */}
+        <Route
+          path="/newsletter/:slug"
+          element={<Newsletter />}
+        />
 
         <Route
           path="/school-events"
           element={<SchoolEvents />}
         />
 
+
         <Route
           path="/school-activities"
           element={<SchoolActivities />}
-        />
-
-        <Route
-          path="/admin/login"
-          element={<AdminLogin />}
-        />
-
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
         />
 
       </Routes>
 
       <Footer />
     </>
+  );
+}
+
+
+function AppLayout() {
+  return (
+    <Routes>
+
+      {/* =========================
+          ADMIN LOGIN
+      ========================= */}
+
+      <Route
+        path="/admin/login"
+        element={<AdminLogin />}
+      />
+
+
+      {/* =========================
+          ADMIN
+      ========================= */}
+
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute>
+            <AdminLayout />
+          </ProtectedRoute>
+        }
+      >
+
+        <Route
+          index
+          element={<AdminDashboard />}
+        />
+
+        <Route
+          path="events"
+          element={<AdminEvents />}
+        />
+
+        <Route
+          path="events/new"
+          element={<AdminEventForm />}
+        />
+
+        <Route
+          path="events/:id/edit"
+          element={<AdminEventEdit />}
+        />
+
+        <Route
+          path="activities"
+          element={<AdminActivities />}
+        />
+
+        <Route
+          path="activities/new"
+          element={<AdminActivityForm />}
+        />
+
+        <Route
+          path="activities/:id/edit"
+          element={<AdminActivityEdit />}
+        />
+
+        <Route
+          path="newsletter"
+          element={<AdminNewsletter />}
+        />
+
+        <Route
+          path="newsletter/new"
+          element={<AdminNewsletterForm />}
+        />
+
+        <Route
+          path="newsletter/:id/edit"
+          element={<AdminNewsletterEdit />}
+        />
+
+      </Route>
+
+
+      {/* =========================
+          PUBLIC WEBSITE
+      ========================= */}
+
+      <Route
+        path="*"
+        element={<PublicLayout />}
+      />
+
+    </Routes>
   );
 }
 

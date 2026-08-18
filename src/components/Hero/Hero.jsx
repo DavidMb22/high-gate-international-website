@@ -1,5 +1,4 @@
 import styles from "./Hero.module.css";
-
 import { heroSlides } from "../../data/heroSlides";
 
 import { Swiper, SwiperSlide } from "swiper/react";

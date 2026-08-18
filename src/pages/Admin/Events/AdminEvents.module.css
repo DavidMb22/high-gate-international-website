@@ -1,0 +1,227 @@
+.page {
+  min-height: 100vh;
+  background: #f5f2ec;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  padding: 50px 7%;
+
+  background: #0b4c69;
+  color: #ffffff;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #c88a00;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.header h1 {
+  margin: 0 0 12px;
+  font-size: 42px;
+}
+
+.header p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.addButton,
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 22px;
+
+  border-radius: 5px;
+
+  background: #c88a00;
+  color: #ffffff;
+
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.addButton:hover,
+.primaryButton:hover {
+  background: #b37600;
+}
+
+.content {
+  width: min(90%, 1150px);
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.message {
+  padding: 50px;
+  text-align: center;
+  color: #718087;
+}
+
+.emptyState {
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 60px 30px;
+
+  text-align: center;
+
+  background: #ffffff;
+  border: 1px solid #e0e3e3;
+  border-radius: 8px;
+}
+
+.emptyState > span {
+  color: #c88a00;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.emptyState h2 {
+  margin: 15px 0 10px;
+  color: #183f52;
+}
+
+.emptyState p {
+  margin: 0 0 25px;
+  color: #718087;
+  line-height: 1.7;
+}
+
+.eventList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.eventCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  padding: 25px 30px;
+
+  background: #ffffff;
+  border: 1px solid #e0e3e3;
+  border-radius: 8px;
+}
+
+.eventInfo {
+  flex: 1;
+}
+
+.year {
+  color: #c88a00;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.eventInfo h2 {
+  margin: 7px 0 8px;
+  color: #183f52;
+  font-size: 23px;
+}
+
+.eventInfo p {
+  margin: 0 0 10px;
+  color: #718087;
+  line-height: 1.6;
+}
+
+.date {
+  color: #183f52;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 9px 16px;
+
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.editButton {
+  border: 1px solid #0b4c69;
+
+  background: transparent;
+  color: #0b4c69;
+
+  text-decoration: none;
+}
+
+.deleteButton {
+  border: 1px solid #c0392b;
+
+  background: transparent;
+  color: #c0392b;
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 40px 25px;
+  }
+
+  .content {
+    width: calc(100% - 40px);
+    padding: 40px 0;
+  }
+
+  .eventCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .editButton,
+  .deleteButton {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+.eventInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.eventThumbnail {
+  width: 120px;
+  height: 80px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 6px;
+}
