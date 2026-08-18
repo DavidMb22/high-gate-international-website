@@ -660,52 +660,56 @@
   .mobileDropdownLink {
     display: block;
 
-    padding: 14px 25px 14px 45px;
+    width: 100%;
 
-    color: #184861;
+    box-sizing: border-box;
 
-    font-size: 14px;
+    padding: 14px 0;
+
+    color: #183f52;
+
+    font-size: 16px;
 
     text-decoration: none;
-
-    border-top: 1px solid #eeeeee;
-
-    transition: 0.25s;
   }
 
   .mobileDropdownLink:hover {
-    color: #CC7F00;
-
-    background: #ffffff;
+    color: #c88a00;
   }
 
 
   /* ---------- NESTED MOBILE MENU ---------- */
 
   .mobileNestedItem {
-    border-top: 1px solid #eeeeee;
+    position: relative;
+
+    width: 100%;
   }
 
   .mobileNestedButton {
-    width: 100%;
-
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
 
-    padding: 14px 25px 14px 45px;
+    width: 100%;
+
+    padding: 18px 0;
 
     border: none;
 
     background: transparent;
 
-    color: #184861;
+    color: #0b4c69;
 
     font-family: inherit;
 
-    font-size: 14px;
+    font-size: 18px;
+
+    font-weight: 600;
+
+    text-align: left;
 
     cursor: pointer;
   }
@@ -718,15 +722,25 @@
   /* ---------- NESTED DROPDOWN ---------- */
 
   .mobileNestedDropdown {
+    display: none;
+
+    position: static;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 5px 0 5px 20px;
+
     list-style: none;
 
-    max-height: 0;
+    background: #ffffff;
 
-    overflow: hidden;
+    box-sizing: border-box;
+  }
 
-    background: white;
-
-    transition: max-height 0.3s ease;
+  .mobileNestedDropdownOpen {
+    display: block;
   }
 
   .mobileNestedDropdownOpen {
@@ -901,6 +915,159 @@
 
   .mobileMenuButton {
     display: flex;
+  }
+
+}
+
+/* ==================================================
+   MOBILE NEWSLETTER NESTED MENU
+================================================== */
+
+@media (max-width: 900px) {
+
+  /* Newsletter top-level item */
+  .mobileMenu .menuItem {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Year container */
+  .mobileMenu .mobileNestedItem {
+    position: static !important;
+
+    width: auto !important;
+
+    margin: 0 30px !important;
+  }
+
+  /* 2025–2026 button */
+  .mobileMenu .mobileNestedButton {
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    padding: 24px 50px !important;
+
+    border: none !important;
+
+    background: #f7f8fa !important;
+
+    color: #0b4c69 !important;
+
+    font-family: inherit !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+
+    text-align: left !important;
+
+    cursor: pointer !important;
+  }
+
+  /* Terms container */
+  .mobileMenu .mobileNestedDropdown {
+    position: static !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+
+    transform: none !important;
+  }
+
+  /* Open terms */
+  .mobileMenu .mobileNestedDropdownOpen {
+    display: block !important;
+
+    position: static !important;
+
+    width: 100% !important;
+  }
+
+  /* Individual terms */
+  .mobileMenu .mobileNestedDropdown li {
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+  }
+
+  /* Term links */
+  .mobileMenu .mobileDropdownLink {
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    padding: 25px 50px 25px 110px !important;
+
+    border-bottom: 1px solid #e5e5e5 !important;
+
+    color: #183f52 !important;
+
+    background: #ffffff !important;
+
+    font-family: inherit !important;
+
+    font-size: 20px !important;
+    font-weight: 600 !important;
+
+    text-decoration: none !important;
+  }
+
+  .mobileMenu .mobileDropdownLink:hover {
+    color: #c88a00 !important;
+  }
+
+}
+
+/* ==================================================
+   FIX MOBILE TOP-LEVEL MENU ITEMS
+================================================== */
+
+@media (max-width: 900px) {
+
+  .mobileMenu .menuItem {
+    display: block !important;
+
+    width: 100% !important;
+
+    position: static !important;
+
+    white-space: normal !important;
+
+    font-size: inherit !important;
+  }
+
+  .mobileMenu .mobileDropdown {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+
+  .mobileMenu .mobileDropdownOpen {
+    max-height: 800px;
+
+    width: 100%;
   }
 
 }
