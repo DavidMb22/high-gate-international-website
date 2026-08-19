@@ -1,23 +1,37 @@
+/* ==================================================
+   PAGE
+================================================== */
+
 .page {
-  width: 100%;
-  background: #fff;
-  color: #183f52;
+    width: 100%;
+
+    background: #ffffff;
+
+    color: #183f52;
 }
 
 .container {
-  width: 90%;
-  max-width: 1250px;
-  margin: 0 auto;
+    width: 90%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
 }
 
 .eyebrow {
-  display: block;
-  margin-bottom: 14px;
-  color: #c88a00;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: #c88a00;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
 }
 
 
@@ -50,6 +64,7 @@
     inset: 0;
 
     width: 100%;
+
     height: 100%;
 
     z-index: 0;
@@ -57,6 +72,7 @@
 
 .heroImage img {
     width: 100%;
+
     height: 100%;
 
     display: block;
@@ -106,7 +122,6 @@
     padding: 100px 0;
 }
 
-
 .heroContent .eyebrow {
     display: block;
 
@@ -123,23 +138,17 @@
     text-transform: uppercase;
 }
 
-
 .heroContent h1 {
     margin: 0 0 20px;
 
     color: #ffffff;
 
-    font-size: clamp(
-        50px,
-        6vw,
-        78px
-    );
+    font-size: clamp(50px, 6vw, 78px);
 
     line-height: 1.02;
 
     letter-spacing: -1.5px;
 }
-
 
 .heroContent p {
     max-width: 650px;
@@ -189,284 +198,430 @@
 }
 
 
-/* INTRO */
+/* ==================================================
+   INTRODUCTION
+================================================== */
 
 .introduction {
-  padding: 90px 0 70px;
-  text-align: center;
+    padding: 90px 0 70px;
+
+    text-align: center;
 }
 
 .introduction .container {
-  max-width: 850px;
+    max-width: 850px;
 }
 
 .introduction h2,
 .sectionHeader h2,
 .rhythmContent h2 {
-  margin: 0 0 20px;
+    margin: 0 0 20px;
 
-  color: #0b4c69;
+    color: #0b4c69;
 
-  font-size: 46px;
-  line-height: 1.15;
+    font-size: 46px;
+
+    line-height: 1.15;
 }
 
 .introduction p,
 .sectionHeader p,
 .rhythmContent p {
-  margin: 0;
+    margin: 0;
 
-  color: #65757d;
+    color: #65757d;
 
-  font-size: 17px;
-  line-height: 1.7;
+    font-size: 17px;
+
+    line-height: 1.7;
 }
 
 
-/* TERMS */
+/* ==================================================
+   DOWNLOAD CALENDAR
+================================================== */
+
+.downloadSection {
+    padding: 70px 0;
+
+    background: #ffffff;
+}
+
+.downloadContent {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding: 45px 50px;
+
+    background: #f5f8f9;
+
+    border: 1px solid #e3e8ea;
+
+    border-radius: 16px;
+}
+
+.downloadContent > div {
+    flex: 1;
+}
+
+.downloadContent h2 {
+    margin: 0 0 15px;
+
+    color: #0b4c69;
+
+    font-size: 34px;
+
+    line-height: 1.15;
+}
+
+.downloadContent p {
+    max-width: 700px;
+
+    margin: 0;
+
+    color: #65757d;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+.downloadButton {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    flex-shrink: 0;
+
+    padding: 14px 25px;
+
+    background: #c88a00;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.downloadButton:hover {
+    background: #0b4c69;
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+}
+
+
+/* ==================================================
+   TERMS
+================================================== */
 
 .terms {
-  padding: 100px 0;
+    padding: 100px 0;
 
-  background: #f5f8f9;
+    background: #f5f8f9;
 }
 
 .sectionHeader {
-  max-width: 800px;
-  margin-bottom: 50px;
+    max-width: 800px;
+
+    margin-bottom: 50px;
 }
 
 .termGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+    display: grid;
 
-  gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
 }
 
 .termCard {
-  position: relative;
+    position: relative;
 
-  padding: 40px 32px;
+    padding: 40px 32px;
 
-  background: #fff;
+    background: #ffffff;
 
-  border: 1px solid #e3e8ea;
-  border-radius: 12px;
+    border: 1px solid #e3e8ea;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.termCard:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(11, 76, 105, 0.08);
 }
 
 .termNumber {
-  display: block;
+    display: block;
 
-  margin-bottom: 35px;
+    margin-bottom: 35px;
 
-  color: #c88a00;
+    color: #c88a00;
 
-  font-size: 13px;
-  font-weight: 700;
+    font-size: 13px;
+
+    font-weight: 700;
 }
 
 .termLabel {
-  color: #7b898f;
+    color: #7b898f;
 
-  font-size: 13px;
+    font-size: 13px;
 }
 
 .termCard h3 {
-  margin: 10px 0 30px;
+    margin: 10px 0 30px;
 
-  color: #0b4c69;
+    color: #0b4c69;
 
-  font-size: 30px;
+    font-size: 30px;
 }
 
 .termDates {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    display: grid;
 
-  gap: 15px;
+    grid-template-columns: 1fr 1fr;
 
-  padding-top: 20px;
+    gap: 15px;
 
-  border-top: 1px solid #e5eaed;
+    padding-top: 20px;
+
+    border-top: 1px solid #e5eaed;
 }
 
 .termDates span {
-  display: block;
+    display: block;
 
-  margin-bottom: 6px;
+    margin-bottom: 6px;
 
-  color: #c88a00;
+    color: #c88a00;
 
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
 }
 
 .termDates strong {
-  color: #536870;
+    color: #536870;
 
-  font-size: 14px;
+    font-size: 14px;
 }
 
 
-/* EVENTS */
+/* ==================================================
+   EVENTS
+================================================== */
 
 .events {
-  padding: 110px 0;
+    padding: 110px 0;
 }
 
 .filterList {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
 
-  gap: 10px;
+    flex-wrap: wrap;
 
-  margin-bottom: 35px;
+    gap: 10px;
+
+    margin-bottom: 35px;
 }
 
 .filterList span {
-  padding: 9px 15px;
+    padding: 9px 15px;
 
-  color: #536870;
+    color: #536870;
 
-  background: #f5f8f9;
+    background: #f5f8f9;
 
-  border-radius: 30px;
+    border-radius: 30px;
 
-  font-size: 12px;
-  font-weight: 600;
+    font-size: 12px;
+
+    font-weight: 600;
 }
 
 .eventList {
-  border-top: 1px solid #dfe6e8;
+    border-top: 1px solid #dfe6e8;
 }
 
 .eventRow {
-  display: grid;
-  grid-template-columns: 180px 1fr auto;
+    display: grid;
 
-  align-items: center;
+    grid-template-columns: 180px 1fr auto;
 
-  gap: 30px;
+    align-items: center;
 
-  padding: 28px 10px;
+    gap: 30px;
 
-  border-bottom: 1px solid #dfe6e8;
+    padding: 28px 10px;
 
-  transition: 0.25s ease;
+    border-bottom: 1px solid #dfe6e8;
+
+    transition:
+        padding 0.25s ease,
+        background 0.25s ease;
 }
 
 .eventRow:hover {
-  padding-left: 18px;
-  padding-right: 18px;
+    padding-left: 18px;
 
-  background: #f8fafb;
+    padding-right: 18px;
+
+    background: #f8fafb;
 }
 
 .eventDate {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+
+    flex-direction: column;
 }
 
 .eventDate strong {
-  color: #0b4c69;
+    color: #0b4c69;
 
-  font-size: 22px;
+    font-size: 22px;
 }
 
 .eventDate span {
-  margin-top: 4px;
+    margin-top: 4px;
 
-  color: #7b898f;
+    color: #7b898f;
 
-  font-size: 13px;
+    font-size: 13px;
 }
 
 .eventCategory {
-  color: #c88a00;
+    color: #c88a00;
 
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
 }
 
 .eventInfo h3 {
-  margin: 6px 0 0;
+    margin: 6px 0 0;
 
-  color: #183f52;
+    color: #183f52;
 
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .eventNumber {
-  color: #b9c4c8;
+    color: #b9c4c8;
 
-  font-size: 13px;
-  font-weight: 700;
+    font-size: 13px;
+
+    font-weight: 700;
 }
 
 
-/* RHYTHM */
+/* ==================================================
+   RHYTHM
+================================================== */
 
 .rhythm {
-  padding: 110px 0;
+    padding: 110px 0;
 
-  background: #0b4c69;
+    background: #0b4c69;
 }
 
 .rhythm .container {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+    display: grid;
 
-  gap: 80px;
+    grid-template-columns: 0.8fr 1.2fr;
 
-  align-items: center;
+    gap: 80px;
+
+    align-items: center;
 }
 
 .rhythmContent h2 {
-  color: #fff;
+    color: #ffffff;
 }
 
 .rhythmContent p {
-  color: rgba(255, 255, 255, 0.72);
+    color: rgba(255, 255, 255, 0.72);
 }
 
 .rhythmGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    display: grid;
 
-  gap: 18px;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
 }
 
 .rhythmGrid div {
-  padding: 30px;
+    padding: 30px;
 
-  border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 
-  border-radius: 12px;
+    border-radius: 12px;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.rhythmGrid div:hover {
+    background: rgba(255, 255, 255, 0.04);
+
+    transform: translateY(-3px);
 }
 
 .rhythmGrid strong {
-  color: #c88a00;
+    color: #c88a00;
 
-  font-size: 13px;
+    font-size: 13px;
 }
 
 .rhythmGrid h3 {
-  margin: 18px 0 10px;
+    margin: 18px 0 10px;
 
-  color: #fff;
+    color: #ffffff;
 
-  font-size: 21px;
+    font-size: 21px;
 }
 
 .rhythmGrid p {
-  margin: 0;
+    margin: 0;
 
-  color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.65);
 
-  line-height: 1.6;
+    line-height: 1.6;
 }
 
 
@@ -533,11 +688,7 @@
 
     color: #ffffff;
 
-    font-size: clamp(
-        42px,
-        5vw,
-        62px
-    );
+    font-size: clamp(42px, 5vw, 62px);
 
     line-height: 1.05;
 
@@ -593,7 +744,6 @@
         transform 0.3s ease;
 }
 
-
 .ctaButton:hover {
     background: #ffffff;
 
@@ -604,10 +754,177 @@
 
 
 /* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+    .downloadContent {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .termGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .rhythm .container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .eventRow {
+        grid-template-columns: 140px 1fr auto;
+
+        gap: 20px;
+    }
+}
+
+
+/* ==================================================
    MOBILE
 ================================================== */
 
 @media (max-width: 650px) {
+
+    .container {
+        width: 88%;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        min-height: 470px;
+    }
+
+    .heroContent {
+        width: 88%;
+
+        padding: 80px 0;
+    }
+
+    .heroContent h1 {
+        font-size: 48px;
+
+        letter-spacing: -1px;
+    }
+
+    .heroContent p {
+        font-size: 15px;
+    }
+
+
+    /* ---------- INTRO ---------- */
+
+    .introduction {
+        padding: 70px 0 55px;
+    }
+
+    .introduction h2,
+    .sectionHeader h2,
+    .rhythmContent h2 {
+        font-size: 36px;
+    }
+
+    .introduction p,
+    .sectionHeader p,
+    .rhythmContent p {
+        font-size: 15px;
+    }
+
+
+    /* ---------- DOWNLOAD ---------- */
+
+    .downloadSection {
+        padding: 55px 0;
+    }
+
+    .downloadContent {
+        padding: 30px 25px;
+
+        gap: 30px;
+    }
+
+    .downloadContent h2 {
+        font-size: 28px;
+    }
+
+    .downloadButton {
+        width: 100%;
+    }
+
+
+    /* ---------- TERMS ---------- */
+
+    .terms {
+        padding: 75px 0;
+    }
+
+    .termGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .termCard {
+        padding: 32px 25px;
+    }
+
+
+    /* ---------- EVENTS ---------- */
+
+    .events {
+        padding: 75px 0;
+    }
+
+    .filterList {
+        margin-bottom: 25px;
+    }
+
+    .eventRow {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        padding: 25px 0;
+    }
+
+    .eventRow:hover {
+        padding-left: 10px;
+
+        padding-right: 10px;
+    }
+
+    .eventDate strong {
+        font-size: 20px;
+    }
+
+    .eventInfo h3 {
+        font-size: 18px;
+    }
+
+    .eventNumber {
+        display: none;
+    }
+
+
+    /* ---------- RHYTHM ---------- */
+
+    .rhythm {
+        padding: 75px 0;
+    }
+
+    .rhythmGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .rhythmGrid div {
+        padding: 25px;
+    }
+
+
+    /* ---------- CTA ---------- */
 
     .cta {
         min-height: 400px;
@@ -615,11 +932,9 @@
         padding: 75px 20px;
     }
 
-
     .ctaContent {
         width: 92%;
     }
-
 
     .ctaContent h2 {
         font-size: 38px;
@@ -627,14 +942,11 @@
         line-height: 1.08;
     }
 
-
     .ctaContent h2 br {
         display: none;
     }
 
-
     .ctaContent p {
         font-size: 14px;
     }
-
 }
