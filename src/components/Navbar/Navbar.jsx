@@ -70,6 +70,7 @@ function Navbar() {
 
 
       setNewsletters(data || []);
+
     };
 
 
@@ -147,6 +148,7 @@ function Navbar() {
 
             })
           ),
+
       };
 
     });
@@ -165,6 +167,7 @@ function Navbar() {
     );
 
     setOpenMobileSubmenu(null);
+
   };
 
 
@@ -175,6 +178,7 @@ function Navbar() {
         ? null
         : title
     );
+
   };
 
 
@@ -185,6 +189,7 @@ function Navbar() {
     setOpenMobileMenu(null);
 
     setOpenMobileSubmenu(null);
+
   };
 
 
@@ -194,6 +199,7 @@ function Navbar() {
 
   const { t, i18n } =
     useTranslation();
+
 
   const currentLanguage =
     i18n.language;
@@ -283,6 +289,7 @@ function Navbar() {
 
         contact:
           "Contact",
+
       };
 
 
@@ -290,10 +297,12 @@ function Navbar() {
         labels[key] ||
         key
       );
+
     }
 
 
     return translated;
+
   };
 
 
@@ -312,12 +321,13 @@ function Navbar() {
         "highgate-language",
         language
       );
+
     };
 
 
   return (
 
-    <>
+    <header className={styles.header}>
 
       {/* ==================================================
           TOP BAR
@@ -369,10 +379,11 @@ function Navbar() {
           MAIN NAVBAR
       ================================================== */}
 
-      <header
-        className={styles.navbar}
+      <nav
+        className={
+          styles.navbar
+        }
       >
-
 
         {/* =========================
             LOGO
@@ -388,7 +399,9 @@ function Navbar() {
           <img
             src={logo}
             alt="High Gate International Academy"
-            className={styles.logo}
+            className={
+              styles.logo
+            }
           />
 
         </Link>
@@ -419,7 +432,6 @@ function Navbar() {
                     styles.menuItem
                   }
                 >
-
 
                   {/* =========================
                       TOP LEVEL LINK
@@ -499,7 +511,6 @@ function Navbar() {
                             }
                           >
 
-
                             {/* =========================
                                 NESTED SUBMENU
                             ========================= */}
@@ -570,10 +581,6 @@ function Navbar() {
 
                             ) : (
 
-                              /* =========================
-                                 NORMAL DROPDOWN LINK
-                              ========================= */
-
                               <Link
                                 to={
                                   subItem.path
@@ -612,7 +619,7 @@ function Navbar() {
 
 
         {/* ==================================================
-            DESKTOP ACTIONS
+            DESKTOP LANGUAGE SWITCHER
         ================================================== */}
 
         <div
@@ -624,7 +631,7 @@ function Navbar() {
           <button
             className={
               currentLanguage ===
-                "en"
+              "en"
                 ? styles.activeLanguage
                 : ""
             }
@@ -644,7 +651,7 @@ function Navbar() {
           <button
             className={
               currentLanguage ===
-                "fr"
+              "fr"
                 ? styles.activeLanguage
                 : ""
             }
@@ -657,6 +664,10 @@ function Navbar() {
 
         </div>
 
+
+        {/* ==================================================
+            DESKTOP ACTIONS
+        ================================================== */}
 
         <div
           className={
@@ -673,10 +684,12 @@ function Navbar() {
             {t("nav.contact")}
           </Link>
 
+
           <Link
-            to="/admissions/apply"
-            className={styles.applyButton}
-            onClick={closeMobileMenu}
+            to="/admissions"
+            className={
+              styles.applyButton
+            }
           >
             {t("nav.applyNow")}
           </Link>
@@ -724,9 +737,10 @@ function Navbar() {
         <div
           className={`
             ${styles.mobileMenu}
-            ${mobileMenuOpen
-              ? styles.mobileMenuOpen
-              : ""
+            ${
+              mobileMenuOpen
+                ? styles.mobileMenuOpen
+                : ""
             }
           `}
         >
@@ -747,11 +761,6 @@ function Navbar() {
                   }
                 >
 
-
-                  {/* =========================
-                      TOP LEVEL WITHOUT SUBMENU
-                  ========================= */}
-
                   {!item.submenu ? (
 
                     <Link
@@ -771,10 +780,6 @@ function Navbar() {
                     </Link>
 
                   ) : (
-
-                    /* =========================
-                       TOP LEVEL WITH SUBMENU
-                    ========================= */
 
                     <>
 
@@ -800,7 +805,7 @@ function Navbar() {
                           size={18}
                           className={
                             openMobileMenu ===
-                              item.key
+                            item.key
                               ? styles.rotate
                               : ""
                           }
@@ -812,10 +817,11 @@ function Navbar() {
                       <ul
                         className={`
                           ${styles.mobileDropdown}
-                          ${openMobileMenu ===
+                          ${
+                            openMobileMenu ===
                             item.key
-                            ? styles.mobileDropdownOpen
-                            : ""
+                              ? styles.mobileDropdownOpen
+                              : ""
                           }
                         `}
                       >
@@ -831,11 +837,6 @@ function Navbar() {
                                 styles.mobileNestedItem
                               }
                             >
-
-
-                              {/* =========================
-                                  SECOND LEVEL WITH SUBMENU
-                              ========================= */}
 
                               {subItem.submenu ? (
 
@@ -853,12 +854,10 @@ function Navbar() {
                                   >
 
                                     <span>
-                                      {
-                                        subItem.title ||
+                                      {subItem.title ||
                                         getNavLabel(
                                           subItem.key
-                                        )
-                                      }
+                                        )}
                                     </span>
 
 
@@ -866,7 +865,7 @@ function Navbar() {
                                       size={16}
                                       className={
                                         openMobileSubmenu ===
-                                          subItem.key
+                                        subItem.key
                                           ? styles.rotate
                                           : ""
                                       }
@@ -878,10 +877,11 @@ function Navbar() {
                                   <ul
                                     className={`
                                       ${styles.mobileNestedDropdown}
-                                      ${openMobileSubmenu ===
+                                      ${
+                                        openMobileSubmenu ===
                                         subItem.key
-                                        ? styles.mobileNestedDropdownOpen
-                                        : ""
+                                          ? styles.mobileNestedDropdownOpen
+                                          : ""
                                       }
                                     `}
                                   >
@@ -926,10 +926,6 @@ function Navbar() {
 
                               ) : (
 
-                                /* =========================
-                                   NORMAL MOBILE LINK
-                                ========================= */
-
                                 <Link
                                   to={
                                     subItem.path
@@ -942,12 +938,10 @@ function Navbar() {
                                   }
                                 >
 
-                                  {
-                                    subItem.title ||
+                                  {subItem.title ||
                                     getNavLabel(
                                       subItem.key
-                                    )
-                                  }
+                                    )}
 
                                 </Link>
 
@@ -993,9 +987,13 @@ function Navbar() {
 
 
             <Link
-              to="/admissions/apply"
-              className={styles.applyButton}
-              onClick={closeMobileMenu}
+              to="/admissions"
+              className={
+                styles.applyButton
+              }
+              onClick={
+                closeMobileMenu
+              }
             >
               {t("nav.applyNow")}
             </Link>
@@ -1004,10 +1002,12 @@ function Navbar() {
 
         </div>
 
-      </header>
+      </nav>
 
-    </>
+    </header>
+
   );
+
 }
 
 
