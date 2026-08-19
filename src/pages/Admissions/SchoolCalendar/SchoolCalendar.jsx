@@ -1,6 +1,8 @@
 import styles from "./SchoolCalendar.module.css";
 import { Link } from "react-router-dom";
 
+import aboutMain from "../../../assets/images/about/about-main.JPG";
+
 const terms = [
   {
     term: "Term 1",
@@ -155,21 +157,65 @@ function SchoolCalendar() {
       {/* HERO */}
 
       <section className={styles.hero}>
-        <div className={styles.heroOverlay}>
-          <div className={styles.heroContent}>
 
-            <span className={styles.eyebrow}>
-              ADMISSIONS
+        {/* HERO IMAGE */}
+
+        <div className={styles.heroImage}>
+
+          <img
+            src={aboutMain}
+            alt="High Gate International Academy students"
+          />
+
+        </div>
+
+
+        {/* DARK BLUE OVERLAY */}
+
+        <div className={styles.heroOverlay} />
+
+
+        {/* HERO CONTENT */}
+
+        <div className={styles.heroContent}>
+
+          <span className={styles.eyebrow}>
+            ADMISSIONS
+          </span>
+
+          <h1>
+            School Calendar
+          </h1>
+
+          <p>
+            2026–2027 Academic Year
+          </p>
+
+
+          {/* BREADCRUMB */}
+
+          <div className={styles.breadcrumb}>
+
+            <Link to="/">
+              Home
+            </Link>
+
+            <span>/</span>
+
+            <Link to="/admissions/calendar">
+              Admissions
+            </Link>
+
+            <span>/</span>
+
+            <span>
+              School Calendar
             </span>
 
-            <h1>School Calendar</h1>
-
-            <p>
-              2026–2027 Academic Year
-            </p>
-
           </div>
+
         </div>
+
       </section>
 
 
@@ -195,7 +241,7 @@ function SchoolCalendar() {
         </div>
       </section>
 
-            {/* DOWNLOAD CALENDAR */}
+      {/* DOWNLOAD CALENDAR */}
 
       <section className={styles.downloadSection}>
         <div className={styles.container}>

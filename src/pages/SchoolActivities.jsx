@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import styles from "./SchoolActivities.module.css";
 
+import schoolLifeImage from "../assets/images/about/about-main.JPG";
+
 import { supabase } from "../lib/supabase";
 
 function SchoolActivities() {
@@ -44,17 +46,33 @@ function SchoolActivities() {
 
       {/* HEADER */}
 
-      <section className={styles.header}>
-        <span>School Activities</span>
+      <section
+        className={styles.pageHeader}
+        style={{
+          backgroundImage: `url(${schoolLifeImage})`,
+        }}
+      >
 
-        <h1>
-          Life at High Gate
-        </h1>
+        <div className={styles.headerOverlay} />
 
-        <p>
-          Discover what happens beyond the classroom
-          through our school activities and videos.
-        </p>
+        <div className={styles.headerContent}>
+
+          <span className={styles.label}>
+            SCHOOL LIFE
+          </span>
+
+          <h1>
+            School Activities
+          </h1>
+
+          <p>
+            Discover the activities and experiences
+            that make life at High Gate meaningful,
+            engaging and enjoyable.
+          </p>
+
+        </div>
+
       </section>
 
 

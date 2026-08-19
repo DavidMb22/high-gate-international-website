@@ -4,6 +4,8 @@ import { ArrowUpRight } from "lucide-react";
 
 import styles from "./SchoolEvents.module.css";
 
+import schoolLifeImage from "../assets/images/about/about-main.JPG";
+
 import { supabase } from "../lib/supabase";
 
 function SchoolEvents() {
@@ -52,9 +54,9 @@ function SchoolEvents() {
     selectedYear === "All"
       ? events
       : events.filter(
-          (event) =>
-            String(event.year) === selectedYear
-        );
+        (event) =>
+          String(event.year) === selectedYear
+      );
 
   return (
     <main className={styles.page}>
@@ -63,21 +65,32 @@ function SchoolEvents() {
           PAGE HEADER
       ========================= */}
 
-      <section className={styles.pageHeader}>
+      <section
+        className={styles.pageHeader}
+        style={{
+          backgroundImage: `url(${schoolLifeImage})`,
+        }}
+      >
 
-        <span className={styles.label}>
-          School Life
-        </span>
+        <div className={styles.headerOverlay} />
 
-        <h1>
-          Life at High Gate
-        </h1>
+        <div className={styles.headerContent}>
 
-        <p>
-          Explore the events, celebrations and
-          experiences that make our school community
-          special.
-        </p>
+          <span className={styles.label}>
+            SCHOOL LIFE
+          </span>
+
+          <h1>
+            Life at High Gate
+          </h1>
+
+          <p>
+            Explore the events, celebrations and
+            experiences that make our school community
+            special.
+          </p>
+
+        </div>
 
       </section>
 

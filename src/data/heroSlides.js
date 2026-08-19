@@ -8,7 +8,7 @@ export const heroSlides = [
     subtitleKey: "hero.slide1Subtitle",
     titleKey: "hero.slide1Title",
     buttonKey: "hero.slide1Button",
-    path: "/admissions",
+    path: "/admissions/apply",
   },
 
   {
@@ -16,7 +16,7 @@ export const heroSlides = [
     subtitleKey: "hero.slide2Subtitle",
     titleKey: "hero.slide2Title",
     buttonKey: "hero.slide2Button",
-    path: "/curriculum",
+    path: "/why-high-gate",
   },
 
   {
@@ -24,6 +24,6 @@ export const heroSlides = [
     subtitleKey: "hero.slide3Subtitle",
     titleKey: "hero.slide3Title",
     buttonKey: "hero.slide3Button",
-    path: "/school-life",
+    path: "/curriculum",
   },
 ];

@@ -1,123 +1,144 @@
+/* ==================================================
+   ADMISSIONS CTA
+================================================== */
+
 .admissions {
-    padding: 100px 0;
+    position: relative;
 
-    background: #f7faf9;
-}
+    min-height: 420px;
 
+    display: flex;
 
-/* =========================
-   CONTAINER
-========================= */
+    align-items: center;
 
-.container {
-    width: 90%;
+    justify-content: center;
 
-    max-width: 1250px;
+    padding: 90px 20px;
 
-    min-height: 480px;
+    background-position: center;
 
-    margin: 0 auto;
+    background-size: cover;
 
-    display: grid;
-
-    grid-template-columns:
-        0.9fr 1.1fr;
-
-    background: #0b4c69;
-
-    border-radius: 28px;
+    background-repeat: no-repeat;
 
     overflow: hidden;
 }
 
 
-/* =========================
-   CONTENT
-========================= */
+/* ==================================================
+   DARK OVERLAY
+================================================== */
 
-.content {
-    display: flex;
+.overlay {
+    position: absolute;
 
-    flex-direction: column;
+    inset: 0;
 
-    justify-content: center;
+    z-index: 1;
 
-    padding: 65px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 48, 66, 0.94),
+            rgba(5, 48, 66, 0.82)
+        );
 }
 
+
+/* ==================================================
+   CONTENT
+================================================== */
+
+.content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+
+/* ==================================================
+   LABEL
+================================================== */
+
 .label {
-    display: inline-flex;
+    display: block;
 
-    align-items: center;
+    margin-bottom: 18px;
 
-    gap: 10px;
+    color: #c88a00;
 
-    color: #e2a52c;
-
-    font-size: 13px;
+    font-size: 14px;
 
     font-weight: 700;
 
+    letter-spacing: 2px;
+
     text-transform: uppercase;
-
-    letter-spacing: 1.8px;
-
-    margin-bottom: 18px;
 }
 
-.label::before {
-    content: "";
 
-    width: 28px;
-
-    height: 3px;
-
-    background: #e2a52c;
-
-    border-radius: 10px;
-}
+/* ==================================================
+   TITLE
+================================================== */
 
 .content h2 {
+    margin: 0 0 22px;
+
     color: #ffffff;
 
-    font-size: clamp(42px, 4vw, 58px);
+    font-size: clamp(
+        42px,
+        5vw,
+        62px
+    );
 
     line-height: 1.05;
 
-    letter-spacing: -1.5px;
-
-    margin: 0 0 24px;
+    letter-spacing: -1px;
 }
 
-.content p {
-    max-width: 480px;
 
-    color: rgba(255, 255, 255, 0.78);
+/* ==================================================
+   DESCRIPTION
+================================================== */
+
+.content p {
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+
+    color: rgba(255, 255, 255, 0.88);
 
     font-size: 15px;
 
     line-height: 1.8;
-
-    margin: 0;
 }
 
 
-/* =========================
+/* ==================================================
    BUTTON
-========================= */
+================================================== */
 
 .button {
     display: inline-flex;
 
     align-items: center;
 
-    gap: 10px;
+    justify-content: center;
 
-    width: fit-content;
+    gap: 9px;
 
-    margin-top: 30px;
-
-    padding: 14px 25px;
+    padding: 14px 27px;
 
     background: #c88a00;
 
@@ -133,186 +154,65 @@
 
     transition:
         background 0.3s ease,
+        color 0.3s ease,
         transform 0.3s ease,
         gap 0.3s ease;
 }
 
+
 .button:hover {
-    background: #e2a52c;
+    background: #ffffff;
+
+    color: #0b4c69;
 
     transform: translateY(-3px);
 
-    gap: 14px;
+    gap: 13px;
 }
 
 
-/* =========================
-   IMAGE
-========================= */
-
-.imageWrapper {
-    position: relative;
-
-    min-height: 480px;
-
-    overflow: hidden;
-}
-
-.imageWrapper::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(11, 76, 105, 0.15),
-            transparent 50%
-        );
-}
-
-.imageWrapper img {
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition:
-        transform 0.7s ease;
-}
-
-.container:hover .imageWrapper img {
-    transform: scale(1.03);
-}
-
-
-/* =========================
-   IMAGE BADGE
-========================= */
-
-.imageBadge {
-    position: absolute;
-
-    right: 25px;
-
-    bottom: 25px;
-
-    z-index: 3;
-
-    display: flex;
-
-    flex-direction: column;
-
-    padding: 16px 20px;
-
-    background: #ffffff;
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.18);
-}
-
-.imageBadge strong {
-    color: #0b4c69;
-
-    font-size: 18px;
-}
-
-.imageBadge span {
-    color: #777;
-
-    font-size: 12px;
-
-    margin-top: 3px;
-}
-
-.imageSkeleton {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-
-  height: 100%;
-
-  border-radius: 0;
-
-  z-index: 1;
-}
-
-.imageWrapper img {
-  opacity: 0;
-
-  transition: opacity 0.5s ease;
-}
-
-.imageWrapper img.imageLoaded {
-  opacity: 1;
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 900px) {
-
-    .container {
-        grid-template-columns: 1fr;
-
-        min-height: auto;
-    }
-
-    .content {
-        padding: 60px;
-    }
-
-    .imageWrapper {
-        min-height: 400px;
-    }
-}
-
-
-/* =========================
+/* ==================================================
    MOBILE
-========================= */
+================================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
     .admissions {
-        padding: 70px 0;
+        min-height: 400px;
+
+        padding: 75px 20px;
     }
 
-    .container {
-        width: 88%;
-
-        border-radius: 22px;
-    }
 
     .content {
-        padding: 45px 28px;
+        width: 92%;
     }
 
+
     .content h2 {
-        font-size: 39px;
+        font-size: 38px;
+
+        line-height: 1.08;
     }
+
+
+    .content h2 br {
+        display: none;
+    }
+
 
     .content p {
         font-size: 14px;
     }
 
-    .imageWrapper {
-        min-height: 330px;
+
+    .overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(5, 48, 66, 0.94),
+                rgba(5, 48, 66, 0.84)
+            );
     }
 
-    .imageBadge {
-        right: 18px;
-
-        bottom: 18px;
-    }
 }

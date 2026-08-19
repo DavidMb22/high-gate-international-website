@@ -9,9 +9,14 @@ function AdminDashboard() {
 
   const [eventCount, setEventCount] = useState(0);
   const [activityCount, setActivityCount] = useState(0);
+  const [upcomingEventCount, setUpcomingEventCount] =
+    useState(0);
 
   const [recentEvents, setRecentEvents] = useState([]);
-  const [recentActivities, setRecentActivities] = useState([]);
+  const [recentActivities, setRecentActivities] =
+    useState([]);
+  const [recentUpcomingEvents, setRecentUpcomingEvents] =
+    useState([]);
 
   const [loading, setLoading] = useState(true);
 
@@ -24,11 +29,16 @@ function AdminDashboard() {
     const loadDashboard = async () => {
       setLoading(true);
 
+      const today =
+        new Date().toISOString().split("T")[0];
+
       const [
         eventsResult,
         activitiesResult,
+        upcomingEventsResult,
         recentEventsResult,
         recentActivitiesResult,
+        recentUpcomingEventsResult,
       ] = await Promise.all([
         supabase
           .from("events")
@@ -39,8 +49,18 @@ function AdminDashboard() {
           .select("*", { count: "exact", head: true }),
 
         supabase
+          .from("upcoming_events")
+          .select("*", {
+            count: "exact",
+            head: true,
+          })
+          .gte("event_date", today),
+
+        supabase
           .from("events")
-          .select("id, title, year, event_date")
+          .select(
+            "id, title, year, event_date"
+          )
           .order("event_date", {
             ascending: false,
           })
@@ -53,6 +73,16 @@ function AdminDashboard() {
           )
           .order("activity_date", {
             ascending: false,
+          })
+          .limit(5),
+
+        supabase
+          .from("upcoming_events")
+          .select(
+            "id, title, event_date, status"
+          )
+          .order("event_date", {
+            ascending: true,
           })
           .limit(5),
       ]);
@@ -71,6 +101,13 @@ function AdminDashboard() {
         );
       }
 
+      if (upcomingEventsResult.error) {
+        console.error(
+          "Error loading upcoming event count:",
+          upcomingEventsResult.error
+        );
+      }
+
       if (recentEventsResult.error) {
         console.error(
           "Error loading recent events:",
@@ -85,9 +122,21 @@ function AdminDashboard() {
         );
       }
 
+      if (recentUpcomingEventsResult.error) {
+        console.error(
+          "Error loading upcoming events:",
+          recentUpcomingEventsResult.error
+        );
+      }
+
       setEventCount(eventsResult.count || 0);
+
       setActivityCount(
         activitiesResult.count || 0
+      );
+
+      setUpcomingEventCount(
+        upcomingEventsResult.count || 0
       );
 
       setRecentEvents(
@@ -96,6 +145,10 @@ function AdminDashboard() {
 
       setRecentActivities(
         recentActivitiesResult.data || []
+      );
+
+      setRecentUpcomingEvents(
+        recentUpcomingEventsResult.data || []
       );
 
       setLoading(false);
@@ -168,6 +221,8 @@ function AdminDashboard() {
 
         <div className={styles.statsGrid}>
 
+          {/* SCHOOL EVENTS */}
+
           <button
             className={styles.statCard}
             onClick={() =>
@@ -194,6 +249,8 @@ function AdminDashboard() {
           </button>
 
 
+          {/* SCHOOL ACTIVITIES */}
+
           <button
             className={styles.statCard}
             onClick={() =>
@@ -219,6 +276,36 @@ function AdminDashboard() {
 
           </button>
 
+
+          {/* UPCOMING EVENTS */}
+
+          <button
+            className={styles.statCard}
+            onClick={() =>
+              navigate("/admin/upcoming-events")
+            }
+          >
+
+            <span className={styles.number}>
+              03
+            </span>
+
+            <span className={styles.statLabel}>
+              UPCOMING EVENTS
+            </span>
+
+            <strong className={styles.statNumber}>
+              {loading
+                ? "—"
+                : upcomingEventCount}
+            </strong>
+
+            <span className={styles.cardLink}>
+              Manage Upcoming Events →
+            </span>
+
+          </button>
+
         </div>
 
 
@@ -227,6 +314,7 @@ function AdminDashboard() {
         ========================= */}
 
         <div className={styles.sectionHeader}>
+
           <span className={styles.eyebrow}>
             QUICK ACTIONS
           </span>
@@ -234,6 +322,7 @@ function AdminDashboard() {
           <h2>
             Add New Content
           </h2>
+
         </div>
 
 
@@ -255,6 +344,17 @@ function AdminDashboard() {
             }
           >
             + Add School Activity
+          </button>
+
+          <button
+            className={styles.secondaryAction}
+            onClick={() =>
+              navigate(
+                "/admin/upcoming-events/new"
+              )
+            }
+          >
+            + Add Upcoming Event
           </button>
 
         </div>
@@ -306,6 +406,7 @@ function AdminDashboard() {
                   >
 
                     <div>
+
                       <h3>
                         {event.title}
                       </h3>
@@ -313,9 +414,12 @@ function AdminDashboard() {
                       <span>
                         {event.year}
                       </span>
+
                     </div>
 
-                    <span className={styles.arrow}>
+                    <span
+                      className={styles.arrow}
+                    >
                       →
                     </span>
 
@@ -373,10 +477,13 @@ function AdminDashboard() {
 
                     <div
                       key={activity.id}
-                      className={styles.recentItem}
+                      className={
+                        styles.recentItem
+                      }
                     >
 
                       <div>
+
                         <h3>
                           {activity.title}
                         </h3>
@@ -384,6 +491,7 @@ function AdminDashboard() {
                         <span>
                           {activity.year}
                         </span>
+
                       </div>
 
                       <span
@@ -403,6 +511,86 @@ function AdminDashboard() {
 
               <div className={styles.noContent}>
                 No activities have been added yet.
+              </div>
+
+            )}
+
+          </div>
+
+
+          {/* RECENT UPCOMING EVENTS */}
+
+          <div className={styles.recentSection}>
+
+            <div className={styles.recentHeader}>
+
+              <div>
+                <span className={styles.eyebrow}>
+                  UPCOMING EVENTS
+                </span>
+
+                <h2>
+                  Coming Up
+                </h2>
+              </div>
+
+              <button
+                onClick={() =>
+                  navigate(
+                    "/admin/upcoming-events"
+                  )
+                }
+                className={styles.viewAll}
+              >
+                View All →
+              </button>
+
+            </div>
+
+
+            {recentUpcomingEvents.length > 0 ? (
+
+              <div className={styles.recentList}>
+
+                {recentUpcomingEvents.map(
+                  (event) => (
+
+                    <div
+                      key={event.id}
+                      className={
+                        styles.recentItem
+                      }
+                    >
+
+                      <div>
+
+                        <h3>
+                          {event.title}
+                        </h3>
+
+                        <span>
+                          {event.event_date}
+                        </span>
+
+                      </div>
+
+                      <span
+                        className={styles.arrow}
+                      >
+                        →
+                      </span>
+
+                    </div>
+
+                  )
+                )}
+
+              </div>
+
+            ) : (
+
+              <div className={styles.noContent}>
+                No upcoming events have been added yet.
               </div>
 
             )}

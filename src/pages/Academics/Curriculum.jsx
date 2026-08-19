@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import {
   ArrowRight,
   BookOpen,
@@ -11,8 +12,6 @@ import {
 
 import styles from "./Curriculum.module.css";
 
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import useImageLoader from "../../hooks/useImageLoader";
 
@@ -21,13 +20,26 @@ import aboutSmall1 from "../../assets/images/about/about-small-1.JPG";
 import aboutSmall2 from "../../assets/images/about/about-small-2.JPG";
 
 
-function CurriculumImage({ src, alt, className = "" }) {
+/* ==================================================
+   IMAGE COMPONENT
+================================================== */
+
+function CurriculumImage({
+  src,
+  alt,
+  className = "",
+}) {
   const loaded = useImageLoader(src);
 
   return (
-    <div className={`${styles.imageWrapper} ${className}`}>
+    <div
+      className={`${styles.imageWrapper} ${className}`}
+    >
+
       {!loaded && (
-        <Skeleton className={styles.imageSkeleton} />
+        <Skeleton
+          className={styles.imageSkeleton}
+        />
       )}
 
       <img
@@ -37,14 +49,24 @@ function CurriculumImage({ src, alt, className = "" }) {
           loaded ? styles.imageLoaded : ""
         }`}
       />
+
     </div>
   );
 }
 
 
+/* ==================================================
+   CURRICULUM PAGE
+================================================== */
+
 function Curriculum() {
 
+  /* ==================================================
+     LEARNING PRINCIPLES
+  ================================================== */
+
   const learningPrinciples = [
+
     {
       icon: BookOpen,
       title: "Strong Foundations",
@@ -86,15 +108,15 @@ function Curriculum() {
       text:
         "Students learn to communicate, cooperate and contribute through collaborative learning experiences.",
     },
+
   ];
 
 
   return (
     <>
-      <Navbar />
 
       <main>
-        
+
 
         {/* ==================================================
             HERO
@@ -118,13 +140,17 @@ function Curriculum() {
                 Home
               </Link>
 
-              <span>/</span>
+              <span>
+                /
+              </span>
 
               <span>
                 Academics
               </span>
 
-              <span>/</span>
+              <span>
+                /
+              </span>
 
               <span>
                 Our Curriculum
@@ -145,6 +171,7 @@ function Curriculum() {
 
           <div className={styles.container}>
 
+
             <div className={styles.introImage}>
 
               <CurriculumImage
@@ -163,7 +190,10 @@ function Curriculum() {
 
               <h2>
                 Preparing students for
-                <span> the world ahead.</span>
+                <span>
+                  {" "}
+                  the world ahead.
+                </span>
               </h2>
 
               <p>
@@ -179,12 +209,15 @@ function Curriculum() {
                 question, create and collaborate.
               </p>
 
+
               <Link
-                to="/admissions"
+                to="/admissions/apply"
                 className={styles.button}
               >
                 Explore Admissions
+
                 <ArrowRight size={18} />
+
               </Link>
 
             </div>
@@ -200,128 +233,139 @@ function Curriculum() {
 
         <section className={styles.educationalSystems}>
 
-        <div className={styles.container}>
+          <div className={styles.container}>
+
 
             <div className={styles.heading}>
 
-            <span className={styles.sectionLabel}>
+              <span className={styles.sectionLabel}>
                 OUR EDUCATIONAL SYSTEMS
-            </span>
+              </span>
 
-            <h2>
+              <h2>
                 Two perspectives.
-                <span> One complete education.</span>
-            </h2>
+                <span>
+                  {" "}
+                  One complete education.
+                </span>
+              </h2>
 
-            <p>
+              <p>
                 High Gate International Academy combines the
                 Canadian Education System with Cambridge Assessment
                 International Education to provide students with a
                 broad, engaging and internationally minded education.
-            </p>
+              </p>
 
             </div>
 
 
             <div className={styles.systemGrid}>
 
-            {/* CANADIAN EDUCATION */}
 
-            <article className={styles.systemCard}>
+              {/* ==================================================
+                  CANADIAN EDUCATION
+              ================================================== */}
+
+              <article className={styles.systemCard}>
 
                 <div className={styles.systemIcon}>
-                <Globe2 size={30} />
+                  <Globe2 size={30} />
                 </div>
 
                 <span className={styles.systemLabel}>
-                CANADIAN EDUCATION
+                  CANADIAN EDUCATION
                 </span>
 
                 <h3>
-                Canadian Education System
+                  Canadian Education System
                 </h3>
 
                 <p>
-                Our Canadian educational approach supports a
-                student-centred learning environment that encourages
-                inquiry, collaboration, creativity and the development
-                of practical skills.
+                  Our Canadian educational approach supports a
+                  student-centred learning environment that encourages
+                  inquiry, collaboration, creativity and the development
+                  of practical skills.
                 </p>
 
                 <div className={styles.systemFeatures}>
 
-                <span>
+                  <span>
                     ✓ Student-centred learning
-                </span>
+                  </span>
 
-                <span>
+                  <span>
                     ✓ Inquiry and exploration
-                </span>
+                  </span>
 
-                <span>
+                  <span>
                     ✓ Collaboration and creativity
-                </span>
+                  </span>
 
                 </div>
 
-            </article>
+              </article>
 
 
-            {/* CAMBRIDGE */}
+              {/* ==================================================
+                  CAMBRIDGE EDUCATION
+              ================================================== */}
 
-            <article className={styles.systemCard}>
+              <article className={styles.systemCard}>
 
                 <div className={styles.systemIcon}>
-                <BookOpen size={30} />
+                  <BookOpen size={30} />
                 </div>
 
                 <span className={styles.systemLabel}>
-                CAMBRIDGE EDUCATION
+                  CAMBRIDGE EDUCATION
                 </span>
 
                 <h3>
-                Cambridge Assessment International Education
+                  Cambridge Assessment International Education
                 </h3>
 
                 <p>
-                Our Cambridge pathway provides an internationally
-                recognised framework that challenges students to
-                think critically, apply their knowledge and prepare
-                confidently for further education and future
-                opportunities.
+                  Our Cambridge pathway provides an internationally
+                  recognised framework that challenges students to
+                  think critically, apply their knowledge and prepare
+                  confidently for further education and future
+                  opportunities.
                 </p>
 
                 <div className={styles.systemFeatures}>
 
-                <span>
+                  <span>
                     ✓ Internationally recognised education
-                </span>
+                  </span>
 
-                <span>
+                  <span>
                     ✓ Critical thinking
-                </span>
+                  </span>
 
-                <span>
+                  <span>
                     ✓ Strong academic preparation
-                </span>
+                  </span>
 
                 </div>
 
-            </article>
+              </article>
 
             </div>
 
-        </div>
+          </div>
 
         </section>
 
+
         {/* ==================================================
-            PROGRAMMES
+            OUR ACADEMIC JOURNEY
         ================================================== */}
 
         <section className={styles.programmes}>
 
           <div className={styles.container}>
+
 
             <div className={styles.heading}>
 
@@ -334,9 +378,10 @@ function Curriculum() {
               </h2>
 
               <p>
-                From the early years through secondary school,
-                students are supported through age-appropriate
-                learning experiences designed to help them grow.
+                From Crèche through Lower Secondary, students
+                are supported through age-appropriate learning
+                experiences designed to help them grow, discover
+                their potential and prepare for the future.
               </p>
 
             </div>
@@ -344,8 +389,13 @@ function Curriculum() {
 
             <div className={styles.programmeGrid}>
 
+
+              {/* ==================================================
+                  CRECHE
+              ================================================== */}
+
               <Link
-                to="/academics/early-years"
+                to="/academics/creche"
                 className={styles.programmeCard}
               >
 
@@ -353,29 +403,30 @@ function Curriculum() {
 
                   <CurriculumImage
                     src={aboutSmall1}
-                    alt="Early Years students"
+                    alt="Crèche students at High Gate International Academy"
                   />
 
                 </div>
 
+
                 <div className={styles.cardContent}>
 
                   <span>
-                    EARLY YEARS
+                    CRÈCHE
                   </span>
 
                   <h3>
-                    Early Years
+                    Crèche
                   </h3>
 
                   <p>
-                    Building curiosity, confidence and
-                    foundational skills through engaging
-                    early learning experiences.
+                    A safe and nurturing environment where
+                    our youngest learners begin discovering
+                    the world through play and exploration.
                   </p>
 
                   <strong>
-                    Explore Early Years
+                    Explore Crèche
                     <ArrowRight size={16} />
                   </strong>
 
@@ -383,6 +434,55 @@ function Curriculum() {
 
               </Link>
 
+
+              {/* ==================================================
+                  NURSERY
+              ================================================== */}
+
+              <Link
+                to="/academics/nursery"
+                className={styles.programmeCard}
+              >
+
+                <div className={styles.cardImage}>
+
+                  <CurriculumImage
+                    src={aboutSmall2}
+                    alt="Nursery students at High Gate International Academy"
+                  />
+
+                </div>
+
+
+                <div className={styles.cardContent}>
+
+                  <span>
+                    NURSERY
+                  </span>
+
+                  <h3>
+                    Nursery
+                  </h3>
+
+                  <p>
+                    Developing curiosity, creativity and
+                    early learning skills through engaging
+                    and age-appropriate experiences.
+                  </p>
+
+                  <strong>
+                    Explore Nursery
+                    <ArrowRight size={16} />
+                  </strong>
+
+                </div>
+
+              </Link>
+
+
+              {/* ==================================================
+                  PRIMARY SCHOOL
+              ================================================== */}
 
               <Link
                 to="/academics/primary"
@@ -392,11 +492,12 @@ function Curriculum() {
                 <div className={styles.cardImage}>
 
                   <CurriculumImage
-                    src={aboutSmall2}
-                    alt="Primary students"
+                    src={aboutMain}
+                    alt="Primary students at High Gate International Academy"
                   />
 
                 </div>
+
 
                 <div className={styles.cardContent}>
 
@@ -423,8 +524,12 @@ function Curriculum() {
               </Link>
 
 
+              {/* ==================================================
+                  LOWER SECONDARY
+              ================================================== */}
+
               <Link
-                to="/academics/secondary"
+                to="/academics/lower-secondary"
                 className={styles.programmeCard}
               >
 
@@ -432,28 +537,30 @@ function Curriculum() {
 
                   <CurriculumImage
                     src={aboutMain}
-                    alt="Secondary students"
+                    alt="Lower Secondary students at High Gate International Academy"
                   />
 
                 </div>
 
+
                 <div className={styles.cardContent}>
 
                   <span>
-                    SECONDARY SCHOOL
+                    LOWER SECONDARY
                   </span>
 
                   <h3>
-                    Secondary School
+                    Lower Secondary
                   </h3>
 
                   <p>
                     Preparing learners with the knowledge,
-                    skills and confidence for their next stage.
+                    skills and confidence for their next
+                    stage of education.
                   </p>
 
                   <strong>
-                    Explore Secondary
+                    Explore Lower Secondary
                     <ArrowRight size={16} />
                   </strong>
 
@@ -475,6 +582,7 @@ function Curriculum() {
         <section className={styles.principles}>
 
           <div className={styles.container}>
+
 
             <div className={styles.heading}>
 
@@ -502,6 +610,7 @@ function Curriculum() {
                 const Icon = principle.icon;
 
                 return (
+
                   <article
                     key={principle.title}
                     className={styles.principleCard}
@@ -520,6 +629,7 @@ function Curriculum() {
                     </p>
 
                   </article>
+
                 );
 
               })}
@@ -539,6 +649,7 @@ function Curriculum() {
 
           <div className={styles.container}>
 
+
             <div className={styles.internationalContent}>
 
               <span className={styles.sectionLabel}>
@@ -547,7 +658,10 @@ function Curriculum() {
 
               <h2>
                 Preparing learners for
-                <span> a global future.</span>
+                <span>
+                  {" "}
+                  a global future.
+                </span>
               </h2>
 
               <p>
@@ -556,27 +670,45 @@ function Curriculum() {
                 connected to their community and context.
               </p>
 
+
               <div className={styles.internationalPoints}>
 
                 <div>
-                  <strong>01</strong>
+
+                  <strong>
+                    01
+                  </strong>
+
                   <span>
                     Internationally minded learners
                   </span>
+
                 </div>
 
+
                 <div>
-                  <strong>02</strong>
+
+                  <strong>
+                    02
+                  </strong>
+
                   <span>
                     Strong academic foundations
                   </span>
+
                 </div>
 
+
                 <div>
-                  <strong>03</strong>
+
+                  <strong>
+                    03
+                  </strong>
+
                   <span>
                     Language and communication
                   </span>
+
                 </div>
 
               </div>
@@ -617,20 +749,22 @@ function Curriculum() {
             </h2>
 
             <Link
-              to="/admissions"
+              to="/admissions/apply"
               className={styles.ctaButton}
             >
               Start Your Application
+
               <ArrowRight size={18} />
+
             </Link>
 
           </div>
 
         </section>
 
+
       </main>
 
-      <Footer />
     </>
   );
 }

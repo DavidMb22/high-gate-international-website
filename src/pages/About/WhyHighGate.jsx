@@ -10,9 +10,6 @@ import {
 } from "lucide-react";
 
 import styles from "./WhyHighGate.module.css";
-
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import useImageLoader from "../../hooks/useImageLoader";
 
@@ -95,7 +92,6 @@ function WhyHighGate() {
 
   return (
     <>
-      <Navbar />
 
       <main>
 
@@ -430,7 +426,6 @@ function WhyHighGate() {
 
       </main>
 
-      <Footer />
     </>
   );
 }

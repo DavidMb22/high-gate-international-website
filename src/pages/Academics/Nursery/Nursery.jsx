@@ -498,7 +498,7 @@ function Nursery() {
           </p>
 
           <Link
-            to="/admissions"
+            to="/admissions/apply"
             className={styles.ctaButton}
           >
             Apply Now

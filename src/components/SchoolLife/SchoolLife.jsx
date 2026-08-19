@@ -1,47 +1,61 @@
-import styles from "./SchoolLife.module.css";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
-import { schoolLifeEvents } from "../../data/schoolLife";
+import { supabase } from "../../lib/supabase";
 
-import useImageLoader from "../../hooks/useImageLoader";
+import styles from "./SchoolLife.module.css";
 
-function EventImage({
-  src,
-  alt,
-}) {
-
-  const loaded = useImageLoader(src);
-
-  return (
-    <div className={styles.imageContainer}>
-
-      {!loaded && (
-        <Skeleton
-          className={styles.imageSkeleton}
-        />
-      )}
-
-      <img
-        src={event.image}
-        alt={event.title}
-        className={`${styles.eventImage} ${
-          loaded ? styles.imageLoaded : ""
-        }`}
-        onLoad={() => setLoaded(true)}
-      />
-
-    </div>
-  );
-}
 
 function SchoolLife() {
-  // Show only the first 3 events on the homepage
-  const featuredEvents = schoolLifeEvents.slice(0, 3);
+
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+
+    const loadFeaturedEvents = async () => {
+
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .order("event_date", {
+          ascending: false,
+        })
+        .limit(3);
+
+
+      if (error) {
+
+        console.error(
+          "Error loading school events:",
+          error
+        );
+
+        setEvents([]);
+        setLoading(false);
+
+        return;
+      }
+
+
+      setEvents(data || []);
+      setLoading(false);
+    };
+
+
+    loadFeaturedEvents();
+
+  }, []);
+
 
   return (
     <section className={styles.schoolLife}>
+
       <div className={styles.container}>
+
 
         {/* =========================
             SECTION HEADING
@@ -50,6 +64,7 @@ function SchoolLife() {
         <div className={styles.heading}>
 
           <div>
+
             <span className={styles.label}>
               School Life
             </span>
@@ -59,7 +74,9 @@ function SchoolLife() {
               <br />
               a classroom.
             </h2>
+
           </div>
+
 
           <p>
             At High Gate, learning happens everywhere.
@@ -71,85 +88,208 @@ function SchoolLife() {
         </div>
 
 
+
         {/* =========================
             FEATURED EVENTS
         ========================= */}
 
-        <div className={styles.events}>
+        {loading ? (
 
-          {featuredEvents.map((event) => (
+          <div className={styles.events}>
 
-            <a
-              key={event.id}
-              href={event.photosUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.card}
-            >
+            {[1, 2, 3].map((item) => (
 
-              <div className={styles.imageWrapper}>
+              <article
+                key={item}
+                className={styles.card}
+              >
 
-                <img
-                  src={event.image}
-                  alt={event.title}
+                <div
+                  className={styles.imageWrapper}
                 />
 
-                <span className={styles.viewIcon}>
-                  <ArrowUpRight size={20} />
-                </span>
+                <div
+                  className={styles.cardContent}
+                >
 
-              </div>
+                  <span
+                    className={styles.year}
+                  >
+                    Loading...
+                  </span>
+
+                  <h3>
+                    Loading event...
+                  </h3>
+
+                  <p>
+                    Please wait while we load
+                    the latest school events.
+                  </p>
+
+                </div>
+
+              </article>
+
+            ))}
+
+          </div>
+
+        ) : events.length > 0 ? (
+
+          <div className={styles.events}>
+
+            {events.map((event) => (
+
+              <article
+                key={event.id}
+                className={styles.card}
+              >
+
+                {/* =========================
+                    IMAGE
+                ========================= */}
+
+                {event.cover_image && (
+
+                  <div
+                    className={
+                      styles.imageWrapper
+                    }
+                  >
+
+                    <img
+                      src={event.cover_image}
+                      alt={event.title}
+                    />
+
+                    {event.photos_url && (
+                      <a
+                        href={event.photos_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={
+                          styles.viewIcon
+                        }
+                        aria-label={`View photos for ${event.title}`}
+                      >
+                        <ArrowUpRight
+                          size={20}
+                        />
+                      </a>
+                    )}
+
+                  </div>
+
+                )}
 
 
-              <div className={styles.cardContent}>
+                {/* =========================
+                    CONTENT
+                ========================= */}
 
-                <span className={styles.year}>
-                  {event.academicYear}
-                </span>
+                <div
+                  className={
+                    styles.cardContent
+                  }
+                >
 
-                <h3>
-                  {event.title}
-                </h3>
+                  {event.year && (
 
-                <p>
-                  {event.description}
-                </p>
+                    <span
+                      className={styles.year}
+                    >
+                      {event.year}
+                    </span>
 
-                <span className={styles.viewPhotos}>
-                  View Photos
-                  <ArrowUpRight size={16} />
-                </span>
+                  )}
 
-              </div>
 
-            </a>
+                  <h3>
+                    {event.title}
+                  </h3>
 
-          ))}
 
-        </div>
+                  {event.description && (
+
+                    <p>
+                      {event.description}
+                    </p>
+
+                  )}
+
+
+                  {event.photos_url && (
+
+                    <a
+                      href={event.photos_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={
+                        styles.viewPhotos
+                      }
+                    >
+                      View Photos
+
+                      <ArrowUpRight
+                        size={16}
+                      />
+                    </a>
+
+                  )}
+
+                </div>
+
+              </article>
+
+            ))}
+
+          </div>
+
+        ) : (
+
+          <div className={styles.emptyState}>
+
+            <p>
+              School events will appear here soon.
+            </p>
+
+          </div>
+
+        )}
+
 
 
         {/* =========================
             VIEW MORE
         ========================= */}
 
-        <div className={styles.viewMoreWrapper}>
+        <div
+          className={
+            styles.viewMoreWrapper
+          }
+        >
 
-          <a
-            href="/school-life"
-            className={styles.viewMore}
+          <Link
+            to="/school-events"
+            className={
+              styles.viewMore
+            }
           >
             View More
 
             <ArrowRight size={18} />
 
-          </a>
+          </Link>
 
         </div>
 
+
       </div>
+
     </section>
   );
 }
+
 
 export default SchoolLife;

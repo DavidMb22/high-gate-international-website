@@ -1,6 +1,7 @@
 import styles from "./About.module.css";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Skeleton from "../Skeleton/Skeleton";
 import useImageLoader from "../../hooks/useImageLoader";
 import aboutMain from "../../assets/images/about/about-main.JPG";
@@ -28,9 +29,8 @@ function AboutImage({
       <img
         src={src}
         alt={alt}
-        className={`${className} ${
-          loaded ? styles.imageLoaded : ""
-        }`}
+        className={`${className} ${loaded ? styles.imageLoaded : ""
+          }`}
         onLoad={() => setLoaded(true)}
       />
 
@@ -109,9 +109,12 @@ function About() {
             </p>
           </div>
 
-          <button className={styles.button}>
+          <Link
+            to="/why-high-gate"
+            className={styles.button}
+          >
             Learn More
-          </button>
+          </Link>
 
         </div>
 

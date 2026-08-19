@@ -1,15 +1,13 @@
 import styles from "./Programs.module.css";
 
-import { useState } from "react";
-import Skeleton from "../Skeleton/Skeleton";
-import useImageLoader from "../../hooks/useImageLoader";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 import crecheImage from "../../assets/images/programs/creche.JPG";
 import preschoolImage from "../../assets/images/programs/preschool.JPG";
 import primaryImage from "../../assets/images/programs/primary.JPG";
 import secondaryImage from "../../assets/images/programs/secondary.JPG";
 
-import { ArrowUpRight } from "lucide-react";
 
 const programs = [
   {
@@ -18,6 +16,7 @@ const programs = [
       "A safe and nurturing environment where our youngest learners begin discovering the world through play and exploration.",
     image: crecheImage,
     number: "01",
+    path: "/academics/creche",
   },
 
   {
@@ -26,6 +25,7 @@ const programs = [
       "Our nursery program encourages curiosity, creativity and early learning through engaging experiences.",
     image: preschoolImage,
     number: "02",
+    path: "/academics/nursery",
   },
 
   {
@@ -34,6 +34,7 @@ const programs = [
       "Students develop strong academic foundations while building confidence, creativity and essential life skills.",
     image: primaryImage,
     number: "03",
+    path: "/academics/primary",
   },
 
   {
@@ -42,71 +43,19 @@ const programs = [
       "Learners are prepared for the next stage of their academic journey through challenging and meaningful learning.",
     image: secondaryImage,
     number: "04",
+    path: "/academics/lower-secondary",
   },
 ];
 
-function ProgramImage({
-  src,
-  alt,
-}) {
-
-  const loaded = useImageLoader(src);
-
-  return (
-    <div className={styles.imageContainer}>
-
-      {!loaded && (
-        <Skeleton
-          className={styles.imageSkeleton}
-        />
-      )}
-
-      <img
-        src={crecheImage}
-        alt={Creche}
-        className={`${styles.programImage} ${
-          loaded ? styles.imageLoaded : ""
-        }`}
-        onLoad={() => setLoaded(true)}
-      />
-
-      <img
-        src={preschoolImage}
-        alt={Preschool}
-        className={`${styles.programImage} ${
-          loaded ? styles.imageLoaded : ""
-        }`}
-        onLoad={() => setLoaded(true)}
-      />
-
-      <img
-        src={primaryImage}
-        alt={Primary}
-        className={`${styles.programImage} ${
-          loaded ? styles.imageLoaded : ""
-        }`}
-        onLoad={() => setLoaded(true)}
-      />
-
-      <img
-        src={secondaryImage}
-        alt={Secondary}
-        className={`${styles.programImage} ${
-          loaded ? styles.imageLoaded : ""
-        }`}
-        onLoad={() => setLoaded(true)}
-      />
-
-    </div>
-  );
-}
 
 function Programs() {
   return (
     <section className={styles.programs}>
       <div className={styles.container}>
 
-        {/* Section heading */}
+        {/* =========================
+            SECTION HEADING
+        ========================= */}
 
         <div className={styles.heading}>
 
@@ -132,17 +81,20 @@ function Programs() {
         </div>
 
 
-        {/* Programs */}
+        {/* =========================
+            PROGRAMS
+        ========================= */}
 
         <div className={styles.grid}>
 
           {programs.map((program) => (
+
             <article
               className={styles.card}
               key={program.title}
             >
 
-              {/* Image */}
+              {/* IMAGE */}
 
               <div className={styles.imageWrapper}>
 
@@ -158,7 +110,7 @@ function Programs() {
               </div>
 
 
-              {/* Content */}
+              {/* CONTENT */}
 
               <div className={styles.cardContent}>
 
@@ -170,14 +122,19 @@ function Programs() {
                   {program.description}
                 </p>
 
-                <button className={styles.learnMore}>
+
+                <Link
+                  to={program.path}
+                  className={styles.learnMore}
+                >
                   Explore
                   <ArrowUpRight size={17} />
-                </button>
+                </Link>
 
               </div>
 
             </article>
+
           ))}
 
         </div>
@@ -186,5 +143,6 @@ function Programs() {
     </section>
   );
 }
+
 
 export default Programs;

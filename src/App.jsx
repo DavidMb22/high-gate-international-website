@@ -45,8 +45,13 @@ import AdminLayout from "./components/AdminLayout/AdminLayout";
 import AdminNewsletter from "./pages/Admin/Newsletter/AdminNewsletter";
 import AdminNewsletterForm from "./pages/Admin/Newsletter/AdminNewsletterForm";
 import AdminNewsletterEdit from "./pages/Admin/Newsletter/AdminNewsletterEdit";
+import AdminUpcomingEvents from "./pages/Admin/UpcomingEvents/AdminUpcomingEvents";
+import AdminUpcomingEventForm from "./pages/Admin/UpcomingEvents/AdminUpcomingEventForm";
+import AdminUpcomingEventEdit from "./pages/Admin/UpcomingEvents/AdminUpcomingEventEdit";
 
 import Newsletter from "./pages/Newsletter/Newsletter";
+
+import Contact from "./pages/Contact/Contact";
 
 import SchoolEvents from "./pages/SchoolEvents";
 import SchoolActivities from "./pages/SchoolActivities";
@@ -159,6 +164,11 @@ function PublicLayout() {
           element={<SchoolActivities />}
         />
 
+        <Route
+          path="/contact"
+          element={<Contact />}
+        />
+
       </Routes>
 
       <Footer />
@@ -242,6 +252,21 @@ function AppLayout() {
         <Route
           path="newsletter/:id/edit"
           element={<AdminNewsletterEdit />}
+        />
+
+        <Route
+          path="upcoming-events"
+          element={<AdminUpcomingEvents />}
+        />
+
+        <Route
+          path="upcoming-events/new"
+          element={<AdminUpcomingEventForm />}
+        />
+
+        <Route
+          path="upcoming-events/:id/edit"
+          element={<AdminUpcomingEventEdit />}
         />
 
       </Route>

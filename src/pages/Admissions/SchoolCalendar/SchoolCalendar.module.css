@@ -21,46 +21,171 @@
 }
 
 
-/* HERO */
+/* ==================================================
+   HERO
+================================================== */
 
 .hero {
-  min-height: 500px;
+    position: relative;
 
-  display: flex;
-  align-items: center;
+    min-height: 500px;
 
-  background:
-    linear-gradient(
-      rgba(7, 44, 62, 0.84),
-      rgba(7, 44, 62, 0.84)
-    ),
-    linear-gradient(
-      135deg,
-      #0b4c69,
-      #183f52
-    );
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #073c52;
 }
+
+
+/* ==================================================
+   HERO IMAGE
+================================================== */
+
+.heroImage {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+}
+
+.heroImage img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* ==================================================
+   HERO OVERLAY
+================================================== */
+
+.heroOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 48, 66, 0.94) 0%,
+            rgba(5, 48, 66, 0.84) 45%,
+            rgba(5, 48, 66, 0.58) 100%
+        );
+}
+
+
+/* ==================================================
+   HERO CONTENT
+================================================== */
 
 .heroContent {
-  width: 90%;
-  max-width: 1250px;
-  margin: 0 auto;
-  color: #fff;
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 100px 0;
 }
+
+
+.heroContent .eyebrow {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #c88a00;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
 
 .heroContent h1 {
-  margin: 0 0 20px;
+    margin: 0 0 20px;
 
-  font-size: clamp(50px, 7vw, 84px);
-  line-height: 1;
+    color: #ffffff;
+
+    font-size: clamp(
+        50px,
+        6vw,
+        78px
+    );
+
+    line-height: 1.02;
+
+    letter-spacing: -1.5px;
 }
 
+
 .heroContent p {
-  margin: 0;
+    max-width: 650px;
 
-  color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 30px;
 
-  font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* ==================================================
+   BREADCRUMB
+================================================== */
+
+.breadcrumb {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: #ffffff;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #c88a00;
+}
+
+.breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 
@@ -345,195 +470,171 @@
 }
 
 
-/* CTA */
+/* ==================================================
+   SCHOOL CALENDAR CTA
+================================================== */
 
 .cta {
-  min-height: 460px;
+    position: relative;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    min-height: 420px;
 
-  text-align: center;
+    display: flex;
 
-  background:
-    linear-gradient(
-      rgba(7, 44, 62, 0.88),
-      rgba(7, 44, 62, 0.88)
-    ),
-    linear-gradient(
-      135deg,
-      #0b4c69,
-      #183f52
-    );
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 90px 20px;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(5, 48, 66, 0.94),
+            rgba(5, 48, 66, 0.82)
+        ),
+        url("../../../assets/images/admissions/admissions.JPG");
+
+    background-position: center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+
+    text-align: center;
 }
+
+
+/* ==================================================
+   CTA CONTENT
+================================================== */
 
 .ctaContent {
-  max-width: 700px;
+    position: relative;
 
-  padding: 60px 25px;
+    z-index: 2;
 
-  color: #fff;
+    width: 90%;
+
+    max-width: 850px;
+
+    margin: 0 auto;
 }
+
+
+/* ==================================================
+   CTA TITLE
+================================================== */
 
 .ctaContent h2 {
-  margin: 0 0 20px;
+    margin: 0 0 22px;
 
-  font-size: 54px;
-  line-height: 1.1;
+    color: #ffffff;
+
+    font-size: clamp(
+        42px,
+        5vw,
+        62px
+    );
+
+    line-height: 1.05;
+
+    letter-spacing: -1px;
 }
+
+
+/* ==================================================
+   CTA DESCRIPTION
+================================================== */
 
 .ctaContent p {
-  margin: 0 auto 30px;
+    max-width: 600px;
 
-  color: rgba(255, 255, 255, 0.75);
+    margin: 0 auto 30px;
 
-  font-size: 17px;
-  line-height: 1.7;
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 15px;
+
+    line-height: 1.8;
 }
+
+
+/* ==================================================
+   CTA BUTTON
+================================================== */
 
 .ctaButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+    display: inline-flex;
 
-  padding: 15px 35px;
+    align-items: center;
 
-  background: #c88a00;
-  color: #fff;
+    justify-content: center;
 
-  border-radius: 30px;
+    padding: 14px 28px;
 
-  text-decoration: none;
+    background: #c88a00;
 
-  font-weight: 600;
+    color: #ffffff;
 
-  transition: 0.3s ease;
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
+
 
 .ctaButton:hover {
-  transform: translateY(-2px);
+    background: #ffffff;
 
-  background: #b77d00;
+    color: #0b4c69;
+
+    transform: translateY(-3px);
 }
 
 
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-
-  .termGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .rhythm .container {
-    grid-template-columns: 1fr;
-
-    gap: 50px;
-  }
-
-}
+/* ==================================================
+   MOBILE
+================================================== */
 
 @media (max-width: 650px) {
 
-  .hero {
-    min-height: 440px;
-  }
+    .cta {
+        min-height: 400px;
 
-  .introduction,
-  .terms,
-  .events,
-  .rhythm {
-    padding: 75px 0;
-  }
+        padding: 75px 20px;
+    }
 
-  .introduction h2,
-  .sectionHeader h2,
-  .rhythmContent h2 {
-    font-size: 34px;
-  }
 
-  .eventRow {
-    grid-template-columns: 90px 1fr;
+    .ctaContent {
+        width: 92%;
+    }
 
-    gap: 15px;
-  }
 
-  .eventNumber {
-    display: none;
-  }
+    .ctaContent h2 {
+        font-size: 38px;
 
-  .eventInfo h3 {
-    font-size: 17px;
-  }
+        line-height: 1.08;
+    }
 
-  .rhythmGrid {
-    grid-template-columns: 1fr;
-  }
 
-  .ctaContent h2 {
-    font-size: 40px;
-  }
+    .ctaContent h2 br {
+        display: none;
+    }
 
-}
 
-.downloadSection {
-  padding: 70px 0;
-  background: #f7f7f5;
-}
+    .ctaContent p {
+        font-size: 14px;
+    }
 
-.downloadContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  padding: 40px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #ffffff;
-}
-
-.downloadContent h2 {
-  margin: 10px 0 15px;
-}
-
-.downloadContent p {
-  max-width: 650px;
-  margin: 0;
-  line-height: 1.7;
-}
-
-.downloadButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-shrink: 0;
-  padding: 15px 25px;
-  background: #d28a00;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.downloadButton:hover {
-  background: #b87500;
-  transform: translateY(-2px);
-}
-
-.downloadButton span {
-  font-size: 20px;
-}
-
-@media (max-width: 768px) {
-  .downloadContent {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 30px 25px;
-  }
-
-  .downloadButton {
-    width: 100%;
-  }
 }

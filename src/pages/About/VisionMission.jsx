@@ -77,7 +77,7 @@ function VisionMission() {
 
   return (
     <>
-      <Navbar />
+  
 
       <main>
 
@@ -383,7 +383,7 @@ function VisionMission() {
 
       </main>
 
-      <Footer />
+      
     </>
   );
 }

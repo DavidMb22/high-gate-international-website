@@ -1,0 +1,147 @@
+.page {
+  min-height: 100vh;
+  background: #f7faf9;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  padding: 100px 20px 90px;
+
+  background: #0b4c69;
+
+  color: #ffffff;
+
+  text-align: center;
+}
+
+.hero span {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #e2a52c;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  margin: 0 0 15px;
+
+  font-size: clamp(42px, 6vw, 64px);
+
+  line-height: 1.05;
+}
+
+.hero p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 16px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contactSection {
+  width: min(90%, 850px);
+
+  margin: 0 auto;
+
+  padding: 80px 0 110px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
+}
+
+.contactCard {
+  padding: 40px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5e6;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contactCard:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.label {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #c88a00;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.contactCard a {
+  color: #0b4c69;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  word-break: break-word;
+}
+
+.contactCard a:hover {
+  color: #c88a00;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .contactSection {
+    grid-template-columns: 1fr;
+
+    padding: 60px 0 80px;
+  }
+
+  .contactCard {
+    padding: 30px 20px;
+  }
+
+  .contactCard a {
+    font-size: 18px;
+  }
+}

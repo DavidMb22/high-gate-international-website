@@ -624,7 +624,7 @@ function Navbar() {
           <button
             className={
               currentLanguage ===
-              "en"
+                "en"
                 ? styles.activeLanguage
                 : ""
             }
@@ -644,7 +644,7 @@ function Navbar() {
           <button
             className={
               currentLanguage ===
-              "fr"
+                "fr"
                 ? styles.activeLanguage
                 : ""
             }
@@ -673,12 +673,10 @@ function Navbar() {
             {t("nav.contact")}
           </Link>
 
-
           <Link
-            to="/admissions"
-            className={
-              styles.applyButton
-            }
+            to="/admissions/apply"
+            className={styles.applyButton}
+            onClick={closeMobileMenu}
           >
             {t("nav.applyNow")}
           </Link>
@@ -726,10 +724,9 @@ function Navbar() {
         <div
           className={`
             ${styles.mobileMenu}
-            ${
-              mobileMenuOpen
-                ? styles.mobileMenuOpen
-                : ""
+            ${mobileMenuOpen
+              ? styles.mobileMenuOpen
+              : ""
             }
           `}
         >
@@ -803,7 +800,7 @@ function Navbar() {
                           size={18}
                           className={
                             openMobileMenu ===
-                            item.key
+                              item.key
                               ? styles.rotate
                               : ""
                           }
@@ -815,11 +812,10 @@ function Navbar() {
                       <ul
                         className={`
                           ${styles.mobileDropdown}
-                          ${
-                            openMobileMenu ===
+                          ${openMobileMenu ===
                             item.key
-                              ? styles.mobileDropdownOpen
-                              : ""
+                            ? styles.mobileDropdownOpen
+                            : ""
                           }
                         `}
                       >
@@ -870,7 +866,7 @@ function Navbar() {
                                       size={16}
                                       className={
                                         openMobileSubmenu ===
-                                        subItem.key
+                                          subItem.key
                                           ? styles.rotate
                                           : ""
                                       }
@@ -882,11 +878,10 @@ function Navbar() {
                                   <ul
                                     className={`
                                       ${styles.mobileNestedDropdown}
-                                      ${
-                                        openMobileSubmenu ===
+                                      ${openMobileSubmenu ===
                                         subItem.key
-                                          ? styles.mobileNestedDropdownOpen
-                                          : ""
+                                        ? styles.mobileNestedDropdownOpen
+                                        : ""
                                       }
                                     `}
                                   >
@@ -998,13 +993,9 @@ function Navbar() {
 
 
             <Link
-              to="/admissions"
-              className={
-                styles.applyButton
-              }
-              onClick={
-                closeMobileMenu
-              }
+              to="/admissions/apply"
+              className={styles.applyButton}
+              onClick={closeMobileMenu}
             >
               {t("nav.applyNow")}
             </Link>

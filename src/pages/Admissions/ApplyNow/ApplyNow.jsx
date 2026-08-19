@@ -1,5 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import styles from "./ApplyNow.module.css";
+
+import aboutMain from "../../../assets/images/about/about-main.JPG";
 
 const initialFormData = {
     firstName: "",
@@ -387,9 +391,27 @@ function ApplyNow() {
     return (
         <main className={styles.page}>
 
-            {/* HERO */}
-
             <section className={styles.hero}>
+
+                {/* HERO IMAGE */}
+
+                <div className={styles.heroImage}>
+
+                    <img
+                        src={aboutMain}
+                        alt="Students at High Gate International Academy"
+                    />
+
+                </div>
+
+
+                {/* DARK BLUE OVERLAY */}
+
+                <div className={styles.heroOverlay} />
+
+
+                {/* HERO CONTENT */}
+
                 <div className={styles.heroContent}>
 
                     <span className={styles.eyebrow}>
@@ -398,6 +420,7 @@ function ApplyNow() {
 
                     <h1>
                         Student Enrollment
+                        <br />
                         Form
                     </h1>
 
@@ -406,7 +429,31 @@ function ApplyNow() {
                         International Academy.
                     </p>
 
+
+                    {/* BREADCRUMB */}
+
+                    <div className={styles.breadcrumb}>
+
+                        <Link to="/">
+                            Home
+                        </Link>
+
+                        <span>/</span>
+
+                        <span>
+                            Admissions
+                        </span>
+
+                        <span>/</span>
+
+                        <span>
+                            Apply
+                        </span>
+
+                    </div>
+
                 </div>
+
             </section>
 
 

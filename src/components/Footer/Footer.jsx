@@ -33,14 +33,15 @@ function Footer() {
         <footer className={styles.footer}>
 
             {/* ==================================================
-          MAIN FOOTER
-      ================================================== */}
+                MAIN FOOTER
+            ================================================== */}
 
             <div className={styles.container}>
 
-                {/* =========================
-            SCHOOL INFORMATION
-        ========================= */}
+
+                {/* ==================================================
+                    SCHOOL INFORMATION
+                ================================================== */}
 
                 <div className={styles.schoolInfo}>
 
@@ -57,6 +58,7 @@ function Footer() {
 
                     </Link>
 
+
                     <p>
                         Inspiring students to learn, grow,
                         explore and prepare for a bright future.
@@ -66,6 +68,9 @@ function Footer() {
                     {/* CONTACT INFORMATION */}
 
                     <div className={styles.contactInfo}>
+
+
+                        {/* ADDRESS */}
 
                         <div className={styles.contactItem}>
 
@@ -79,7 +84,12 @@ function Footer() {
                         </div>
 
 
-                        <div className={styles.contactItem}>
+                        {/* PHONE */}
+
+                        <a
+                            href="tel:+250798980340"
+                            className={styles.contactItem}
+                        >
 
                             <Phone size={18} />
 
@@ -87,10 +97,15 @@ function Footer() {
                                 +250 79 89 80 340
                             </span>
 
-                        </div>
+                        </a>
 
 
-                        <div className={styles.contactItem}>
+                        {/* EMAIL */}
+
+                        <a
+                            href="mailto:info@highgateinternational.com"
+                            className={styles.contactItem}
+                        >
 
                             <Mail size={18} />
 
@@ -98,16 +113,16 @@ function Footer() {
                                 info@highgateinternational.com
                             </span>
 
-                        </div>
+                        </a>
 
                     </div>
 
                 </div>
 
 
-                {/* =========================
-            QUICK LINKS
-        ========================= */}
+                {/* ==================================================
+                    QUICK LINKS
+                ================================================== */}
 
                 <div className={styles.column}>
 
@@ -115,7 +130,10 @@ function Footer() {
                         Quick Links
                     </h3>
 
+
                     <ul>
+
+                        {/* HOME */}
 
                         <li>
                             <Link to="/">
@@ -123,61 +141,38 @@ function Footer() {
                             </Link>
                         </li>
 
+
+                        {/* ABOUT */}
+
                         <li>
-                            <Link to="/about">
+                            <Link to="/who-we-are">
                                 About Us
                             </Link>
                         </li>
 
+
+                        {/* ACADEMICS */}
+
                         <li>
-                            <Link to="/academics">
+                            <Link to="/curriculum">
                                 Academics
                             </Link>
                         </li>
 
+
+                        {/* ADMISSIONS */}
+
                         <li>
-                            <Link to="/admissions">
+                            <Link to="/admissions/apply">
                                 Admissions
                             </Link>
                         </li>
 
-                        <li>
-                            <Link to="/newsletter">
-                                Newsletter
-                            </Link>
-                        </li>
 
-                    </ul>
-
-                </div>
-
-
-                {/* =========================
-            SCHOOL LIFE
-        ========================= */}
-
-                <div className={styles.column}>
-
-                    <h3>
-                        School Life
-                    </h3>
-
-                    <ul>
+                        {/* SCHOOL CALENDAR */}
 
                         <li>
-                            <Link to="/school-events">
-                                School Events
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link to="/school-activities">
-                                School Activities
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link to="/calendar">
+                            <Link to="/admissions/calendar">
                                 School Calendar
                             </Link>
                         </li>
@@ -187,15 +182,69 @@ function Footer() {
                 </div>
 
 
-                {/* =========================
-            SOCIAL / CONNECT
-        ========================= */}
+                {/* ==================================================
+                    SCHOOL LIFE
+                ================================================== */}
+
+                <div className={styles.column}>
+
+                    <h3>
+                        School Life
+                    </h3>
+
+
+                    <ul>
+
+                        {/* SCHOOL EVENTS */}
+
+                        <li>
+                            <Link to="/school-events">
+                                School Events
+                            </Link>
+                        </li>
+
+
+                        {/* SCHOOL ACTIVITIES */}
+
+                        <li>
+                            <Link to="/school-activities">
+                                School Activities
+                            </Link>
+                        </li>
+
+
+                        {/* SCHOOL CALENDAR */}
+
+                        <li>
+                            <Link to="/admissions/calendar">
+                                School Calendar
+                            </Link>
+                        </li>
+
+
+                        {/* TUITION FEES */}
+
+                        <li>
+                            <Link to="/admissions/fees">
+                                Tuition Fees
+                            </Link>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                {/* ==================================================
+                    SOCIAL / CONNECT
+                ================================================== */}
 
                 <div className={styles.column}>
 
                     <h3>
                         Connect With Us
                     </h3>
+
 
                     <p className={styles.socialText}>
                         Follow High Gate International Academy
@@ -204,7 +253,12 @@ function Footer() {
                     </p>
 
 
+                    {/* SOCIAL MEDIA */}
+
                     <div className={styles.socials}>
+
+
+                        {/* FACEBOOK */}
 
                         <a
                             href="https://www.facebook.com/highgateinternational"
@@ -215,6 +269,9 @@ function Footer() {
                             <FaFacebookF />
                         </a>
 
+
+                        {/* INSTAGRAM */}
+
                         <a
                             href="https://www.instagram.com/high_gate_international/?hl=en"
                             aria-label="Instagram"
@@ -224,6 +281,9 @@ function Footer() {
                             <FaInstagram />
                         </a>
 
+
+                        {/* YOUTUBE */}
+
                         <a
                             href="https://www.youtube.com/@HIGHGATE-v2n"
                             aria-label="YouTube"
@@ -232,6 +292,9 @@ function Footer() {
                         >
                             <FaYoutube />
                         </a>
+
+
+                        {/* LINKEDIN */}
 
                         <a
                             href="https://www.linkedin.com/company/high-gate-international-academy/?viewAsMember=true"
@@ -245,10 +308,12 @@ function Footer() {
                     </div>
 
 
-                    {/* APPLY CTA */}
+                    {/* ==================================================
+                        APPLY CTA
+                    ================================================== */}
 
                     <Link
-                        to="/admissions"
+                        to="/admissions/apply"
                         className={styles.applyButton}
                     >
                         Apply Now
@@ -260,12 +325,15 @@ function Footer() {
 
 
             {/* ==================================================
-          BOTTOM FOOTER
-      ================================================== */}
+                BOTTOM FOOTER
+            ================================================== */}
 
             <div className={styles.bottomFooter}>
 
                 <div className={styles.bottomContainer}>
+
+
+                    {/* COPYRIGHT */}
 
                     <p>
                         © {new Date().getFullYear()} High Gate
@@ -273,14 +341,19 @@ function Footer() {
                     </p>
 
 
+                    {/* BOTTOM LINKS */}
+
                     <div className={styles.bottomLinks}>
 
-                        <Link to="/privacy">
-                            Privacy Policy
+                        {/* Privacy and Terms are intentionally
+                            removed until their pages/routes exist. */}
+
+                        <Link to="/who-we-are">
+                            About High Gate
                         </Link>
 
-                        <Link to="/terms">
-                            Terms & Conditions
+                        <Link to="/contact">
+                            Contact Us
                         </Link>
 
                     </div>
@@ -289,11 +362,14 @@ function Footer() {
                     {/* BACK TO TOP */}
 
                     <button
+                        type="button"
                         className={styles.backToTop}
                         onClick={scrollToTop}
                         aria-label="Back to top"
                     >
+
                         <ArrowUp size={18} />
+
                     </button>
 
                 </div>
@@ -303,5 +379,6 @@ function Footer() {
         </footer>
     );
 }
+
 
 export default Footer;

@@ -1,6 +1,8 @@
 import styles from "./TuitionFees.module.css";
 import { Link } from "react-router-dom";
 
+import aboutMain from "../../../assets/images/about/about-main.JPG";
+
 function TuitionFees() {
   const tuitionFees = [
     {
@@ -113,27 +115,61 @@ function TuitionFees() {
   return (
     <main className={styles.page}>
 
-      {/* HERO */}
-
       <section className={styles.hero}>
-        <div className={styles.heroOverlay}>
 
-          <div className={styles.heroContent}>
+        {/* HERO IMAGE */}
+        <div className={styles.heroImage}>
+          <img
+            src={aboutMain}
+            alt="High Gate International Academy students"
+          />
+        </div>
 
-            <span className={styles.eyebrow}>
-              ADMISSIONS
+
+        {/* OVERLAY */}
+        <div className={styles.heroOverlay} />
+
+
+        {/* CONTENT */}
+        <div className={styles.heroContent}>
+
+          <span className={styles.eyebrow}>
+            ADMISSIONS
+          </span>
+
+          <h1>
+            Tuition Fees
+          </h1>
+
+          <p>
+            School Fee Structure for the
+            2026–2027 Academic Year
+          </p>
+
+
+          {/* BREADCRUMB */}
+          <div className={styles.breadcrumb}>
+
+            <Link to="/">
+              Home
+            </Link>
+
+            <span>/</span>
+
+            <Link to="/admissions/fees">
+              Admissions
+            </Link>
+
+            <span>/</span>
+
+            <span>
+              Tuition Fees
             </span>
-
-            <h1>Tuition Fees</h1>
-
-            <p>
-              School Fee Structure for the
-              2026–2027 Academic Year
-            </p>
 
           </div>
 
         </div>
+
       </section>
 
 

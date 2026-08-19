@@ -62,7 +62,7 @@ function Leadership() {
 
     return (
         <>
-            <Navbar />
+            
 
             <main>
 
@@ -324,7 +324,7 @@ function Leadership() {
 
             </main>
 
-            <Footer />
+        
         </>
     );
 }

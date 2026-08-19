@@ -7,24 +7,82 @@
 }
 
 
-/* =========================
+/* ==================================================
    PAGE HEADER
-========================= */
+================================================== */
 
-.header {
-    background: #0b4c69;
+.pageHeader {
+    position: relative;
 
-    color: white;
+    min-height: 430px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 90px 20px;
+
+    background-position: center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    overflow: hidden;
 
     text-align: center;
-
-    padding: 110px 20px 100px;
 }
 
-.header span {
-    display: inline-block;
 
-    color: #e2a52c;
+/* ==================================================
+   HEADER OVERLAY
+================================================== */
+
+.headerOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 48, 66, 0.94),
+            rgba(5, 48, 66, 0.78)
+        );
+}
+
+
+/* ==================================================
+   HEADER CONTENT
+================================================== */
+
+.headerContent {
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+}
+
+
+/* ==================================================
+   LABEL
+================================================== */
+
+.label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #c88a00;
 
     font-size: 14px;
 
@@ -33,30 +91,75 @@
     letter-spacing: 2px;
 
     text-transform: uppercase;
-
-    margin-bottom: 18px;
 }
 
-.header h1 {
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.headerContent h1 {
     margin: 0 0 20px;
 
-    font-size: clamp(42px, 6vw, 68px);
+    color: #ffffff;
+
+    font-size: clamp(
+        46px,
+        6vw,
+        72px
+    );
 
     line-height: 1.05;
+
+    letter-spacing: -1.2px;
 }
 
-.header p {
-    max-width: 600px;
+
+/* ==================================================
+   DESCRIPTION
+================================================== */
+
+.headerContent p {
+    max-width: 650px;
 
     margin: 0 auto;
 
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
 
     font-size: 16px;
 
     line-height: 1.8;
 }
 
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+    .pageHeader {
+        min-height: 390px;
+
+        padding: 75px 20px;
+    }
+
+
+    .headerContent {
+        width: 92%;
+    }
+
+
+    .headerContent h1 {
+        font-size: 44px;
+    }
+
+
+    .headerContent p {
+        font-size: 14px;
+    }
+
+}
 
 /* =========================
    ACTIVITIES
