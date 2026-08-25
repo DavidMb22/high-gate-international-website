@@ -622,6 +622,7 @@ function Navbar() {
             DESKTOP LANGUAGE SWITCHER
         ================================================== */}
 
+        {/*
         <div
           className={
             styles.languageSwitcher
@@ -664,6 +665,7 @@ function Navbar() {
 
         </div>
 
+        */} 
 
         {/* ==================================================
             DESKTOP ACTIONS
