@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
@@ -286,13 +287,14 @@ function AppLayout() {
 }
 
 
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AppLayout />
     </BrowserRouter>
   );
 }
-
 
 export default App;

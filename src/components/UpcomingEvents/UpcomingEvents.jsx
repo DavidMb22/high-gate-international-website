@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 
+import { useEffect, useState } from "react";
 import styles from "./UpcomingEvents.module.css";
 
 import {
@@ -19,428 +19,289 @@ import { supabase } from "../../lib/supabase";
 import "swiper/css";
 import "swiper/css/navigation";
 
-
 /* ==================================================
    FORMAT EVENT DATE
 ================================================== */
 
 function formatEventDate(date) {
   if (!date) {
-    return {
-      month: "",
-      day: "",
-    };
+    return { month: "", day: "" };
   }
 
-  const parsedDate = new Date(
-    `${date}T00:00:00`
-  );
+  const parsedDate = new Date(`${date}T00:00:00`);
 
   if (Number.isNaN(parsedDate.getTime())) {
-    return {
-      month: "",
-      day: "",
-    };
+    return { month: "", day: "" };
   }
 
   return {
-    month: parsedDate.toLocaleDateString(
-      "en-US",
-      {
-        month: "short",
-      }
-    ),
-
-    day: parsedDate.toLocaleDateString(
-      "en-US",
-      {
-        day: "2-digit",
-      }
-    ),
+    month: parsedDate.toLocaleDateString("en-US", {
+      month: "short",
+    }),
+    day: parsedDate.toLocaleDateString("en-US", {
+      day: "2-digit",
+    }),
   };
 }
 
+function isEventUpcoming(date, time) {
+  if (!date) {
+    return false;
+  }
+
+  const eventDateTime = time
+    ? `${date}T${time}`
+    : `${date}T23:59:59`;
+
+  const parsedEventDate = new Date(eventDateTime);
+
+  if (Number.isNaN(parsedEventDate.getTime())) {
+    return false;
+  }
+
+  return parsedEventDate.getTime() >= Date.now();
+}
+
+/* ==================================================
+   GET TODAY'S LOCAL DATE
+================================================== */
+
+function getTodayLocalDate() {
+  const now = new Date();
+
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
 
 /* ==================================================
    UPCOMING EVENTS
 ================================================== */
 
 function UpcomingEvents() {
-
-  const [events, setEvents] =
-    useState([]);
-
-  const [loading, setLoading] =
-    useState(true);
-
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
 
   /* ==================================================
-     LOAD UPCOMING EVENTS
+     LOAD ALL UPCOMING PUBLISHED EVENTS
   ================================================== */
 
   useEffect(() => {
+    let isMounted = true;
 
     const loadUpcomingEvents = async () => {
+      setLoading(true);
+      setLoadError("");
 
-      const today =
-        new Date()
-          .toISOString()
-          .split("T")[0];
+      const today = getTodayLocalDate();
 
-
-      const { data, error } =
-        await supabase
+      try {
+        const { data, error } = await supabase
           .from("upcoming_events")
-          .select("*")
+          .select(
+            "id, title, description, event_date, event_time, flyer_image, status"
+          )
           .eq("status", "published")
           .gte("event_date", today)
-          .order("event_date", {
-            ascending: true,
-          })
-          .limit(6);
+          .order("event_date", { ascending: true });
 
+        if (error) {
+          throw error;
+        }
 
-      if (error) {
+        if (isMounted) {
+          const upcomingOnlyEvents = (data || []).filter((event) =>
+            isEventUpcoming(event.event_date, event.event_time)
+          );
 
-        console.error(
-          "Error loading upcoming events:",
-          error
-        );
+          setEvents(upcomingOnlyEvents);
+        }
+      } catch (error) {
+        console.error("Error loading upcoming events:", error);
 
-        setEvents([]);
-        setLoading(false);
-
-        return;
+        if (isMounted) {
+          setEvents([]);
+          setLoadError(
+            "We couldn't load upcoming events. Please try again later."
+          );
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
       }
-
-
-      setEvents(data || []);
-      setLoading(false);
     };
-
 
     loadUpcomingEvents();
 
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-
   return (
-
     <section className={styles.events}>
-
       <div className={styles.container}>
-
-
-        {/* ==================================================
-            HEADER
-        ================================================== */}
+        {/* HEADER */}
 
         <div className={styles.heading}>
-
           <div>
-
             <span className={styles.label}>
               What's Happening
             </span>
 
-            <h2>
-              Upcoming Events
-            </h2>
-
+            <h2>Upcoming Events</h2>
           </div>
-
 
           <p>
             Stay up to date with the latest events,
             activities and important dates happening
             at High Gate International Academy.
           </p>
-
         </div>
 
-
-        {/* ==================================================
-            LOADING
-        ================================================== */}
+        {/* LOADING */}
 
         {loading ? (
-
           <div className={styles.sliderWrapper}>
-
             <article className={styles.card}>
+              <div className={styles.imageWrapper} />
 
-              <div
-                className={
-                  styles.imageWrapper
-                }
-              />
-
-              <div
-                className={
-                  styles.eventInfo
-                }
-              >
-
-                <h3>
-                  Loading upcoming events...
-                </h3>
-
+              <div className={styles.eventInfo}>
+                <h3>Loading upcoming events...</h3>
               </div>
-
             </article>
-
           </div>
+        ) : loadError ? (
+          /* ERROR STATE */
 
-
+          <div className={styles.emptyState}>
+            <p>{loadError}</p>
+          </div>
         ) : events.length > 0 ? (
-
-          /* ==================================================
-             SLIDER
-          ================================================== */
+          /* SLIDER */
 
           <div className={styles.sliderWrapper}>
-
             <Swiper
               modules={[Navigation, Autoplay]}
               navigation={{
                 prevEl: ".events-prev",
                 nextEl: ".events-next",
               }}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
+              autoplay={
+                events.length > 1
+                  ? {
+                      delay: 5000,
+                      disableOnInteraction: false,
+                    }
+                  : false
+              }
               spaceBetween={30}
               slidesPerView={1}
               loop={events.length > 1}
               className={styles.swiper}
             >
-
               {events.map((event) => {
-
-                const date =
-                  formatEventDate(
-                    event.event_date
-                  );
-
+                const date = formatEventDate(event.event_date);
 
                 return (
-
-                  <SwiperSlide
-                    key={event.id}
-                  >
-
-                    <article
-                      className={styles.card}
-                    >
-
-
-                      {/* =========================
-                          FLYER
-                      ========================= */}
+                  <SwiperSlide key={event.id}>
+                    <article className={styles.card}>
+                      {/* FLYER */}
 
                       <div className={styles.imageWrapper}>
                         {event.flyer_image && (
                           <img
                             src={event.flyer_image}
-                            alt={event.title}
+                            alt={event.title || "School event flyer"}
                             className={styles.eventImage}
                           />
                         )}
                       </div>
 
+                      {/* EVENT INFORMATION */}
 
-                      {/* =========================
-                          EVENT INFORMATION
-                      ========================= */}
-
-                      <div
-                        className={
-                          styles.eventInfo
-                        }
-                      >
-
-
-                        {/* DATE */}
-
-                        <div
-                          className={
-                            styles.date
-                          }
-                        >
-
-                          <span
-                            className={
-                              styles.month
-                            }
-                          >
+                      <div className={styles.eventInfo}>
+                        <div className={styles.date}>
+                          <span className={styles.month}>
                             {date.month}
                           </span>
 
-                          <span
-                            className={
-                              styles.day
-                            }
-                          >
+                          <span className={styles.day}>
                             {date.day}
                           </span>
-
                         </div>
 
-
-                        {/* TITLE */}
-
-                        <h3>
-                          {event.title}
-                        </h3>
-
-
-                        {/* DESCRIPTION */}
+                        <h3>{event.title}</h3>
 
                         {event.description && (
-
-                          <p>
-                            {event.description}
-                          </p>
-
+                          <p>{event.description}</p>
                         )}
-
-
-                        {/* TIME */}
 
                         {event.event_time && (
-
-                          <div
-                            className={
-                              styles.details
-                            }
-                          >
-
+                          <div className={styles.details}>
                             <span>
-
-                              <Clock
-                                size={17}
-                              />
-
+                              <Clock size={17} />
                               {event.event_time}
-
                             </span>
-
                           </div>
-
                         )}
-
                       </div>
-
                     </article>
-
                   </SwiperSlide>
-
                 );
               })}
-
             </Swiper>
 
-
-            {/* ==================================================
-                SLIDER ARROWS
-            ================================================== */}
+            {/* SLIDER ARROWS */}
 
             {events.length > 1 && (
-
               <>
-
                 <button
-                  className={`
-                    ${styles.sliderButton}
-                    ${styles.prev}
-                    events-prev
-                  `}
+                  type="button"
+                  className={`${styles.sliderButton} ${styles.prev} events-prev`}
                   aria-label="Previous event"
                 >
-
-                  <ChevronLeft
-                    size={20}
-                  />
-
+                  <ChevronLeft size={20} />
                 </button>
-
 
                 <button
-                  className={`
-                    ${styles.sliderButton}
-                    ${styles.next}
-                    events-next
-                  `}
+                  type="button"
+                  className={`${styles.sliderButton} ${styles.next} events-next`}
                   aria-label="Next event"
                 >
-
-                  <ChevronRight
-                    size={20}
-                  />
-
+                  <ChevronRight size={20} />
                 </button>
-
               </>
-
             )}
-
           </div>
-
-
         ) : (
+          /* EMPTY STATE */
 
-          /* ==================================================
-             EMPTY STATE
-          ================================================== */
-
-          <div
-            className={
-              styles.emptyState
-            }
-          >
-
+          <div className={styles.emptyState}>
             <p>
-              There are no upcoming events
-              at the moment.
+              There are no upcoming events at the moment.
             </p>
-
           </div>
-
         )}
 
+        {/* SCHOOL CALENDAR */}
 
-        {/* ==================================================
-            SCHOOL CALENDAR
-        ================================================== */}
-
-        <div
-          className={
-            styles.buttonWrapper
-          }
-        >
-
+        <div className={styles.buttonWrapper}>
           <Link
             to="/admissions/calendar"
             className={styles.button}
           >
-
             View School Calendar
-
-            <ArrowRight
-              size={18}
-            />
-
+            <ArrowRight size={18} />
           </Link>
-
         </div>
-
-
       </div>
-
     </section>
   );
 }
-
 
 export default UpcomingEvents;
