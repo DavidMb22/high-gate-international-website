@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import styles from "./UpcomingEvents.module.css";
 
@@ -44,6 +43,10 @@ function formatEventDate(date) {
   };
 }
 
+/* ==================================================
+   CHECK SINGLE-DAY EVENT DATE/TIME
+================================================== */
+
 function isEventUpcoming(date, time) {
   if (!date) {
     return false;
@@ -77,6 +80,21 @@ function getTodayLocalDate() {
 }
 
 /* ==================================================
+   CHECK WHETHER EVENT SHOULD BE VISIBLE
+================================================== */
+
+function isEventVisible(event, today) {
+  // An event with an end date remains visible through that date.
+  // The end date is inclusive and is not shown on the homepage.
+  if (event.end_date) {
+    return event.end_date >= today;
+  }
+
+  // Events without an end date retain the single-day behavior.
+  return isEventUpcoming(event.event_date, event.event_time);
+}
+
+/* ==================================================
    UPCOMING EVENTS
 ================================================== */
 
@@ -86,7 +104,7 @@ function UpcomingEvents() {
   const [loadError, setLoadError] = useState("");
 
   /* ==================================================
-     LOAD ALL UPCOMING PUBLISHED EVENTS
+     LOAD PUBLISHED EVENTS THAT ARE UPCOMING OR ACTIVE
   ================================================== */
 
   useEffect(() => {
@@ -102,10 +120,12 @@ function UpcomingEvents() {
         const { data, error } = await supabase
           .from("upcoming_events")
           .select(
-            "id, title, description, event_date, event_time, flyer_image, status"
+            "id, title, description, event_date, end_date, event_time, flyer_image, status"
           )
           .eq("status", "published")
-          .gte("event_date", today)
+          .or(
+            `event_date.gte.${today},and(event_date.lte.${today},end_date.gte.${today})`
+          )
           .order("event_date", { ascending: true });
 
         if (error) {
@@ -113,11 +133,11 @@ function UpcomingEvents() {
         }
 
         if (isMounted) {
-          const upcomingOnlyEvents = (data || []).filter((event) =>
-            isEventUpcoming(event.event_date, event.event_time)
+          const visibleEvents = (data || []).filter((event) =>
+            isEventVisible(event, today)
           );
 
-          setEvents(upcomingOnlyEvents);
+          setEvents(visibleEvents);
         }
       } catch (error) {
         console.error("Error loading upcoming events:", error);
@@ -146,25 +166,20 @@ function UpcomingEvents() {
     <section className={styles.events}>
       <div className={styles.container}>
         {/* HEADER */}
-
         <div className={styles.heading}>
           <div>
-            <span className={styles.label}>
-              What's Happening
-            </span>
+            <span className={styles.label}>What's Happening</span>
 
             <h2>Upcoming Events</h2>
           </div>
 
           <p>
-            Stay up to date with the latest events,
-            activities and important dates happening
-            at High Gate International Academy.
+            Stay up to date with the latest events, activities and important
+            dates happening at High Gate International Academy.
           </p>
         </div>
 
         {/* LOADING */}
-
         {loading ? (
           <div className={styles.sliderWrapper}>
             <article className={styles.card}>
@@ -177,13 +192,11 @@ function UpcomingEvents() {
           </div>
         ) : loadError ? (
           /* ERROR STATE */
-
           <div className={styles.emptyState}>
             <p>{loadError}</p>
           </div>
         ) : events.length > 0 ? (
           /* SLIDER */
-
           <div className={styles.sliderWrapper}>
             <Swiper
               modules={[Navigation, Autoplay]}
@@ -211,7 +224,6 @@ function UpcomingEvents() {
                   <SwiperSlide key={event.id}>
                     <article className={styles.card}>
                       {/* FLYER */}
-
                       <div className={styles.imageWrapper}>
                         {event.flyer_image && (
                           <img
@@ -223,23 +235,16 @@ function UpcomingEvents() {
                       </div>
 
                       {/* EVENT INFORMATION */}
-
                       <div className={styles.eventInfo}>
                         <div className={styles.date}>
-                          <span className={styles.month}>
-                            {date.month}
-                          </span>
+                          <span className={styles.month}>{date.month}</span>
 
-                          <span className={styles.day}>
-                            {date.day}
-                          </span>
+                          <span className={styles.day}>{date.day}</span>
                         </div>
 
                         <h3>{event.title}</h3>
 
-                        {event.description && (
-                          <p>{event.description}</p>
-                        )}
+                        {event.description && <p>{event.description}</p>}
 
                         {event.event_time && (
                           <div className={styles.details}>
@@ -257,7 +262,6 @@ function UpcomingEvents() {
             </Swiper>
 
             {/* SLIDER ARROWS */}
-
             {events.length > 1 && (
               <>
                 <button
@@ -280,21 +284,14 @@ function UpcomingEvents() {
           </div>
         ) : (
           /* EMPTY STATE */
-
           <div className={styles.emptyState}>
-            <p>
-              There are no upcoming events at the moment.
-            </p>
+            <p>There are no upcoming events at the moment.</p>
           </div>
         )}
 
         {/* SCHOOL CALENDAR */}
-
         <div className={styles.buttonWrapper}>
-          <Link
-            to="/admissions/calendar"
-            className={styles.button}
-          >
+          <Link to="/admissions/calendar" className={styles.button}>
             View School Calendar
             <ArrowRight size={18} />
           </Link>
